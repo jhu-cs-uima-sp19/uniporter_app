@@ -12,9 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    final Button login = (Button)findViewById(R.id.login);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    login.OnClickListener(new View.OnClickListener) {
+
+
+    }
+
 
     @Override
     public void onBackPressed() {

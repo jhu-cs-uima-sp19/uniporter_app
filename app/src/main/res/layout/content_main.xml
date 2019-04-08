@@ -4,68 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/primary_dark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
-        android:layout_marginBottom="339dp"
-        android:text="@string/name"
-        android:textColor="@color/white"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="212dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="534dp"
-        android:layout_marginBottom="93dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/login"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="REGISTER" />
-
-    <Button
-        android:id="@+id/login"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="208dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="428dp"
-        android:layout_marginBottom="199dp"
-        android:background="@color/colorPrimary"
-        android:text="@string/register"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="LOG-IN" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="184dp"
-        android:layout_height="203dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="38dp" />
+    tools:context=".MainActivity">
 
 </android.support.constraint.ConstraintLayout>

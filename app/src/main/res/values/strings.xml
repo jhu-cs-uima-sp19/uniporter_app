@@ -9,4 +9,20 @@
     <string name="name">UNIPORTER</string>
     <string name="register">Button</string>
     <string name="login">Button</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="name_txt">Name</string>
+    <string name="address_txt">Address</string>
+    <string name="email_txt">Email</string>
+    <string name="mobile_number_txt">Mobile Number</string>
+    <string name="password_txt">Password</string>
+    <string name="re_enter_password_txt">Re-enter Password</string>
+    <string name="create_account_txt">Create Account</string>
+    <string name="already_a_member_login_txt">Already a member? Login</string>
+    <string name="login_txt">Login</string>
+    <string name="no_account_yet_create_one_txt">No account yet? Create one</string>
 </resources>

@@ -16,7 +16,6 @@ public class Register extends AppCompatActivity {
     private static final String TAG = "Register";
 
     EditText _nameText;
-    EditText _addressText;
     EditText _emailText;
     EditText _mobileText;
     EditText _passwordText;
@@ -31,7 +30,6 @@ public class Register extends AppCompatActivity {
 
         // bind view elements
         _nameText = findViewById(R.id.input_name);
-        _addressText = findViewById(R.id.input_address);
         _emailText = findViewById(R.id.input_email);
         _mobileText = findViewById(R.id.input_mobile);
         _passwordText = findViewById(R.id.input_password);
@@ -75,7 +73,6 @@ public class Register extends AppCompatActivity {
         progressDialog.show();
 
         String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
         String email = _emailText.getText().toString();
         String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
@@ -112,7 +109,6 @@ public class Register extends AppCompatActivity {
         boolean valid = true;
 
         String name = _nameText.getText().toString();
-        String address = _addressText.getText().toString();
         String email = _emailText.getText().toString();
         String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
@@ -124,14 +120,6 @@ public class Register extends AppCompatActivity {
         } else {
             _nameText.setError(null);
         }
-
-        if (address.isEmpty()) {
-            _addressText.setError("Enter Valid Address");
-            valid = false;
-        } else {
-            _addressText.setError(null);
-        }
-
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
             valid = false;

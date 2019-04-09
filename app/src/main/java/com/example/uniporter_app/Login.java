@@ -12,7 +12,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
 public class Login extends AppCompatActivity {
+    private static final String BASE_URL = "http://ec2-54-210-165-217.compute-1.amazonaws.com:8000/admin/login/?next=/admin//";
+    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
+            .build();
     private static final String TAG = "Login";
     private static final int REQUEST_SIGNUP = 0;
 

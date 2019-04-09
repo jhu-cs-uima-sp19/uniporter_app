@@ -25,4 +25,10 @@
     <string name="already_a_member_login_txt">Already a member? Login</string>
     <string name="login_txt">Login</string>
     <string name="no_account_yet_create_one_txt">No account yet? Create one</string>
+    <string name="loc">Location:</string>
+    <string name="time">Time:</string>
+    <string name="members">Members:</string>
+    <string name="info">Information</string>
+    <string name="des">Destination:</string>
+    <string name="gcr">Group Chats</string>
 </resources>

@@ -4,29 +4,22 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.Response;
+
 
 public class Login extends AppCompatActivity {
-    private static final String BASE_URL = "http://ec2-54-210-165-217.compute-1.amazonaws.com:8000/admin/login/?next=/admin//";
-    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(httpClient.build())
-            .build();
+
     private static final String TAG = "Login";
     private static final int REQUEST_SIGNUP = 0;
 
@@ -77,8 +70,7 @@ public class Login extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(Login.this,
-                R.style.AppTheme_Dark_Dialog);
+        final ProgressDialog progressDialog = new ProgressDialog(Login.this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
@@ -86,7 +78,6 @@ public class Login extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        // TODO: Implement authentication logic here.
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -151,4 +142,28 @@ public class Login extends AppCompatActivity {
 
         return valid;
     }
+    public void initiateApi(String email, String password) {
+        final String BASE_URL = "http://ec2-54-210-165-217.compute-1.amazonaws.com:8000/admin/login/?next=/admin//";
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build())
+                .build();
+        loginAPI api = retrofit.create(loginAPI.class);
+        Call<loginResponse[]> call = api.getList(email, password);
+        call.enqueue(new Callback<loginResponse[]>() {
+            @Override
+            public void onResponse(Call<loginResponse[]> call, Response<loginResponse[]> response) {
+                if (response.isSuccessful()) {
+                }
+            }
+            @Override
+            public void onFailure(Call<loginResponse[]> call, Throwable t) {
+
+            }
+        });
+    }
 }
+
+

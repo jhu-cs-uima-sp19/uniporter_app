@@ -11,30 +11,33 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
+        android:paddingTop="35dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logo"
             tools:ignore="ContentDescription" />
 
         <!-- Name Label -->
         <android.support.design.widget.TextInputLayout
-            android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_name"
-                android:textSize="22sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="5dp"
+            android:textColorHint="@color/white">
+
+            <EditText
+                android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:hint="@string/name_txt"
+                android:inputType="textPersonName"
+                android:textSize="22sp"
                 tools:ignore="Autofill" />
         </android.support.design.widget.TextInputLayout>
 
@@ -43,8 +46,8 @@
             android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
             <EditText android:id="@+id/input_email"
                 android:textSize="22sp"
                 android:layout_width="match_parent"
@@ -60,8 +63,8 @@
             android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
             <EditText android:id="@+id/input_mobile"
                 android:textSize="22sp"
                 android:layout_width="match_parent"
@@ -76,8 +79,8 @@
             android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp">
             <EditText android:id="@+id/input_password"
                 android:textSize="22sp"
                 android:layout_width="match_parent"
@@ -92,8 +95,8 @@
             android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
             <EditText android:id="@+id/input_reEnterPassword"
                 android:textSize="22sp"
                 android:layout_width="match_parent"
@@ -112,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:layout_marginBottom="24dp"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text="@string/create_account_txt"/>
 
         <TextView android:id="@+id/link_login"

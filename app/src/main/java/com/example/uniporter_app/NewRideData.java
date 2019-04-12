@@ -11,11 +11,11 @@ public class NewRideData {
         // TODO: Call our API can populate these data points
 
         int[] location = {
-                R.drawable.ic__car_24dp,
-                R.drawable.ic_schedule_24dp
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background
         };
 
-        String[] date = {"test1", "test2"};
+        String[] date = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
 
         for (int i = 0; i < location.length; i++) {
 

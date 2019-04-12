@@ -31,4 +31,6 @@
     <string name="info">Information</string>
     <string name="des">Destination:</string>
     <string name="gcr">Group Chats</string>
+    <string name="new_ride">New Ride</string>
+    <string name="scheduled_rides">Scheduled Rides</string>
 </resources>

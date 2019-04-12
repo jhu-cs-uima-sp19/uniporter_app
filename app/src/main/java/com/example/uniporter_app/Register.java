@@ -2,17 +2,17 @@
         package com.example.uniporter_app;
 
         import android.app.ProgressDialog;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class Register extends AppCompatActivity {
+        public class Register extends AppCompatActivity {
     private static final String TAG = "Register";
 
     EditText _nameText;
@@ -79,6 +79,9 @@ public class Register extends AppCompatActivity {
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
         // TODO: Implement your own signup logic here.
+        // temporary implementation
+        Intent intent = new Intent(this, NewRide.class);
+        startActivity(intent);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

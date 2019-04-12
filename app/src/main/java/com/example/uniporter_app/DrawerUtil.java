@@ -2,14 +2,17 @@ package com.example.uniporter_app;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.view.View;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 
 public class DrawerUtil {
@@ -24,16 +27,28 @@ public class DrawerUtil {
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.scheduled_rides).withIcon(R.drawable.ic_schedule_24dp);
 
+        // Create the AccountHeader
+        AccountHeader headerResult = new AccountHeaderBuilder()
+                .withActivity(activity)
+                .withHeaderBackground(R.drawable.uniporter_background)
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        return false;
+                    }
+                })
+                .build();
+
         //create the drawer and remember the `Drawer` result object
         DrawerBuilder drawerBuilder = new DrawerBuilder();
         drawerBuilder.withActivity(activity);
         drawerBuilder.withToolbar(toolbar);
+        drawerBuilder.withAccountHeader(headerResult);
         drawerBuilder.withActionBarDrawerToggle(true);
         drawerBuilder.withActionBarDrawerToggleAnimated(true);
         drawerBuilder.withCloseOnClick(true);
         drawerBuilder.withSelectedItem(-1);
         drawerBuilder.addDrawerItems(
-                drawerEmptyItem, drawerEmptyItem, drawerEmptyItem,
                 drawerItemManagePlayers,
                 drawerItemManagePlayersTournaments,
                 new DividerDrawerItem()

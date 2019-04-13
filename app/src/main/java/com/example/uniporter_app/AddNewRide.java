@@ -40,16 +40,6 @@ public class AddNewRide extends AppCompatActivity {
         _back4 = (ImageButton) findViewById(R.id.back4);
         _back5 = (ImageButton) findViewById(R.id.back5);
 
-        //String airline;
-
-        SharedPreferences sharedpref = this.getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpref.edit();
-        Spinner airline_spinner = (Spinner) findViewById(R.id.airline_spinner);
-        String airline = airline_spinner.getSelectedItem().toString();
-        editor.putString("airline", airline);
-        editor.commit();
-        finish();
-
         //front buttons
         _front1.setOnClickListener(new View.OnClickListener() {
             @Override

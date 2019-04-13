@@ -14,4 +14,5 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+    <color name="confirm">#3EB2C8</color>
 </resources>

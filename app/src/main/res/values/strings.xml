@@ -56,13 +56,13 @@
     <string name="country">Country</string>
     <string name="city">City</string>
     <string name="street">Street</string>
-    <string-array name="large_luggage_array">
+    <int-array name="large_luggage_array">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </string-array>
-    <string-array name="small_luggage_array">
+    </int-array>
+    <int-array name="small_luggage_array">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -71,6 +71,20 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+    </int-array>
+    <string-array name="hours_early_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
     <string-array name="special_luggage_array">
         <item>1</item>
@@ -78,5 +92,27 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+    </string-array>
+    <string-array name="address_array">
+        <item>Academy</item>
+        <item>Allston</item>
+        <item>AMR I</item>
+        <item>AMR II</item>
+        <item>AMR III</item>
+        <item>Blackstone</item>
+        <item> Bradford</item>
+        <item>Charles Commons</item>
+        <item>Homewood</item>
+        <item>Jefferson</item>
+        <item>Rogers House</item>
+        <item>Social</item>
+        <item>The Charles</item>
+        <item>Uni One</item>
+        <item>Marylander</item>
+        <item>McCoy</item>
+        <item>Uni West</item>
+        <item>Village Lofts</item>
+        <item>Wolman</item>
+        <item>Wyman Towers</item>
     </string-array>
 </resources>

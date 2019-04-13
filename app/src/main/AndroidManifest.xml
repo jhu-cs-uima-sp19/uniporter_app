@@ -14,7 +14,7 @@
         <activity android:name=".NewRide"></activity>
         <activity
             android:name=".AddNewRide"
-            android:label="@string/addnewride"
+            android:label="Add"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Start"

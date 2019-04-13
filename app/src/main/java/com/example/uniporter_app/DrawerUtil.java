@@ -23,9 +23,16 @@ public class DrawerUtil {
         drawerEmptyItem.withEnabled(false);
 
         PrimaryDrawerItem drawerItemManagePlayers = new PrimaryDrawerItem().withIdentifier(1)
-                .withName(R.string.new_ride).withIcon(R.drawable.ic__car_24dp);
+                .withName(R.string.new_ride).withIcon(R.drawable.ic_add_circle_outline_black_24dp);
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.scheduled_rides).withIcon(R.drawable.ic_schedule_24dp);
+        PrimaryDrawerItem notifications = new PrimaryDrawerItem()
+                .withIdentifier(3).withName(R.string.scheduled_rides).withIcon(R.drawable.ic_notifications_active_black_24dp);
+        PrimaryDrawerItem myrides = new PrimaryDrawerItem()
+                .withIdentifier(4).withName(R.string.myrides).withIcon(R.drawable.ic__car_24dp);
+        PrimaryDrawerItem logout = new PrimaryDrawerItem()
+                .withIdentifier(5).withName(R.string.myrides).withIcon(R.drawable.ic_exit_to_app_black_24dp);
+
 
 
 
@@ -69,6 +76,12 @@ public class DrawerUtil {
                     Intent intent = new Intent(activity, MainActivity.class);
                     view.getContext().startActivity(intent);
                 }
+                else if (drawerItem.getIdentifier() == 3 && !(activity instanceof MainActivity)) {
+                    // load screen
+                    Intent intent = new Intent(activity, MainActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+
 
                 return true;
             }

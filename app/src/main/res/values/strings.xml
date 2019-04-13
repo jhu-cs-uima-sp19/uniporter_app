@@ -46,10 +46,12 @@
     <string name="early_desc">Select the maximum number of hours before your flight-time for which you are willing to leave for the airport.</string>
     <string name="ride_updates">Ride Updates</string>
     <string name="chats">Chats</string>
+    <string name="myrides">My Rides</string>
     <string name="flight_question">Enter Flight Information</string>
     <string name="airline_question">Pick Your Airline</string>
     <string name="flightno_question">Enter Your Flight No.</string>
     <string name="manual_flightno">Enter Flight TIme Manually</string>
+    <string name="logout">Log Out</string>
     <string name="or">OR</string>
     <string name="address_question">Where do you live on campus?</string>
     <string name="manual_address">Enter Address Manually</string>

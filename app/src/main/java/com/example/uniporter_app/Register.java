@@ -81,7 +81,6 @@ public class Register extends AppCompatActivity {
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        // TODO: Implement your own signup logic here.
         Call<RegisterResponse> call = RetrofitClient
                 .getInstance()
                 .getRegisterAPI()
@@ -94,17 +93,16 @@ public class Register extends AppCompatActivity {
                 if (response.code() == 201) {
                     RegisterResponse rr = response.body();
                     Toast.makeText(Register.this, rr.getMsg(), Toast.LENGTH_LONG).show();
-                    onSignupSuccess();
                 } else if (response.code() == 400){
                     Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
-                    onSignupFailed();
+                } else if (response.code() == 500){
+                    Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 Toast.makeText(Register.this, "Request Failed", Toast.LENGTH_LONG).show();
-                onSignupFailed();
             }
         });
 
@@ -118,6 +116,7 @@ public class Register extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
                 }, 3000);
+
     }
 
 

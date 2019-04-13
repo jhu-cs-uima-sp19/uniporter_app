@@ -7,6 +7,26 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/back3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="308dp"
+        android:layout_marginRight="308dp"
+        android:layout_marginBottom="91dp"
+        android:background="@color/white"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        android:tint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_25245" />
+
     <TextView
         android:id="@+id/blocks_question"
         android:layout_width="353dp"
@@ -53,5 +73,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/front3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="313dp"
+        android:layout_marginLeft="313dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="91dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        android:tint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_25245" />
 
 </android.support.constraint.ConstraintLayout>

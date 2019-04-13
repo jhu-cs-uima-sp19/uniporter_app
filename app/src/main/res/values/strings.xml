@@ -51,4 +51,9 @@
     <string name="flightno_question">Enter Your Flight No.</string>
     <string name="manual_flightno">Enter Flight TIme Manually</string>
     <string name="or">OR</string>
+    <string name="address_question">Where do you live on campus?</string>
+    <string name="manual_address">Enter Address Manually</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="street">Street</string>
 </resources>

@@ -9,7 +9,7 @@ public interface RegisterAPI {
 
 
     @FormUrlEncoded
-    @POST("create")
+    @POST("create/")
     Call<RegisterResponse> createUser(
             @Field("email") String email,
             @Field("password") String password,

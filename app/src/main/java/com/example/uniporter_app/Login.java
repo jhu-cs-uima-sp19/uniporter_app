@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClient;
 import com.example.uniporter_app.API_models.LoginResponse;
+import com.example.uniporter_app.API_models.UserResponse;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import retrofit2.Call;
@@ -65,6 +66,15 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (SharedPreferenceManager.getInstance(this).isLoggedIn()) {
+            onLoginSuccess();
+        }
+    }
+
     public void login() {
         Log.d(TAG, "Login");
 
@@ -80,7 +90,7 @@ public class Login extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
+        final String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
         Call<LoginResponse> call = RetrofitClient
@@ -96,7 +106,34 @@ public class Login extends AppCompatActivity {
                 if (response.code() == 200) {
                    login_success = true;
                    auth_token = loginResponse.getToken();
-                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
+                   Log.w("checking authtoken", auth_token);
+                   Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
+                   Call<UserResponse> call2 = RetrofitClient
+                           .getInstance()
+                           .getAPI()
+                           .getUser("token " + auth_token);
+                   call2.enqueue(new Callback<UserResponse>() {
+                       @Override
+                       public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                           if (response.code() == 200) {
+                               SharedPreferenceManager.getInstance(Login.this)
+                                       .saveUser(email, auth_token);
+                               Toast.makeText(Login.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
+                           } else if (response.code() == 400){
+                               login_success = false;
+                               Toast.makeText(Login.this, "Bad Request", Toast.LENGTH_LONG).show();
+                           } else if (response.code() == 500){
+                               login_success = false;
+                               Toast.makeText(Login.this, "Internal Server Error", Toast.LENGTH_LONG).show();
+                           }
+                       }
+
+                       @Override
+                       public void onFailure(Call<UserResponse> call, Throwable t) {
+                           Toast.makeText(Login.this, "Request failed", Toast.LENGTH_LONG).show();
+                       }
+                   });
+
                 } else if (response.code() == 400){
                     login_success = false;
                     Toast.makeText(Login.this, "Bad Request", Toast.LENGTH_LONG).show();
@@ -112,8 +149,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        if (auth_token != null) {
-        }
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -151,6 +186,7 @@ public class Login extends AppCompatActivity {
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         Intent intent = new Intent(this, NewRide.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

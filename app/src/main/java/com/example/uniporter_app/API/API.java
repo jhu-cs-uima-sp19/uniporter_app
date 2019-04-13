@@ -1,7 +1,7 @@
 package com.example.uniporter_app.API;
 
 import com.example.uniporter_app.API_models.DefaultResponse;
-import com.example.uniporter_app.API_models.loginResponse;
+import com.example.uniporter_app.API_models.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -21,7 +21,7 @@ public interface API {
 
     @FormUrlEncoded
     @POST("token/")
-    Call<loginResponse> loginUser(
+    Call<LoginResponse> loginUser(
             @Field("email") String email,
             @Field("password") String password
     );

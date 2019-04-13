@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClient;
-import com.example.uniporter_app.API_models.DefaultResponse;
-import com.example.uniporter_app.API_models.loginResponse;
+import com.example.uniporter_app.API_models.LoginResponse;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
     TextView _signupLink;
 
     boolean login_success;
+    String auth_token;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,19 +83,19 @@ public class Login extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        Call<loginResponse> call = RetrofitClient
+        Call<LoginResponse> call = RetrofitClient
                 .getInstance()
                 .getAPI()
                 .loginUser(email, password);
 
-        call.enqueue(new Callback<loginResponse>() {
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<loginResponse> call, Response<loginResponse> response) {
-                loginResponse loginResponse = response.body();
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                LoginResponse loginResponse = response.body();
 
                 if (response.code() == 200) {
-                   loginResponse rr = response.body();
                    login_success = true;
+                   auth_token = loginResponse.getToken();
                     Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
                 } else if (response.code() == 400){
                     login_success = false;
@@ -106,10 +107,13 @@ public class Login extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<loginResponse> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Toast.makeText(Login.this, "Request failed", Toast.LENGTH_LONG).show();
             }
         });
+
+        if (auth_token != null) {
+        }
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -146,7 +150,6 @@ public class Login extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        // temporary implementation
         Intent intent = new Intent(this, NewRide.class);
         startActivity(intent);
         finish();

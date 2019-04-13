@@ -1,26 +1,30 @@
 package com.example.uniporter_app;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 
 public class AddNewRide extends AppCompatActivity {
 
+    //front buttons
     ImageButton _front1;
     ImageButton _front2;
     ImageButton _front3;
     ImageButton _front4;
     ImageButton _front5;
 
+    //back buttons
     ImageButton _back2;
     ImageButton _back3;
     ImageButton _back4;
     ImageButton _back5;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_info);
 
@@ -36,6 +40,15 @@ public class AddNewRide extends AppCompatActivity {
         _back4 = (ImageButton) findViewById(R.id.back4);
         _back5 = (ImageButton) findViewById(R.id.back5);
 
+        String airline;
+
+        SharedPreferences sharedpref = this.getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        Spinner airline_spinner = (Spinner) findViewById(R.id.airline_spinner);
+        String airline = airline_spinner.getSelectedItem().toString();
+        editor.putString("airline", airline);
+        editor.commit();
+        finish();
 
         //front buttons
         _front1.setOnClickListener(new View.OnClickListener() {
@@ -47,25 +60,25 @@ public class AddNewRide extends AppCompatActivity {
         _front2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_address);
+                setContentView(R.layout.activity_blocks);
             }
         });
         _front3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_blocks);
+                setContentView(R.layout.activity_luggage);
             }
         });
         _front4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_luggage);
+                setContentView(R.layout.activity_early);
             }
         });
         _front5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_early);
+                setContentView(R.layout.activity_confirmation);
             }
         });
 

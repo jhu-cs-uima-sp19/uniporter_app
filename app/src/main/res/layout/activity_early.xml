@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
     <ImageButton
         android:id="@+id/back5"
         android:layout_width="50dp"
@@ -35,8 +36,7 @@
         android:layout_marginBottom="471dp"
         android:text="@string/early_question"
         android:textColor="@color/BigText"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -45,14 +45,13 @@
 
     <TextView
         android:id="@+id/blocks_desc"
-        android:layout_width="289dp"
+        android:layout_width="365dp"
         android:layout_height="97dp"
         android:layout_marginTop="290dp"
         android:layout_marginBottom="344dp"
         android:text="@string/early_desc"
-        android:textColor="@color/black"
+        android:textColor="@color/material_drawer_dark_background"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

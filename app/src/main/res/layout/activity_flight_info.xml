@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/luggage_question"
         android:layout_width="wrap_content"
@@ -15,8 +16,7 @@
         android:layout_marginBottom="505dp"
         android:text="@string/flight_question"
         android:textColor="@color/BigText"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,15 +47,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
         android:layout_marginLeft="39dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="252dp"
         android:layout_marginEnd="251dp"
         android:layout_marginRight="251dp"
         android:text="@string/airline_question"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textColor="@color/jumbo"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,30 +64,29 @@
         android:layout_height="26dp"
         android:layout_marginStart="39dp"
         android:layout_marginLeft="39dp"
-        android:layout_marginTop="343dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="214dp"
         android:layout_marginRight="214dp"
         android:layout_marginBottom="362dp"
         android:text="@string/flightno_question"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textColor="@color/jumbo"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="435dp"
-        android:layout_marginBottom="262dp"
         android:text="@string/or"
-        android:textColor="@color/black"
+        android:textColor="@color/jumbo"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,5 +151,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_25245" />
-
+    <FrameLayout
+        android:id="@+id/screen_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 </android.support.constraint.ConstraintLayout>

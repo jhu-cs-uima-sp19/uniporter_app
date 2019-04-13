@@ -8,4 +8,6 @@
     tools:context=".Register"
     tools:showIn="@layout/activity_register"
     android:orientation="vertical">
+
+
 </android.support.constraint.ConstraintLayout>

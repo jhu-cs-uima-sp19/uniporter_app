@@ -2,7 +2,7 @@
 <resources>
     <color name="primary">#60CEE3</color>
     <color name="primary_dark">#2F89D8</color>
-    <color name="primary_darker">#0F97E0</color>
+    <color name="primary_darker">#60CEE3</color>
     <color name="accent">#FFFFFF</color>
     <color name="BigText">#064686</color>
     <color name="black">#000000</color>
@@ -14,4 +14,5 @@
     <color name="base">#AAAAAA</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
+    <color name="confirm">#8EE0F0</color>
 </resources>

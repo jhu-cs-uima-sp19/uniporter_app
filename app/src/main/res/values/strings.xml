@@ -44,4 +44,11 @@
     <string name="blocks_question">How many blocks are you willing to walk?</string>
     <string name="early_question">How many hours early are you willing to leave?</string>
     <string name="early_desc">Select the maximum number of hours before your flight-time for which you are willing to leave for the airport.</string>
+    <string name="ride_updates">Ride Updates</string>
+    <string name="chats">Chats</string>
+    <string name="flight_question">Enter Flight Information</string>
+    <string name="airline_question">Pick Your Airline</string>
+    <string name="flightno_question">Enter Your Flight No.</string>
+    <string name="manual_flightno">Enter Flight TIme Manually</string>
+    <string name="or">OR</string>
 </resources>

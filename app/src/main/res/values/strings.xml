@@ -46,22 +46,45 @@
     <string name="early_desc">Select the maximum number of hours before your flight-time for which you are willing to leave for the airport.</string>
     <string name="ride_updates">Ride Updates</string>
     <string name="chats">Chats</string>
+    <string name="myrides">My Rides</string>
     <string name="flight_question">Enter Flight Information</string>
     <string name="airline_question">Pick Your Airline</string>
     <string name="flightno_question">Enter Your Flight No.</string>
     <string name="manual_flightno">Enter Flight TIme Manually</string>
+    <string name="logout">Log Out</string>
     <string name="or">OR</string>
     <string name="address_question">Where do you live on campus?</string>
     <string name="manual_address">Enter Address Manually</string>
     <string name="country">Country</string>
     <string name="city">City</string>
     <string name="street">Street</string>
+    <string name="addnewride">Add New Ride</string>
     <string-array name="large_luggage_array">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string-array name="airline_array">
+        <item>Air Canada</item>
+        <item>Alaska Airlines</item>
+        <item>Allegiant Air</item>
+        <item>American Airlines</item>
+        <item>Boutique Air</item>
+        <item>British Airways</item>
+        <item>Condor</item>
+        <item>Contour</item>
+        <item>Delta Air Lines</item>
+        <item>Frontier Airlines</item>
+        <item>Icelandair</item>
+        <item>jetBlue</item>
+        <item>Southern Airways Express</item>
+        <item>Southwest</item>
+        <item>Spirit Airlines</item>
+        <item>United Airlines</item>
+        <item>WOW</item>
+    </string-array>
+    <string name= "airline_prompt">Choose an airline</string>
     <string-array name="small_luggage_array">
         <item>1</item>
         <item>2</item>

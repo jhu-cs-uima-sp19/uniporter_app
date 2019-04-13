@@ -26,8 +26,7 @@ public class DrawerUtil {
                 .withName(R.string.new_ride).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.scheduled_rides).withIcon(R.drawable.ic_schedule_24dp);
-        PrimaryDrawerItem addride = new PrimaryDrawerItem()
-                .withIdentifier(3).withName(R.string.scheduled_rides).withIcon(R.drawable.addbutt);
+
 
 
         // Create the AccountHeader
@@ -54,21 +53,28 @@ public class DrawerUtil {
         drawerBuilder.addDrawerItems(
                 drawerItemManagePlayers,
                 drawerItemManagePlayersTournaments,
-                addride,
                 new DividerDrawerItem()
         );
 
         drawerBuilder.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                if (drawerItem.getIdentifier() == 2 && !(activity instanceof MainActivity)) {
+                if (drawerItem.getIdentifier() == 1 && !(activity instanceof MainActivity)) {
                     // load screen
                     Intent intent = new Intent(activity, MainActivity.class);
                     view.getContext().startActivity(intent);
                 }
+                else if (drawerItem.getIdentifier() == 2 && !(activity instanceof MainActivity)) {
+                    // load screen
+                    Intent intent = new Intent(activity, MainActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+
                 return true;
             }
         });
+
+
 
         Drawer result = drawerBuilder.build();
     }

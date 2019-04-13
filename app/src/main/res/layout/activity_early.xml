@@ -58,30 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        style="@android:style/Widget.SeekBar"
-        android:layout_width="338dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="485dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="200dp"
-        android:max="16"
-        android:progress="1"
-        android:progressTint="@color/primary_dark"
-        android:theme="@style/Theme.AppCompat.DialogWhenLarge"
-        android:thumbTint="@color/primary_dark"
-        android:progressBackgroundTint="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageButton
         android:id="@+id/front5"
         android:layout_width="50dp"
@@ -100,5 +76,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_25245" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="352dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="449dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="242dp"
+        android:background="@android:drawable/spinner_background"
+        android:popupBackground="@android:drawable/spinner_dropdown_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.uniporter_app;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,9 +28,9 @@ public class DrawerUtil {
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.scheduled_rides).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem notifications = new PrimaryDrawerItem()
-                .withIdentifier(3).withName(R.string.scheduled_rides).withIcon(R.drawable.ic_notifications_active_black_24dp);
+                .withIdentifier(3).withName(R.string.notifications).withIcon(R.drawable.ic_notifications_active_black_24dp);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
-                .withIdentifier(4).withName(R.string.myrides).withIcon(R.drawable.ic_exit_to_app_black_24dp);
+                .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 
 
 
@@ -78,7 +79,7 @@ public class DrawerUtil {
                 }
                 else if (drawerItem.getIdentifier() == 3 && !(activity instanceof MainActivity)) {
                     // load screen
-                    Intent intent = new Intent(activity, MainActivity.class);
+                    Intent intent = new Intent(activity, Notification.class);
                     view.getContext().startActivity(intent);
                 }
 

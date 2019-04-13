@@ -56,6 +56,7 @@
     <string name="country">Country</string>
     <string name="city">City</string>
     <string name="street">Street</string>
+    <string name="addnewride">Add New Ride</string>
     <string-array name="large_luggage_array">
         <item>1</item>
         <item>2</item>

@@ -13,6 +13,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".NewRide"></activity>
         <activity
+            android:name=".AddNewRide"
+            android:label="@string/addnewride"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Start"
             android:label="Start"
             android:theme="@style/AppTheme.NoActionBar" />

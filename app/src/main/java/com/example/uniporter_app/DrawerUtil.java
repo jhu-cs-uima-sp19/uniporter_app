@@ -59,9 +59,9 @@ public class DrawerUtil {
         drawerBuilder.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                if (drawerItem.getIdentifier() == 1 && !(activity instanceof MainActivity)) {
+                if (drawerItem.getIdentifier() == 1 && !(activity instanceof AddNewRide)) {
                     // load screen
-                    Intent intent = new Intent(activity, MainActivity.class);
+                    Intent intent = new Intent(activity, AddNewRide.class);
                     view.getContext().startActivity(intent);
                 }
                 else if (drawerItem.getIdentifier() == 2 && !(activity instanceof MainActivity)) {

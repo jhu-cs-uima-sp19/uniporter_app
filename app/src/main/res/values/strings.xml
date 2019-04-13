@@ -35,4 +35,13 @@
     <string name="register_caps">REGISTER</string>
     <string name="start_bird">start_bird</string>
     <string name="mottto">Between Campuses and Airports</string>
+    <string name="luggage_question">How much luggage are you bringing?</string>
+    <string name="large_luggage">Large Luggage</string>
+    <string name="carry_on_suitcases">Carry-On Suitcases</string>
+    <string name="special_luggage">Special Luggage</string>
+    <string name="special_desc">Estimate the size of your additional uniquely shaped luggage. Here, a carry-on is size 2. A large suitcase is size 4. Please select a relative size between 1 and 5.</string>
+    <string name="blocks_desc">This information helps us group you with other riders within your walking range.</string>
+    <string name="blocks_question">How many blocks are you willing to walk?</string>
+    <string name="early_question">How many hours early are you willing to leave?</string>
+    <string name="early_desc">Select the maximum number of hours before your flight-time for which you are willing to leave for the airport.</string>
 </resources>

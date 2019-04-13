@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/large_luggage_spinner"
         android:layout_width="395dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
@@ -55,6 +55,7 @@
         android:layout_marginBottom="416dp"
         android:dropDownWidth="wrap_content"
         android:spinnerMode="dropdown"
+        android:entries="@array/large_luggage_array"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/small_luggage_spinner"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -71,6 +72,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="337dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/small_luggage_array"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +134,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/special"
+        android:id="@+id/special_luggage_spinner"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginStart="39dp"

@@ -136,7 +136,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/special_luggage_spinner"
+        android:id="@+id/special_luggage"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginStart="39dp"

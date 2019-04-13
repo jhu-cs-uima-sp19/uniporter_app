@@ -60,6 +60,7 @@
 
     <SeekBar
         android:id="@+id/seekBar"
+        style="@android:style/Widget.SeekBar"
         android:layout_width="338dp"
         android:layout_height="46dp"
         android:layout_marginStart="29dp"
@@ -68,11 +69,18 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:layout_marginBottom="200dp"
+        android:max="16"
+        android:progress="1"
+        android:progressTint="@color/primary_dark"
+        android:theme="@style/Theme.AppCompat.DialogWhenLarge"
+        android:thumbTint="@color/primary_dark"
+        android:progressBackgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/front5"

@@ -40,7 +40,7 @@ public class AddNewRide extends AppCompatActivity {
         _back4 = (ImageButton) findViewById(R.id.back4);
         _back5 = (ImageButton) findViewById(R.id.back5);
 
-        String airline;
+        //String airline;
 
         SharedPreferences sharedpref = this.getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpref.edit();

@@ -34,6 +34,8 @@
         android:dropDownWidth="wrap_content"
         android:spinnerMode="dropdown"
         android:visibility="visible"
+        android:entries="@array/airline_array"
+        android:prompt="@string/airline_prompt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

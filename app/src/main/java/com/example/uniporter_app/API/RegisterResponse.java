@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.API;
 
 import com.google.gson.annotations.SerializedName;
 

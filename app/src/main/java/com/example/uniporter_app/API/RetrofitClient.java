@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.API;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

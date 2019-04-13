@@ -62,7 +62,6 @@
     <string name="street">Street</string>
     <string name="done">Done</string>
     <string name="addnewride">Add New Ride</string>
-    <string name="register">REGISTER</string>
     <string-array name="large_luggage_array">
         <item>1</item>
         <item>2</item>

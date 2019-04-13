@@ -6,9 +6,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
 
     <ImageButton
         android:id="@+id/back4"

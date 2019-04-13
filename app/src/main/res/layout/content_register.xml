@@ -9,8 +9,5 @@
     tools:showIn="@layout/activity_register"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
 
 </android.support.constraint.ConstraintLayout>

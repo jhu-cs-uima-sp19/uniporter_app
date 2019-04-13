@@ -1,7 +1,6 @@
+package com.example.uniporter_app;
 
-        package com.example.uniporter_app;
-
-        import android.app.ProgressDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-        public class Register extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Register extends AppCompatActivity {
     private static final String TAG = "Register";
 
     EditText _nameText;
@@ -79,9 +82,31 @@ import android.widget.Toast;
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
         // TODO: Implement your own signup logic here.
-        // temporary implementation
-        Intent intent = new Intent(this, NewRide.class);
-        startActivity(intent);
+        Call<RegisterResponse> call = RetrofitClient
+                .getInstance()
+                .getRegisterAPI()
+                .createUser(email, password, name);
+
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+
+                if (response.code() == 201) {
+                    RegisterResponse rr = response.body();
+                    Toast.makeText(Register.this, rr.getMsg(), Toast.LENGTH_LONG).show();
+                    onSignupSuccess();
+                } else if (response.code() == 400){
+                    Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
+                    onSignupFailed();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                Toast.makeText(Register.this, "Request Failed", Toast.LENGTH_LONG).show();
+                onSignupFailed();
+            }
+        });
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -99,6 +124,8 @@ import android.widget.Toast;
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
+        Intent intent = new Intent(Register.this, NewRide.class);
+        startActivity(intent);
         finish();
     }
 

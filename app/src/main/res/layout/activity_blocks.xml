@@ -7,6 +7,10 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <ImageButton
         android:id="@+id/back3"
         android:layout_width="50dp"
@@ -33,28 +37,28 @@
         android:layout_height="109dp"
         android:layout_marginTop="151dp"
         android:layout_marginBottom="471dp"
-        android:text="@string/blocks_question"
         android:textColor="@color/BigText"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:textSize="37sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/blocks_question"
+         />
 
     <TextView
         android:id="@+id/blocks_desc"
-        android:layout_width="259dp"
+        android:layout_width="370dp"
         android:layout_height="82dp"
         android:layout_marginTop="287dp"
         android:layout_marginBottom="362dp"
         android:text="@string/blocks_desc"
-        android:textColor="@color/black"
+        android:textColor="@color/material_drawer_dark_background"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -65,14 +69,16 @@
         android:layout_height="37dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="476dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="41dp"
         android:layout_marginRight="41dp"
         android:layout_marginBottom="218dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/front3"

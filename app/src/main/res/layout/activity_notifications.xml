@@ -6,6 +6,10 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <Switch
         android:id="@+id/switch2"
         android:layout_width="92dp"

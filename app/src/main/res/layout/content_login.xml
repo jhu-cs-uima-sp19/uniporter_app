@@ -5,6 +5,10 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

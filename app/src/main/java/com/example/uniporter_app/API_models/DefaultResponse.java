@@ -1,8 +1,8 @@
-package com.example.uniporter_app.API;
+package com.example.uniporter_app.API_models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterResponse {
+public class DefaultResponse {
 
     @SerializedName("error")
     private boolean err;
@@ -10,7 +10,7 @@ public class RegisterResponse {
     @SerializedName("message")
     private String msg;
 
-    public RegisterResponse(boolean err, String msg) {
+    public DefaultResponse(boolean err, String msg) {
         this.err = err;
         this.msg = msg;
     }

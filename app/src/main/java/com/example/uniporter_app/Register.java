@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.uniporter_app.API.RegisterResponse;
+import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API.RetrofitClient;
 
 import retrofit2.Call;
@@ -84,17 +84,17 @@ public class Register extends AppCompatActivity {
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        Call<RegisterResponse> call = RetrofitClient
+        Call<DefaultResponse> call = RetrofitClient
                 .getInstance()
-                .getRegisterAPI()
+                .getAPI()
                 .createUser(email, password, name);
 
-        call.enqueue(new Callback<RegisterResponse>() {
+        call.enqueue(new Callback<DefaultResponse>() {
             @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
 
                 if (response.code() == 201) {
-                    RegisterResponse rr = response.body();
+                    DefaultResponse rr = response.body();
                     Toast.makeText(Register.this, rr.getMsg(), Toast.LENGTH_LONG).show();
                 } else if (response.code() == 400){
                     Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
@@ -104,7 +104,7 @@ public class Register extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
                 Toast.makeText(Register.this, "Request Failed", Toast.LENGTH_LONG).show();
             }
         });

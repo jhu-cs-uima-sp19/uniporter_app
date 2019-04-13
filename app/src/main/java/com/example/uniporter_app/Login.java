@@ -11,12 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import okhttp3.OkHttpClient;
+import com.example.uniporter_app.API.RetrofitClient;
+import com.example.uniporter_app.API_models.DefaultResponse;
+import com.example.uniporter_app.API_models.loginResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Login extends AppCompatActivity {
@@ -28,6 +29,8 @@ public class Login extends AppCompatActivity {
     EditText _passwordText;
     Button _loginButton;
     TextView _signupLink;
+
+    boolean login_success;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,29 +64,6 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void initiateLoginAPI(String email, String password) {
-        final String BASE_URL = "http://ec2-54-210-165-217.compute-1.amazonaws.com:8000/admin/login/?next=/admin//";
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient.build())
-                .build();
-        loginAPI api = retrofit.create(loginAPI.class);
-        Call<loginResponse[]> call = api.getList(email, password);
-        call.enqueue(new Callback<loginResponse[]>() {
-            @Override
-            public void onResponse(Call<loginResponse[]> call, Response<loginResponse[]> response) {
-                if (response.isSuccessful()) {
-                }
-            }
-            @Override
-            public void onFailure(Call<loginResponse[]> call, Throwable t) {
-
-            }
-        });
-    }
-
     public void login() {
         Log.d(TAG, "Login");
 
@@ -102,13 +82,44 @@ public class Login extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
+        Call<loginResponse> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .loginUser(email, password);
+
+        call.enqueue(new Callback<loginResponse>() {
+            @Override
+            public void onResponse(Call<loginResponse> call, Response<loginResponse> response) {
+                loginResponse loginResponse = response.body();
+
+                if (response.code() == 200) {
+                   loginResponse rr = response.body();
+                   login_success = true;
+                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
+                } else if (response.code() == 400){
+                    login_success = false;
+                    Toast.makeText(Login.this, "Bad Request", Toast.LENGTH_LONG).show();
+                } else if (response.code() == 500){
+                    login_success = false;
+                    Toast.makeText(Login.this, "Internal Server Error", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<loginResponse> call, Throwable t) {
+                Toast.makeText(Login.this, "Request failed", Toast.LENGTH_LONG).show();
+            }
+        });
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
+                        if (login_success) {
+                            onLoginSuccess();
+                        } else {
+                            onLoginFailed();
+                        }
                         progressDialog.dismiss();
                     }
                 }, 3000);

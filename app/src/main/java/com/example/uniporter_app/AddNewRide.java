@@ -2,11 +2,14 @@ package com.example.uniporter_app;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.widget.Spinner;
-
 public class AddNewRide extends AppCompatActivity {
 
     //front buttons
@@ -40,21 +43,15 @@ public class AddNewRide extends AppCompatActivity {
         _back4 = (ImageButton) findViewById(R.id.back4);
         _back5 = (ImageButton) findViewById(R.id.back5);
 
-        //String airline;
-
-        SharedPreferences sharedpref = this.getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpref.edit();
-        Spinner airline_spinner = (Spinner) findViewById(R.id.airline_spinner);
-        String airline = airline_spinner.getSelectedItem().toString();
-        editor.putString("airline", airline);
-        editor.commit();
-        finish();
 
         //front buttons
-        _front1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_address);
+        @Override
+                _front1.setOnClickListener(new View.OnClickListener() {
+            Fragment fragment = new FlightInfo();
+             if (fragment != null) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.screen_area, fragment);
+                ft.commit();
             }
         });
         _front2.setOnClickListener(new View.OnClickListener() {

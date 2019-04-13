@@ -9,7 +9,8 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        android:layout_height="51dp" />
 
     <ImageButton
         android:id="@+id/back2"

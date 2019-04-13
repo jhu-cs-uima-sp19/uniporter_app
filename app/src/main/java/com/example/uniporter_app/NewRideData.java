@@ -1,5 +1,6 @@
 package com.example.uniporter_app;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -15,9 +16,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewRideData extends AppCompatActivity {
+public class NewRideData extends AppCompatActivity{
 
-    public static ArrayList<NewRideInformation> getRideData() {
+    public ArrayList<NewRideInformation> getRideData() {
 
         final List<String> type = new ArrayList<>();
         final List<String> airline = new ArrayList<>();
@@ -27,18 +28,18 @@ public class NewRideData extends AppCompatActivity {
 
         ArrayList<NewRideInformation> data = new ArrayList<>();
 
-        String token = SharedPreferenceManager.getInstance(NewRideData.this).getUserToken();
-
         Call<List<RideResponse>> call = RetrofitClientRides
                 .getInstance()
                 .getAPI()
-                .getRides("token " + token);
+                .getRides("token " + SharedPreferenceManager.getInstance(this).getUserToken());
 
         call.enqueue(new Callback<List<RideResponse>>() {
             @Override
             public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
                 for (RideResponse ride: response.body()) {
+                    Log.w("response", ride.getType());
                     type.add(ride.getType());
+                    Log.w("length", Integer.toString(type.size()));
                     airline.add(ride.getAirline());
                     flight_no.add(ride.getFlight_no());
                     date.add(ride.getFlight_time());
@@ -58,19 +59,13 @@ public class NewRideData extends AppCompatActivity {
 
         String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
 
-        for (int i = 0; i < type.size(); i++) {
+        Log.w("reponse", Integer.toString(type.size()));
+        for (int i = 0; i < location.length; i++) {
 
             NewRideInformation current = new NewRideInformation();
             // tmp
             current.dates = dates[i];
             current.location = location[i];
-
-            // real
-            current.type = type.get(i);
-            current.airline = airline.get(i);
-            current.flight_no = flight_no.get(i);
-            current.date = date.get(i);
-            current.flight_time = flight_time.get(i);
 
             data.add(current);
         }

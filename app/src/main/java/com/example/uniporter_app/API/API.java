@@ -2,7 +2,10 @@ package com.example.uniporter_app.API;
 
 import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API_models.LoginResponse;
+import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.API_models.UserResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -31,6 +34,11 @@ public interface API {
 
     @GET("me/")
     Call<UserResponse> getUser(
+            @Header("Authorization") String authHeader
+    );
+
+    @GET("rides/")
+    Call<List<RideResponse>> getRides(
             @Header("Authorization") String authHeader
     );
 }

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.uniporter_app.API.RetrofitClient;
+import com.example.uniporter_app.API.RetrofitClientUser;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.UserResponse;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
         final String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        Call<LoginResponse> call = RetrofitClient
+        Call<LoginResponse> call = RetrofitClientUser
                 .getInstance()
                 .getAPI()
                 .loginUser(email, password);
@@ -108,7 +108,7 @@ public class Login extends AppCompatActivity {
                    auth_token = loginResponse.getToken();
                    Log.w("checking authtoken", auth_token);
                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
-                   Call<UserResponse> call2 = RetrofitClient
+                   Call<UserResponse> call2 = RetrofitClientUser
                            .getInstance()
                            .getAPI()
                            .getUser("token " + auth_token);

@@ -25,7 +25,8 @@ public class NewRide extends AppCompatActivity {
         setContentView(R.layout.activity_new_ride);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        adapter = new NewRideAdapter(this, NewRideData.getRideData());
+        NewRideData newRide = new NewRideData();
+        adapter = new NewRideAdapter(this, newRide.getRideData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
 

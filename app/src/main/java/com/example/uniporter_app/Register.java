@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uniporter_app.API_models.DefaultResponse;
-import com.example.uniporter_app.API.RetrofitClient;
+import com.example.uniporter_app.API.RetrofitClientUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,7 +84,7 @@ public class Register extends AppCompatActivity {
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        Call<DefaultResponse> call = RetrofitClient
+        Call<DefaultResponse> call = RetrofitClientUser
                 .getInstance()
                 .getAPI()
                 .createUser(email, password, name);

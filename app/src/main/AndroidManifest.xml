@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".NewRide"></activity>
         <activity
-            android:name=".Start"
+            android:name=".Authentication.Start"
             android:label="Start"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -21,11 +21,11 @@
             android:label="AddNewRide"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Register"
+            android:name=".Authentication.Register"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Login"
+            android:name=".Authentication.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

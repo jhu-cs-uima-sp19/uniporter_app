@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.Authentication;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API.RetrofitClientUser;
+import com.example.uniporter_app.NewRide;
+import com.example.uniporter_app.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,7 +56,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Finish the registration screen and return to the Login activity
-                Intent intent = new Intent(getApplicationContext(),Login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);

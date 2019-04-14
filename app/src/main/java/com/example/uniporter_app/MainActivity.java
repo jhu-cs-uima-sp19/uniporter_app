@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = new Intent(this, Start.class);
+        Intent intent = new Intent(this, NewRide.class);
         startActivity(intent);
     }
 

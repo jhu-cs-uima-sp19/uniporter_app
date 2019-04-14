@@ -101,8 +101,8 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            textview = (TextView) itemView.findViewById(R.id.txv_row);
-            imageView = (ImageView) itemView.findViewById(R.id.img_row);
+
+            imageView = (ImageView) itemView.findViewById(R.id.imageView4);
 
         }
     }

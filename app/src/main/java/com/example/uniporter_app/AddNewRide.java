@@ -49,14 +49,5 @@ public class AddNewRide extends AppCompatActivity {
                 ft.commit();
             }
         });
-      /*  _front2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new Blocks();
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.screen_area, fragment, "Blocks");
-                ft.commit();
-            }
-        });*/
     }
 }

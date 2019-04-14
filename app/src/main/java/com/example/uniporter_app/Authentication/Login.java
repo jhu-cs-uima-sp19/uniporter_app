@@ -108,7 +108,7 @@ public class Login extends AppCompatActivity {
                 if (response.code() == 200) {
                    login_success = true;
                    auth_token = loginResponse.getToken();
-                   Log.w("checking authtoken", auth_token);
+                   Log.w("checking auth token", auth_token);
                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
                    Call<UserResponse> call2 = RetrofitClientUser
                            .getInstance()

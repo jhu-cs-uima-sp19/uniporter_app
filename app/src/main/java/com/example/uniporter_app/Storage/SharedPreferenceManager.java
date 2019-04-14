@@ -36,6 +36,16 @@ public class SharedPreferenceManager {
         return sharedPreferences.getString("email", null) != null;
     }
 
+    public void logoutUser() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.remove("email");
+        editor.remove("token");
+
+        editor.commit();
+    }
+
     public String getUserToken() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("token", null);

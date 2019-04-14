@@ -1,5 +1,6 @@
 package com.example.uniporter_app.New_Pending_Rides;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.uniporter_app.Authentication.Login;
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
 
@@ -27,6 +29,11 @@ public class NewRide extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_ride);
 
+        final ProgressDialog progressDialog = new ProgressDialog(NewRide.this, R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading Your Data...");
+        progressDialog.show();
+
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         final NewRideData newRide = new NewRideData();
         newRide.callRideAPI();
@@ -34,6 +41,7 @@ public class NewRide extends AppCompatActivity {
                 new Runnable() {
                     public void run() {
                         setUpView(newRide);
+                        progressDialog.dismiss();
                     }
                 }, 3000);
     }

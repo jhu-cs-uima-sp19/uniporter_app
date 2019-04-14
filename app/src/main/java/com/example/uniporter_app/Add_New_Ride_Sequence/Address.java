@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.Add_New_Ride_Sequence;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,15 +10,17 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Luggage extends Fragment implements View.OnClickListener {
+import com.example.uniporter_app.R;
+
+public class Address extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View myView = inflater.inflate(R.layout.activity_luggage, container, false);
-        ImageButton front4 = myView.findViewById(R.id.front4);
-        ImageButton back4 = myView.findViewById(R.id.back4);
-        front4.setOnClickListener(this);
-        back4.setOnClickListener(this);
+        View myView = inflater.inflate(R.layout.activity_address, container, false);
+        ImageButton front2 = myView.findViewById(R.id.front2);
+        ImageButton back2 = myView.findViewById(R.id.back2);
+        front2.setOnClickListener(this);
+        back2.setOnClickListener(this);
         return myView;
     }
     @Override
@@ -28,20 +30,22 @@ public class Luggage extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.front4:
-                Fragment fragment1 = new Early();
+
+            case R.id.front2:
+                Fragment fragment1 = new Blocks();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                ft1.replace(R.id.screen_area, fragment1, "Luggage");
+                ft1.replace(R.id.screen_area, fragment1, "Blocks");
                 ft1.commit();
                 break;
-            case R.id.back4:
-                Fragment fragment2 = new Blocks();
+            case R.id.back2:
+                Fragment fragment2 = new FlightInfo();
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.screen_area, fragment2, "Address");
+                ft2.replace(R.id.screen_area, fragment2, "FlightInfo");
                 ft2.commit();
                 break;
             default:
                 break;
+
         }
     }
 }

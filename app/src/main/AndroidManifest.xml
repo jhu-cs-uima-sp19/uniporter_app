@@ -11,25 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewRide"></activity>
+        <activity android:name=".New_Pending_Rides.NewRide"></activity>
         <activity
-            android:name=".Start"
+            android:name=".Authentication.Start"
             android:label="Start"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddNewRide"
+            android:name=".Add_New_Ride_Sequence.AddNewRide"
             android:label="AddNewRide"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Register"
+            android:name=".Authentication.Register"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Login"
+            android:name=".Authentication.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Authentication.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

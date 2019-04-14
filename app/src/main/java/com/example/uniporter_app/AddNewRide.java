@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.support.v4.app.Fragment;
-public class AddNewRide extends AppCompatActivity {
 
+public class AddNewRide extends AppCompatActivity {
     //front buttons
     ImageButton _front1;
     ImageButton _front2;
@@ -43,13 +43,22 @@ public class AddNewRide extends AppCompatActivity {
         _front1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Fragment fragment = new FlightInfo();
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.screen_area, fragment);
-            ft.commit();
-
+                Fragment fragment = new Address();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.screen_area, fragment);
+                ft.commit();
             }
         });
 
+        _front2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new FlightInfo();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                ft.replace(R.id.screen_area, fragment);
+                ft.commit();
+            }
+        });
     }
 }

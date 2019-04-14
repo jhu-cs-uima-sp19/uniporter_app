@@ -42,8 +42,13 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
-        myViewHolder.textview.setText(data.get(position).date);
         myViewHolder.imageView.setImageResource(data.get(position).location);
+
+        myViewHolder.type.setText(data.get(position).type);
+        myViewHolder.airline.setText(data.get(position).date);
+        myViewHolder.flight_no.setText(data.get(position).flight_no);
+        myViewHolder.date.setText(data.get(position).date);
+        myViewHolder.flight_time.setText(data.get(position).flight_time);
 
         if(position > previousPosition){ // We are scrolling DOWN
 
@@ -52,8 +57,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         }else{ // We are scrolling UP
 
             AnimationUtil.animate(myViewHolder, false);
-
-
         }
 
         previousPosition = position;
@@ -94,15 +97,24 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-
-        TextView textview;
         ImageView imageView;
+
+        TextView type;
+        TextView airline;
+        TextView flight_no;
+        TextView date;
+        TextView flight_time;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            textview = (TextView) itemView.findViewById(R.id.txv_row);
             imageView = (ImageView) itemView.findViewById(R.id.img_row);
+
+            type = (TextView) itemView.findViewById(R.id.type_row);
+            airline = (TextView) itemView.findViewById(R.id.airline_row);
+            flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);
+            date = (TextView) itemView.findViewById(R.id.date_row);
+            flight_time = (TextView) itemView.findViewById(R.id.flight_time_row);
 
         }
     }

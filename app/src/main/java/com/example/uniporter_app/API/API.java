@@ -3,6 +3,7 @@ package com.example.uniporter_app.API;
 import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.RideResponse;
+import com.example.uniporter_app.API_models.SharerideResponse;
 import com.example.uniporter_app.API_models.UserResponse;
 
 import java.util.List;
@@ -40,5 +41,10 @@ public interface API {
     @GET("rides/")
     Call<List<RideResponse>> getRides(
             @Header("Authorization") String authHeader
+    );
+
+    @POST("sharerides")
+    Call<List<SharerideResponse>> getShareRides(
+            @Field("date") String date
     );
 }

@@ -57,8 +57,6 @@ public class NewRideData extends AppCompatActivity{
                 R.drawable.uniporter_background
         };
 
-        String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
-
         Log.w("response", Integer.toString(type.size()));
         for (int i = 0; i < type.size(); i++) {
 

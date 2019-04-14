@@ -1,0 +1,100 @@
+package com.example.uniporter_app.Scheduled_Rides;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.example.uniporter_app.DrawerUtil;
+import com.example.uniporter_app.New_Pending_Rides.NewRide;
+import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
+import com.example.uniporter_app.New_Pending_Rides.NewRideData;
+import com.example.uniporter_app.R;
+
+public class Scheduled_Ride extends AppCompatActivity {
+    // Recycler View
+    RecyclerView recyclerView;
+    ScheduledRideAdapter adapter;
+
+    //NavDrawer
+    Toolbar toolBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scheduled_rides);
+
+        final ProgressDialog progressDialog = new ProgressDialog(Scheduled_Ride.this, R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading Your Data...");
+        progressDialog.show();
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycleView2);
+        final ScheduledRideData newRide = new ScheduledRideData();
+        newRide.callRideAPI();
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        setUpView(newRide);
+                        progressDialog.dismiss();
+                    }
+                }, 3000);
+    }
+
+    private void setUpView(ScheduledRideData newRide) {
+        adapter = new ScheduledRideAdapter(this, newRide.getRideData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
+        toolBar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
+
+        DrawerUtil.getDrawer(this, toolBar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_main ,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.linearViewHorizontal:
+                LinearLayoutManager mLinearLayoutManagerHorizontal = new LinearLayoutManager(this); // (Context context)
+                mLinearLayoutManagerHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
+                recyclerView.setLayoutManager(mLinearLayoutManagerHorizontal);
+                break;
+
+            case R.id.linearViewVertical:
+                LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(this); // (Context context)
+                mLinearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(mLinearLayoutManagerVertical);
+                break;
+            case R.id.gridView:
+                GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 3); // (Context context, int spanCount)
+                recyclerView.setLayoutManager(mGridLayoutManager);
+                break;
+            case R.id.staggeredViewHorizontal:
+                StaggeredGridLayoutManager mStaggeredHorizontalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL); // (int spanCount, int orientation)
+                recyclerView.setLayoutManager(mStaggeredHorizontalLayoutManager);
+                break;
+            case R.id.staggeredViewVertical:
+                StaggeredGridLayoutManager mStaggeredVerticalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL); // (int spanCount, int orientation)
+                recyclerView.setLayoutManager(mStaggeredVerticalLayoutManager);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

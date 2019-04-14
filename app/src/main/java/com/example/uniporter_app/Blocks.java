@@ -43,7 +43,6 @@ public class Blocks extends Fragment implements View.OnClickListener {
                 break;
             default:
                 break;
-
         }
     }
 }

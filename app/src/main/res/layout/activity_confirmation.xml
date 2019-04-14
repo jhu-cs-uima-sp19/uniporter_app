@@ -18,10 +18,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:fadingEdge="horizontal|vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
         app:srcCompat="@color/accent"
         tools:ignore="ContentDescription" />
 
@@ -36,9 +38,9 @@
         android:layout_marginRight="60dp"
         android:layout_marginBottom="208dp"
         android:text="@string/success"
+        android:textColor="@color/BigText"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textColor="@color/BigText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +57,8 @@
         android:layout_marginRight="60dp"
         android:layout_marginBottom="208dp"
         android:text="@string/successmsg"
-        android:textSize="24sp"
         android:textColor="@color/BigText"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,17 +66,14 @@
 
     <Button
         android:id="@+id/done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="273dp"
-        android:layout_marginLeft="273dp"
-        android:layout_marginTop="496dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="187dp"
+        android:layout_width="91dp"
+        android:layout_height="50dp"
+        android:background="@color/iron"
         android:text="@string/done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/BigText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="511dp" />
+
 </android.support.constraint.ConstraintLayout>

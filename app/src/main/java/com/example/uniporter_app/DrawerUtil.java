@@ -34,9 +34,6 @@ public class DrawerUtil {
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 
-
-
-
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)

@@ -33,13 +33,13 @@ public class Early extends Fragment implements View.OnClickListener {
             case R.id.front5:
                 Fragment fragment1 = new Confirmation();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                ft1.replace(R.id.screen_area, fragment1, "Luggage");
+                ft1.replace(R.id.screen_area, fragment1, "Confirmation");
                 ft1.commit();
                 break;
             case R.id.back5:
                 Fragment fragment2 = new Luggage();
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.screen_area, fragment2, "Address");
+                ft2.replace(R.id.screen_area, fragment2, "Luggage");
                 ft2.commit();
                 break;
             default:

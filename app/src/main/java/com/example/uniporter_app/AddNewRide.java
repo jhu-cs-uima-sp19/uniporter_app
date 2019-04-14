@@ -1,4 +1,6 @@
 package com.example.uniporter_app;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -20,12 +22,10 @@ public class AddNewRide extends AppCompatActivity {
     ImageButton _back4;
     ImageButton _back5;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_info);
-
         // bind view elements
         _front1 = findViewById(R.id.front1);
         _front2 = findViewById(R.id.front2);
@@ -45,20 +45,18 @@ public class AddNewRide extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment fragment = new Address();
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.screen_area, fragment);
+                ft.replace(R.id.screen_area, fragment, "Blocks");
                 ft.commit();
             }
         });
-
-        _front2.setOnClickListener(new View.OnClickListener() {
+      /*  _front2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new FlightInfo();
+                Fragment fragment = new Blocks();
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-                ft.replace(R.id.screen_area, fragment);
+                ft.replace(R.id.screen_area, fragment, "Blocks");
                 ft.commit();
             }
-        });
+        });*/
     }
 }

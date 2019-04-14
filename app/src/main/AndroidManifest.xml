@@ -17,6 +17,10 @@
             android:label="Start"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".AddNewRide"
+            android:label="AddNewRide"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Register"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />

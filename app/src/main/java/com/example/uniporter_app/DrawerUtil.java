@@ -27,8 +27,8 @@ public class DrawerUtil {
                 .withName(R.string.new_ride).withIcon(R.drawable.ic_add_circle_outline_black_24dp);
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.scheduled_rides).withIcon(R.drawable.ic__car_24dp);
-        PrimaryDrawerItem notifications = new PrimaryDrawerItem()
-                .withIdentifier(3).withName(R.string.notifications).withIcon(R.drawable.ic_notifications_active_black_24dp);
+       /* PrimaryDrawerItem notifications = new PrimaryDrawerItem()
+                .withIdentifier(3).withName("Notifications").withIcon(R.drawable.ic_notifications_active_black_24dp);*/
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 
@@ -59,7 +59,6 @@ public class DrawerUtil {
         drawerBuilder.addDrawerItems(
                 drawerItemManagePlayers,
                 drawerItemManagePlayersTournaments,
-                notifications,
                 logout,
                 new DividerDrawerItem()
         );
@@ -82,14 +81,9 @@ public class DrawerUtil {
                     Intent intent = new Intent(activity, Notification.class);
                     view.getContext().startActivity(intent);
                 }
-
-
                 return true;
             }
         });
-
-
-
         Drawer result = drawerBuilder.build();
     }
 }

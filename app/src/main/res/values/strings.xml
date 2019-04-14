@@ -88,6 +88,7 @@
         <item>WOW</item>
     </string-array>
     <string name= "airline_prompt">Choose an airline</string>
+    <string name="pending_rides">Pending Rides</string>
     <string-array name="small_luggage_array">
         <item>1</item>
         <item>2</item>

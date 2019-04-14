@@ -12,9 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.uniporter_app.DrawerUtil;
-import com.example.uniporter_app.New_Pending_Rides.NewRide;
-import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
-import com.example.uniporter_app.New_Pending_Rides.NewRideData;
+import com.example.uniporter_app.Scheduled_Rides.Scheduled_Ride;
+import com.example.uniporter_app.Scheduled_Rides.ScheduledRideAdapter;
+import com.example.uniporter_app.Scheduled_Rides.ScheduledRideData;
 import com.example.uniporter_app.R;
 
 public class Scheduled_Ride extends AppCompatActivity {

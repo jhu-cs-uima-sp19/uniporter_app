@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".New_Pending_Rides.NewRide">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"

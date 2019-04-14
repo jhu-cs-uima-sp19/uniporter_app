@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.API_models.RideResponse;
+import com.example.uniporter_app.API_models.SharerideResponse;
 import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
@@ -20,23 +21,27 @@ public class ScheduledRideData extends AppCompatActivity {
     final List<String> meeting_loc = new ArrayList<>();
     final List<List<String>> members = new ArrayList<>();
     final List<String> time = new ArrayList<>();
-    final List<String> weight = new ArrayList<>();
+    final List<Integer> weight = new ArrayList<>();
 
     public void callRideAPI() {
-        Call<List<RideResponse>> call = RetrofitClientRides
+        Call<List<SharerideResponse>> call = RetrofitClientRides
                 .getInstance()
                 .getAPI()
-                .getRides("token " + SharedPreferenceManager.getInstance(this).getUserToken());
+                .getShareRides("04/09/19");
 
-        call.enqueue(new Callback<List<RideResponse>>() {
+        call.enqueue(new Callback<List<SharerideResponse>>() {
             @Override
-            public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
-                for (RideResponse ride: response.body()) {
+            public void onResponse(Call<List<SharerideResponse>> call, Response<List<SharerideResponse>> response) {
+                for (SharerideResponse ride: response.body()) {
+                    meeting_loc.add(ride.getMeeting_loc());
+                    members.add(ride.getMemeber());
+                    time.add(ride.getTime());
+                    weight.add(ride.getWeight());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<RideResponse>> call, Throwable t) {
+            public void onFailure(Call<List<SharerideResponse>> call, Throwable t) {
 
             }
         });
@@ -57,6 +62,12 @@ public class ScheduledRideData extends AppCompatActivity {
         for (int i = 0; i < meeting_loc.size(); i++) {
 
             ScheduledRideInformation current = new ScheduledRideInformation();
+
+            current.location = location[i];
+            current.meeting_loc = meeting_loc.get(i);
+            current.member = members.get(i);
+            current.time = time.get(i);
+            current.weight = weight.get(i);
 
             data.add(current);
         }

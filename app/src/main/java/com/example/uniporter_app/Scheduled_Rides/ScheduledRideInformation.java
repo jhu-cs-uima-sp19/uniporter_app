@@ -7,5 +7,5 @@ public class ScheduledRideInformation {
     public String meeting_loc;
     public List<String> member;
     public String time;
-    public String weight;
+    public Integer weight;
 }

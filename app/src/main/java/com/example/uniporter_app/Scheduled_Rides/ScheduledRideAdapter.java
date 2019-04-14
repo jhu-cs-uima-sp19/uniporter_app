@@ -47,11 +47,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
         myViewHolder.imageView.setImageResource(data.get(position).location);
 
-        myViewHolder.type.setText(data.get(position).type);
-        myViewHolder.airline.setText(data.get(position).date);
-        myViewHolder.flight_no.setText(data.get(position).flight_no);
-        myViewHolder.date.setText(data.get(position).date);
-        myViewHolder.flight_time.setText(data.get(position).flight_time);
+        myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
+        myViewHolder.time.setText(data.get(position).time);
+        myViewHolder.weight.setText(data.get(position).weight);
 
         if(position > previousPosition){ // We are scrolling DOWN
 
@@ -102,22 +100,18 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
     class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
 
-        TextView type;
-        TextView airline;
-        TextView flight_no;
-        TextView date;
-        TextView flight_time;
+        TextView meeting_loc;
+        TextView time;
+        TextView weight;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.img_row);
 
-            type = (TextView) itemView.findViewById(R.id.type_row);
-            airline = (TextView) itemView.findViewById(R.id.airline_row);
-            flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);
-            date = (TextView) itemView.findViewById(R.id.date_row);
-            flight_time = (TextView) itemView.findViewById(R.id.flight_time_row);
+            meeting_loc = (TextView) itemView.findViewById(R.id.type_row);
+            time = (TextView) itemView.findViewById(R.id.time);
+            weight = (TextView) itemView.findViewById(R.id.weight);
 
         }
     }

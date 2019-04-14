@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.New_Pending_Rides;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.uniporter_app.AnimationUtil;
+import com.example.uniporter_app.R;
 
 import java.util.ArrayList;
 

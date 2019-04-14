@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API.RetrofitClientUser;
-import com.example.uniporter_app.NewRide;
+import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.R;
 
 import retrofit2.Call;

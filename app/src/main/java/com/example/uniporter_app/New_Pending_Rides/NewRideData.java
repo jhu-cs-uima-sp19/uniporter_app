@@ -1,12 +1,11 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.New_Pending_Rides;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.API_models.RideResponse;
+import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;

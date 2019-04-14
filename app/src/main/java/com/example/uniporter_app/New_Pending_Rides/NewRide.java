@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.New_Pending_Rides;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.uniporter_app.DrawerUtil;
+import com.example.uniporter_app.R;
 
 public class NewRide extends AppCompatActivity {
 

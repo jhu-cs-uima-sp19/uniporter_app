@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.uniporter_app.Add_New_Ride_Sequence.AddNewRide;
+import com.example.uniporter_app.Authentication.MainActivity;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;

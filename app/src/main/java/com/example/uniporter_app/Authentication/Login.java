@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.uniporter_app.API.RetrofitClientUser;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.UserResponse;
-import com.example.uniporter_app.NewRide;
+import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 

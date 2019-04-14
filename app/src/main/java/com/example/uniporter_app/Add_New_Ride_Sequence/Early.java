@@ -1,4 +1,4 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.Add_New_Ride_Sequence;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.uniporter_app.R;
 
 public class Early extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

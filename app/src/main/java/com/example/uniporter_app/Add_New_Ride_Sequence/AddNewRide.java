@@ -1,12 +1,12 @@
-package com.example.uniporter_app;
-import android.app.FragmentManager;
-import android.content.Intent;
+package com.example.uniporter_app.Add_New_Ride_Sequence;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.support.v4.app.Fragment;
+
+import com.example.uniporter_app.R;
 
 public class AddNewRide extends AppCompatActivity {
     //front buttons

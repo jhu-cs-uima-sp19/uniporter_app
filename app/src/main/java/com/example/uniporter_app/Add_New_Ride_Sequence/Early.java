@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.uniporter_app.R;
+import android.widget.Spinner;
 
 public class Early extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,6 +22,8 @@ public class Early extends Fragment implements View.OnClickListener {
         ImageButton back5 = myView.findViewById(R.id.back5);
         front5.setOnClickListener(this);
         back5.setOnClickListener(this);
+        Spinner spinner = (Spinner) myView.findViewById(R.id.early_spinner);
+        String early_value = spinner.getSelectedItem().toString();
         return myView;
     }
     @Override

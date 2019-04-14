@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
-
+import android.widget.Spinner;
 import com.example.uniporter_app.R;
 
 public class Luggage extends Fragment implements View.OnClickListener {
@@ -21,6 +21,12 @@ public class Luggage extends Fragment implements View.OnClickListener {
         ImageButton back4 = myView.findViewById(R.id.back4);
         front4.setOnClickListener(this);
         back4.setOnClickListener(this);
+        Spinner spinner1 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
+        String large_lugg_value = spinner1.getSelectedItem().toString();
+        Spinner spinner2 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
+        String small_lugg_value = spinner2.getSelectedItem().toString();
+        Spinner spinner3 = (Spinner) myView.findViewById(R.id.special_luggage_spinner);
+        String special_lugg_value = spinner3.getSelectedItem().toString();
         return myView;
     }
     @Override

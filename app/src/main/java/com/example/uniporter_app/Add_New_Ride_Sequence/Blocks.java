@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
-
 import com.example.uniporter_app.R;
+import android.widget.Spinner;
 
 public class Blocks extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,6 +21,8 @@ public class Blocks extends Fragment implements View.OnClickListener {
         ImageButton back3 = myView.findViewById(R.id.back3);
         front3.setOnClickListener(this);
         back3.setOnClickListener(this);
+        Spinner spinner = (Spinner) myView.findViewById(R.id.blocks_spinner);
+        String blocks_value = spinner.getSelectedItem().toString();
         return myView;
     }
     @Override

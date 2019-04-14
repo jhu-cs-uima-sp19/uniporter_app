@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
-
+import android.widget.Spinner;
 import com.example.uniporter_app.R;
 
 public class Address extends Fragment implements View.OnClickListener {
@@ -21,6 +21,8 @@ public class Address extends Fragment implements View.OnClickListener {
         ImageButton back2 = myView.findViewById(R.id.back2);
         front2.setOnClickListener(this);
         back2.setOnClickListener(this);
+        Spinner spinner = (Spinner) myView.findViewById(R.id.address_spinner);
+        String residence_value = spinner.getSelectedItem().toString();
         return myView;
     }
     @Override

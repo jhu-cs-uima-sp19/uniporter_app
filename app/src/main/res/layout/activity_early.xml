@@ -81,7 +81,7 @@
         app:srcCompat="@drawable/ic_25245" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/early_spinner"
         android:layout_width="352dp"
         android:layout_height="40dp"
         android:layout_marginTop="450dp"

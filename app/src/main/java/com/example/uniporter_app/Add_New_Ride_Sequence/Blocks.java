@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
 import android.widget.Spinner;
+import android.widget.Button;
 
 public class Blocks extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,8 +23,10 @@ public class Blocks extends Fragment implements View.OnClickListener {
         View myView = inflater.inflate(R.layout.activity_blocks, container, false);
         ImageButton front3 = myView.findViewById(R.id.front3);
         ImageButton back3 = myView.findViewById(R.id.back3);
+        Button x3 = myView.findViewById(R.id.x3);
         front3.setOnClickListener(this);
         back3.setOnClickListener(this);
+        x3.setOnClickListener(this);
         Spinner spinner = (Spinner) myView.findViewById(R.id.blocks_spinner);
         String blocks_value = spinner.getSelectedItem().toString();
         return myView;

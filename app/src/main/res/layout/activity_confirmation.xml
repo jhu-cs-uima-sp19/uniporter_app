@@ -68,12 +68,20 @@
         android:id="@+id/done"
         android:layout_width="91dp"
         android:layout_height="50dp"
+        android:layout_marginStart="267dp"
+        android:layout_marginLeft="267dp"
+        android:layout_marginTop="511dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
+        android:layout_marginBottom="170dp"
         android:background="@color/iron"
         android:text="@string/done"
         android:textColor="@color/BigText"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="511dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -112,7 +112,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.img_row);
-
             type = (TextView) itemView.findViewById(R.id.type_row);
             airline = (TextView) itemView.findViewById(R.id.airline_row);
             flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);

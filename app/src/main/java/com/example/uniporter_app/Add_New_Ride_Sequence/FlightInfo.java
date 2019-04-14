@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Button;
 
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
@@ -22,11 +23,14 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.activity_flight_info, container, false);
         ImageButton front1 = myView.findViewById(R.id.front1);
+        Button x1 = myView.findViewById(R.id.x1);
+        front1.setOnClickListener(this);
+        x1.setOnClickListener(this);
         EditText flightnum = (EditText) myView.findViewById(R.id.flightnum);
         final String flight_value = flightnum.getText().toString();
         Spinner spinner = (Spinner) myView.findViewById(R.id.airline_spinner);
         String airline_value = spinner.getSelectedItem().toString();
-        front1.setOnClickListener(this);
+
         return myView;
     }
     @Override

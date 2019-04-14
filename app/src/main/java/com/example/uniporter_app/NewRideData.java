@@ -18,16 +18,13 @@ import retrofit2.Response;
 
 public class NewRideData extends AppCompatActivity{
 
-    public ArrayList<NewRideInformation> getRideData() {
+    final List<String> type = new ArrayList<>();
+    final List<String> airline = new ArrayList<>();
+    final List<String> flight_no = new ArrayList<>();
+    final List<String> date = new ArrayList<>();
+    final List<String> flight_time = new ArrayList<>();
 
-        final List<String> type = new ArrayList<>();
-        final List<String> airline = new ArrayList<>();
-        final List<String> flight_no = new ArrayList<>();
-        final List<String> date = new ArrayList<>();
-        final List<String> flight_time = new ArrayList<>();
-
-        ArrayList<NewRideInformation> data = new ArrayList<>();
-
+    public void callRideAPI() {
         Call<List<RideResponse>> call = RetrofitClientRides
                 .getInstance()
                 .getAPI()
@@ -37,12 +34,11 @@ public class NewRideData extends AppCompatActivity{
             @Override
             public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
                 for (RideResponse ride: response.body()) {
-                    Log.w("response", ride.getType());
                     type.add(ride.getType());
-                    Log.w("length", Integer.toString(type.size()));
                     airline.add(ride.getAirline());
                     flight_no.add(ride.getFlight_no());
-                    date.add(ride.getFlight_time());
+                    date.add(ride.getDate());
+                    flight_time.add(ride.getFlight_time());
                 }
             }
 
@@ -51,6 +47,11 @@ public class NewRideData extends AppCompatActivity{
 
             }
         });
+    }
+
+    public ArrayList<NewRideInformation> getRideData() {
+
+        ArrayList<NewRideInformation> data = new ArrayList<>();
 
         int[] location = {
                 R.drawable.uniporter_background,
@@ -59,12 +60,12 @@ public class NewRideData extends AppCompatActivity{
 
         String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
 
-        Log.w("reponse", Integer.toString(type.size()));
+        Log.w("response", Integer.toString(type.size()));
         for (int i = 0; i < location.length; i++) {
 
             NewRideInformation current = new NewRideInformation();
             // tmp
-            current.dates = dates[i];
+            current.date = dates[i];
             current.location = location[i];
 
             data.add(current);

@@ -25,11 +25,20 @@ public class NewRide extends AppCompatActivity {
         setContentView(R.layout.activity_new_ride);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        NewRideData newRide = new NewRideData();
+        final NewRideData newRide = new NewRideData();
+        newRide.callRideAPI();
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        setUpView(newRide);
+                    }
+                }, 3000);
+    }
+
+    private void setUpView(NewRideData newRide) {
         adapter = new NewRideAdapter(this, newRide.getRideData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
-
         toolBar = findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
 

@@ -29,23 +29,25 @@
         app:srcCompat="@drawable/ic_25245" />
 
     <ImageButton
-        android:id="@+id/x3"
-        android:layout_width="50dp"
-        android:layout_height="48dp"
+        android:id="@+id/x5"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="47dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/accent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/x" />
+        app:layout_constraintVertical_bias="0.011"
+        app:srcCompat="@drawable/ic_close_black_24dp" />
 
     <TextView
         android:id="@+id/early_question"

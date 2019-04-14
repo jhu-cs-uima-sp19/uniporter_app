@@ -1,5 +1,6 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
 
 public class Address extends Fragment implements View.OnClickListener {
@@ -45,6 +48,10 @@ public class Address extends Fragment implements View.OnClickListener {
                 ft2.replace(R.id.screen_area, fragment2, "FlightInfo");
                 ft2.commit();
                 break;
+            case R.id.x2:
+               Intent intent = new Intent(getActivity(), MainActivity.class);
+               v.getContext().startActivity(intent);
+               break;
             default:
                 break;
 

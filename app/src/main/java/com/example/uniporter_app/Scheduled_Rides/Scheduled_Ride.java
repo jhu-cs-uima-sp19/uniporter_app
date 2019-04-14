@@ -35,7 +35,7 @@ public class Scheduled_Ride extends AppCompatActivity {
         progressDialog.setMessage("Loading Your Data...");
         progressDialog.show();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycleView2);
+        recyclerView = findViewById(R.id.recycleView2);
         final ScheduledRideData newRide = new ScheduledRideData();
         newRide.callRideAPI();
         new android.os.Handler().postDelayed(

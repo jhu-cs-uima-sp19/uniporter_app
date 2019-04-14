@@ -32,14 +32,18 @@
         android:id="@+id/early_question"
         android:layout_width="353dp"
         android:layout_height="109dp"
-        android:layout_marginTop="151dp"
-        android:layout_marginBottom="471dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="523dp"
         android:text="@string/early_question"
         android:textColor="@color/BigText"
-        android:textSize="33sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,16 +84,14 @@
         android:id="@+id/spinner3"
         android:layout_width="352dp"
         android:layout_height="40dp"
-        android:layout_marginTop="449dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="242dp"
-        android:background="@android:drawable/spinner_background"
-        android:popupBackground="@android:drawable/spinner_dropdown_background"
+        android:layout_marginTop="450dp"
+        android:layout_marginBottom="241dp"
+        android:entries="@array/early_array"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

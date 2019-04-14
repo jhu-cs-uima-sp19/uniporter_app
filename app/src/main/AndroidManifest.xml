@@ -15,6 +15,9 @@
             android:name=".New_Pending_Rides.NewRide"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".Scheduled_Rides.Scheduled_Ride"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".Authentication.Start"
             android:label="Start"
             android:theme="@style/AppTheme.NoActionBar"

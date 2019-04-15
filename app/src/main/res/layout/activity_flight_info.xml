@@ -7,10 +7,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
     <TextView
         android:id="@+id/luggage_question"
         android:layout_width="wrap_content"

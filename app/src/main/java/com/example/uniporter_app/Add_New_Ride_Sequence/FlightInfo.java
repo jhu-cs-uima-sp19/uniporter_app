@@ -27,7 +27,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         front1.setOnClickListener(this);
         x1.setOnClickListener(this);
         EditText flightnum = (EditText) myView.findViewById(R.id.flightnum);
-        final String flight_value = flightnum.getText().toString();
+        String flight_value = flightnum.getText().toString();
         Spinner spinner = (Spinner) myView.findViewById(R.id.airline_spinner);
         String airline_value = spinner.getSelectedItem().toString();
 

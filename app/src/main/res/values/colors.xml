@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#60CEE3</color>
+    <color name="primary">#9BE1EF</color>
     <color name="primary_dark">#2F89D8</color>
     <color name="primary_darker">#60CEE3</color>
     <color name="accent">#FFFFFF</color>
@@ -12,7 +12,7 @@
     <color name="jumbo">#888888</color>
     <color name="aluminum">#999999</color>
     <color name="base">#AAAAAA</color>
-    <color name="iron">#CCCCCC</color>
+    <color name="iron">#F2F2F2</color>
     <color name="white">#FFFFFF</color>
     <color name="confirm">#8EE0F0</color>
 </resources>

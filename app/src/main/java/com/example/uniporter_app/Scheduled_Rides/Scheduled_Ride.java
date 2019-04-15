@@ -1,5 +1,6 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.Scheduled_Rides;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,11 +11,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class NewRide extends AppCompatActivity {
+import com.example.uniporter_app.DrawerUtil;
+import com.example.uniporter_app.Scheduled_Rides.Scheduled_Ride;
+import com.example.uniporter_app.Scheduled_Rides.ScheduledRideAdapter;
+import com.example.uniporter_app.Scheduled_Rides.ScheduledRideData;
+import com.example.uniporter_app.R;
 
+public class Scheduled_Ride extends AppCompatActivity {
     // Recycler View
     RecyclerView recyclerView;
-    NewRideAdapter adapter;
+    ScheduledRideAdapter adapter;
 
     //NavDrawer
     Toolbar toolBar;
@@ -22,21 +28,27 @@ public class NewRide extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_ride);
+        setContentView(R.layout.activity_scheduled_rides);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        final NewRideData newRide = new NewRideData();
-        newRide.callRideAPI();
+        final ProgressDialog progressDialog = new ProgressDialog(Scheduled_Ride.this, R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading Your Data...");
+        progressDialog.show();
+
+        recyclerView = findViewById(R.id.recycleView2);
+        final ScheduledRideData newShareride = new ScheduledRideData();
+        newShareride.callShareRideAPI();
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        setUpView(newRide);
+                        setUpView(newShareride);
+                        progressDialog.dismiss();
                     }
                 }, 3000);
     }
 
-    private void setUpView(NewRideData newRide) {
-        adapter = new NewRideAdapter(this, newRide.getRideData());
+    private void setUpView(ScheduledRideData newRide) {
+        adapter = new ScheduledRideAdapter(this, newRide.getRideData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
         toolBar = findViewById(R.id.toolbar);

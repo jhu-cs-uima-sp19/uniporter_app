@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_dark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity">
+    tools:context=".Authentication.MainActivity">
 
 
 </android.support.constraint.ConstraintLayout>

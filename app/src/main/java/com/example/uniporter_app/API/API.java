@@ -1,8 +1,11 @@
 package com.example.uniporter_app.API;
 
+import android.preference.Preference;
+
 import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.RideResponse;
+import com.example.uniporter_app.API_models.SharerideResponse;
 import com.example.uniporter_app.API_models.UserResponse;
 
 import java.util.List;
@@ -40,5 +43,25 @@ public interface API {
     @GET("rides/")
     Call<List<RideResponse>> getRides(
             @Header("Authorization") String authHeader
+    );
+
+    @FormUrlEncoded
+    @POST("rides/")
+    Call<RideResponse> addRide(
+            @Field("user") int user,
+            @Field("user_email") String user_email,
+            @Field("type") String type,
+            @Field("airline") String airline,
+            @Field("flight_no") String flight_no,
+            @Field("date") String date,
+            @Field("preference[]") List<Integer> preferences,
+            @Field("tags[]") List<Integer> tags,
+            @Header("Authorization") String authHeader
+    );
+
+    @FormUrlEncoded
+    @POST("sharerides")
+    Call<List<SharerideResponse>> getShareRides(
+            @Field("date") String date
     );
 }

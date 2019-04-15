@@ -1,5 +1,6 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,16 +10,24 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import com.example.uniporter_app.Authentication.MainActivity;
+import com.example.uniporter_app.R;
 
 public class Address extends Fragment implements View.OnClickListener {
+    String residence_value;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.activity_address, container, false);
         ImageButton front2 = myView.findViewById(R.id.front2);
         ImageButton back2 = myView.findViewById(R.id.back2);
+        ImageButton x2 = myView.findViewById(R.id.x2);
         front2.setOnClickListener(this);
         back2.setOnClickListener(this);
+        x2.setOnClickListener(this);
+        Spinner spinner = (Spinner) myView.findViewById(R.id.address_spinner);
+        residence_value = spinner.getSelectedItem().toString();
         return myView;
     }
     @Override
@@ -41,6 +50,10 @@ public class Address extends Fragment implements View.OnClickListener {
                 ft2.replace(R.id.screen_area, fragment2, "FlightInfo");
                 ft2.commit();
                 break;
+            case R.id.x2:
+               Intent intent = new Intent(getActivity(), MainActivity.class);
+               v.getContext().startActivity(intent);
+               break;
             default:
                 break;
 

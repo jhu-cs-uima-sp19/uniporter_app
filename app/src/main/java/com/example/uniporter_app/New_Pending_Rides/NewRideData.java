@@ -1,12 +1,11 @@
-package com.example.uniporter_app;
+package com.example.uniporter_app.New_Pending_Rides;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.API_models.RideResponse;
+import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
@@ -55,18 +54,24 @@ public class NewRideData extends AppCompatActivity{
 
         int[] location = {
                 R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
                 R.drawable.uniporter_background
         };
 
-        String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
-
         Log.w("response", Integer.toString(type.size()));
-        for (int i = 0; i < location.length; i++) {
+        for (int i = 0; i < type.size(); i++) {
 
             NewRideInformation current = new NewRideInformation();
-            // tmp
-            current.date = dates[i];
+
             current.location = location[i];
+            current.type = type.get(i);
+            current.airline = airline.get(i);
+            current.flight_no  =flight_no.get(i);
+            current.date = date.get(i);
+            current.flight_time = flight_time.get(i);
 
             data.add(current);
         }

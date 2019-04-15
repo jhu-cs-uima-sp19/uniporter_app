@@ -48,7 +48,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.front1:
                 Log.w("airline", airline_value);
-                Log.w("flight", flight_value);
+                Log.w("flight_no", flight_value);
                 if(flight_value != null && airline_value != null) {
                     SharedPreferenceManager.getInstance(getContext())
                             .saveFlightNo(flight_value);

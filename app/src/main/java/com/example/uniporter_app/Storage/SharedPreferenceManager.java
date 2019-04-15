@@ -21,10 +21,11 @@ public class SharedPreferenceManager {
         return mInstance;
     }
 
-    public void saveUser(String email, String token) {
+    public void saveUser(int id, String email, String token) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        editor.putInt("id", id);
         editor.putString("email", email);
         editor.putString("token", token);
 
@@ -34,6 +35,11 @@ public class SharedPreferenceManager {
     public String getUserEmal() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("email", null);
+    }
+
+    public int getUserID() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("id", -1);
     }
 
     public boolean isLoggedIn() {

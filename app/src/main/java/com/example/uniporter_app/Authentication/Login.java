@@ -117,8 +117,10 @@ public class Login extends AppCompatActivity {
                        @Override
                        public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                            if (response.code() == 200) {
+                               UserResponse userResponse = response.body();
+                               int id = userResponse.getId();
                                SharedPreferenceManager.getInstance(Login.this)
-                                       .saveUser(email, auth_token);
+                                       .saveUser(id, email, auth_token);
                                Toast.makeText(Login.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
                            } else if (response.code() == 400){
                                login_success = false;
@@ -131,7 +133,7 @@ public class Login extends AppCompatActivity {
 
                        @Override
                        public void onFailure(Call<UserResponse> call, Throwable t) {
-                           Toast.makeText(Login.this, "Request failed", Toast.LENGTH_LONG).show();
+                           Toast.makeText(Login.this, "Request failed: Get User Info", Toast.LENGTH_LONG).show();
                        }
                    });
 
@@ -146,7 +148,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(Login.this, "Request failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "Request failed: Get Token", Toast.LENGTH_LONG).show();
             }
         });
 

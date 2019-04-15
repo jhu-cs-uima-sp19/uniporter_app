@@ -48,7 +48,7 @@ public interface API {
     @FormUrlEncoded
     @POST("rides/")
     Call<RideResponse> addRide(
-            @Field("user") int user,
+            @Field("user") int user_id,
             @Field("user_email") String user_email,
             @Field("type") String type,
             @Field("airline") String airline,

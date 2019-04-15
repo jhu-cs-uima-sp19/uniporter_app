@@ -12,55 +12,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/img_row"
-            />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="7dp" />
+
+        <TextView
             android:id="@+id/type_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:text="type"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_horizontal"/>
+            android:textColor="@color/BigText"
+            android:textSize="27sp"
+            android:visibility="invisible" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/airline_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:text="airline"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_horizontal"/>
+            android:textColor="@color/BigText"
+            android:textSize="27sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/flight_no_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:text="flight no"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_horizontal"/>
+            android:textColor="@color/BigText"
+            android:textSize="27sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/date_row"
-            android:text="date"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/flight_time_row"
-            android:text="flight time"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center_horizontal"/>
+            android:text="date"
+            android:textColor="@color/BigText"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/flight_time_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:text="flight time"
+            android:textColor="@color/BigText"
+            android:textSize="27sp" />
 
     </LinearLayout>
 

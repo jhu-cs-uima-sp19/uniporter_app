@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
+import com.example.uniporter_app.API.RetrofitClientSharerides;
 import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.API_models.SharerideResponse;
 import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
@@ -24,7 +25,7 @@ public class ScheduledRideData extends AppCompatActivity {
     final List<Integer> weight = new ArrayList<>();
 
     public void callRideAPI() {
-        Call<List<SharerideResponse>> call = RetrofitClientRides
+        Call<List<SharerideResponse>> call = RetrofitClientSharerides
                 .getInstance()
                 .getAPI()
                 .getShareRides("04/09/19");
@@ -34,9 +35,11 @@ public class ScheduledRideData extends AppCompatActivity {
             public void onResponse(Call<List<SharerideResponse>> call, Response<List<SharerideResponse>> response) {
                 for (SharerideResponse ride: response.body()) {
                     meeting_loc.add(ride.getMeeting_loc());
+                    Log.w("meeting", ride.getMeeting_loc());
                     members.add(ride.getMemeber());
                     time.add(ride.getTime());
                     weight.add(ride.getWeight());
+                    Log.w("response", Integer.toString(meeting_loc.size()));
                 }
             }
 

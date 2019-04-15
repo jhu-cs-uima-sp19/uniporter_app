@@ -43,6 +43,7 @@ public interface API {
             @Header("Authorization") String authHeader
     );
 
+    @FormUrlEncoded
     @POST("sharerides")
     Call<List<SharerideResponse>> getShareRides(
             @Field("date") String date

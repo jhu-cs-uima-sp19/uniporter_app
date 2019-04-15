@@ -35,9 +35,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
     @Override
     public ScheduledRideAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
 
-        View view = inflater.inflate(R.layout.new_ride_list_item_row, parent, false);
+        View view = inflater.inflate(R.layout.scheduled_rides_list_item_row, parent, false);
 
-       ScheduledRideAdapter.MyViewHolder holder = new ScheduledRideAdapter.MyViewHolder(view);
+        ScheduledRideAdapter.MyViewHolder holder = new ScheduledRideAdapter.MyViewHolder(view);
 
         return holder;
     }
@@ -109,9 +109,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
             imageView = (ImageView) itemView.findViewById(R.id.img_row);
 
-            meeting_loc = (TextView) itemView.findViewById(R.id.type_row);
-            time = (TextView) itemView.findViewById(R.id.time);
-            weight = (TextView) itemView.findViewById(R.id.weight);
+            meeting_loc = (TextView) itemView.findViewById(R.id.meeting_loc_row);
+            time = (TextView) itemView.findViewById(R.id.time_row);
+            weight = (TextView) itemView.findViewById(R.id.weight_row);
 
         }
     }

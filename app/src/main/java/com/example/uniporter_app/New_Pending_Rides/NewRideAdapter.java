@@ -45,8 +45,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
-        myViewHolder.imageView.setImageResource(data.get(position).location);
-
         myViewHolder.type.setText(data.get(position).type);
         myViewHolder.airline.setText(data.get(position).date);
         myViewHolder.flight_no.setText(data.get(position).flight_no);
@@ -68,6 +66,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         final int currentPosition = position;
         final NewRideInformation infoData = data.get(position);
 
+        /*
         myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +89,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
 
         });
+        */
 
 
     }
@@ -100,7 +100,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
 
         TextView type;
         TextView airline;
@@ -111,7 +110,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.img_row);
             type = (TextView) itemView.findViewById(R.id.type_row);
             airline = (TextView) itemView.findViewById(R.id.airline_row);
             flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);

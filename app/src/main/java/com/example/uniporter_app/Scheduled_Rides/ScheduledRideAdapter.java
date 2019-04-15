@@ -45,8 +45,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
-        myViewHolder.imageView.setImageResource(data.get(position).location);
-
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
         myViewHolder.time.setText(data.get(position).time);
         //myViewHolder.weight.setText(data.get(position).weight);
@@ -65,31 +63,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
         final int currentPosition = position;
         final ScheduledRideInformation infoData = data.get(position);
-
-        myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(context, "OnClick Called at position " + position, Toast.LENGTH_SHORT).show();
-                addItem(currentPosition, infoData);
-            }
-        });
-
-        myViewHolder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-                Toast.makeText(context, "OnLongClick Called at position " + position, Toast.LENGTH_SHORT).show();
-
-                removeItem(infoData);
-
-                return true;
-            }
-
-
-        });
-
-
     }
 
     @Override

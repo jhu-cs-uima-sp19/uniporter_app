@@ -32,12 +32,14 @@ public class NewRideData extends AppCompatActivity{
         call.enqueue(new Callback<List<RideResponse>>() {
             @Override
             public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
-                for (RideResponse ride: response.body()) {
-                    type.add(ride.getType());
-                    airline.add(ride.getAirline());
-                    flight_no.add(ride.getFlight_no());
-                    date.add(ride.getDate());
-                    flight_time.add(ride.getFlight_time());
+                if (response.body() != null) {
+                    for (RideResponse ride : response.body()) {
+                        type.add(ride.getType());
+                        airline.add(ride.getAirline());
+                        flight_no.add(ride.getFlight_no());
+                        date.add(ride.getDate());
+                        flight_time.add(ride.getFlight_time());
+                    }
                 }
             }
 

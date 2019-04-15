@@ -133,7 +133,7 @@ public class Register extends AppCompatActivity {
                                             Toast.makeText(Register.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 400){
                                             sign_up_sucess = false;
-                                            Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(Register.this, "Bad Request: Get User Info", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 500){
                                             sign_up_sucess = false;
                                             Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
@@ -148,7 +148,7 @@ public class Register extends AppCompatActivity {
 
                             } else if (response.code() == 400){
                                 sign_up_sucess = false;
-                                Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, "Bad Request: Get ID", Toast.LENGTH_LONG).show();
                             } else if (response.code() == 500){
                                 sign_up_sucess = false;
                                 Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();

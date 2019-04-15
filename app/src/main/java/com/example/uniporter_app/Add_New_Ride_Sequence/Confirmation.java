@@ -53,24 +53,28 @@ public class Confirmation extends Fragment implements View.OnClickListener {
             case R.id.done:
                 user_id = SharedPreferenceManager.getInstance(getContext())
                         .getUserID();
+                Log.w("user_id", Integer.toString(user_id));
                 user_email = SharedPreferenceManager.getInstance(getContext())
                         .getUserEmal();
+                Log.w("user_email", user_email);
                 residence = SharedPreferenceManager.getInstance(getContext())
                         .getResidence();
+                Log.w("user_residence", residence);
                 flight_no = SharedPreferenceManager.getInstance(getContext())
                         .getFlightNo();
+                Log.w("user_flight_no", flight_no);
                 airline = SharedPreferenceManager.getInstance(getContext())
                         .getAirline();
+                Log.w("user_airline", airline);
                 user_token = SharedPreferenceManager.getInstance(getContext())
                         .getUserToken();
-                Log.w("madhu", user_token);
-                Log.w("madhu2", Integer.toString(user_id));
+                Log.w("user_token", user_token);
                 Log.w("arraylist", Integer.toString(preferences.get(0)));
                 Call<RideResponse> call = RetrofitClientRides
                         .getInstance()
                         .getAPI()
                         .addRide(user_id , user_email, "to_airport", airline, flight_no, "04/25/19",
-                                preferences, tags, "token " + user_token);
+                               preferences, tags , "token " + user_token);
                 call.enqueue(new Callback<RideResponse>() {
                     @Override
                     public void onResponse(Call<RideResponse> call, Response<RideResponse> response) {

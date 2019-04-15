@@ -63,6 +63,7 @@
     <string name="done">Done</string>
     <string name="addnewride">Add New Ride</string>
     <string-array name="large_luggage_array">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -90,6 +91,7 @@
     <string name= "airline_prompt">Choose an airline</string>
     <string name="pending_rides">Pending Rides</string>
     <string-array name="small_luggage_array">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -114,6 +116,7 @@
         <item>12</item>
     </string-array>
     <string-array name="special_luggage_array">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>

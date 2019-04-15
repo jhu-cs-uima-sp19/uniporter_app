@@ -8,26 +8,6 @@
     android:orientation="vertical">
 
 
-    <ImageButton
-        android:id="@+id/back2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="299dp"
-        android:layout_marginRight="299dp"
-        android:layout_marginBottom="81dp"
-        android:background="@color/white"
-        android:rotation="180"
-        android:scaleType="fitXY"
-        android:tint="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_25245" />
-
     <TextView
         android:id="@+id/manual_address"
         android:layout_width="272dp"
@@ -39,9 +19,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/address_spinner"
@@ -96,6 +77,45 @@
         app:srcCompat="@drawable/ic_25245" />
 
     <ImageButton
+        android:id="@+id/back2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="562dp"
+        android:layout_marginEnd="302dp"
+        android:layout_marginRight="302dp"
+        android:layout_marginBottom="81dp"
+        android:background="@color/white"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        android:tint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_25245" />
+
+    <ImageView
+        android:id="@+id/bubble2"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="680dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="81dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89"
+        app:srcCompat="@drawable/second" />
+
+    <ImageButton
         android:id="@+id/x2"
         style="@android:style/Widget.ImageButton"
         android:layout_width="47dp"
@@ -105,7 +125,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="81dp"
         android:background="@color/accent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,5 +135,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.011"
         app:srcCompat="@drawable/ic_close_black_24dp" />
+
+
 
 </android.support.constraint.ConstraintLayout>

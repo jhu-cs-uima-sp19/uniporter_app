@@ -144,12 +144,12 @@
         android:id="@+id/front1"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="313dp"
-        android:layout_marginLeft="313dp"
-        android:layout_marginTop="590dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="91dp"
+        android:layout_marginStart="302dp"
+        android:layout_marginLeft="302dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginRight="59dp"
+        android:layout_marginBottom="81dp"
         android:background="@color/white"
         android:scaleType="fitXY"
         android:tint="@color/primary"
@@ -158,6 +158,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_25245" />
+
+    <ImageView
+        android:id="@+id/bubble1"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="81dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/first" />
 
     <FrameLayout
         android:id="@+id/screen_area"
@@ -169,4 +187,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"></FrameLayout>
+
 </android.support.constraint.ConstraintLayout>
+

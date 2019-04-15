@@ -35,27 +35,24 @@
                     android:id="@+id/type_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
                     android:text="type"
                     android:textColor="@color/BigText"
-                    android:textSize="23sp"
-                    android:visibility="invisible" />
+                    android:textSize="23sp"/>
 
                 <TextView
                     android:id="@+id/airline_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
                     android:text="airline"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
 
                 <TextView
                     android:id="@+id/flight_no_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
                     android:text="flight no"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -65,7 +62,6 @@
                     android:id="@+id/date_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
                     android:text="date"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -75,7 +71,6 @@
                     android:id="@+id/flight_time_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
                     android:text="flight time"
                     android:textColor="@color/black"
                     android:textSize="18sp"

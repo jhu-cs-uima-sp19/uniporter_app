@@ -27,6 +27,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Confirmation extends Fragment implements View.OnClickListener {
+    String residence;
+    String flight_no;
+    String airline;
+    String user_email;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -44,13 +48,21 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         List<Integer> preferences = new ArrayList<>();
         preferences.add(1);
         List<Integer> tags = new ArrayList<>();
-       tags.add(1);
+        tags.add(1);
         switch (v.getId()) {
             case R.id.done:
+                user_email = SharedPreferenceManager.getInstance(getContext())
+                        .getUserEmal();
+                residence = SharedPreferenceManager.getInstance(getContext())
+                        .getResidence();
+                flight_no = SharedPreferenceManager.getInstance(getContext())
+                        .getFlightNo();
+                airline = SharedPreferenceManager.getInstance(getContext())
+                        .getAirline();
                 Call<RideResponse> call = RetrofitClientRides
                         .getInstance()
                         .getAPI()
-                        .addRide(3, "jxing8@jhu.edu", "to_airport", "AC", "234", "04/09/19",
+                        .addRide(3, user_email, "to_airport", airline, flight_no, "04/09/19",
                                 preferences, tags, "token 2acb0720e164dbc2677b8702d11179ed4e585b13");
                 call.enqueue(new Callback<RideResponse>() {
                     @Override

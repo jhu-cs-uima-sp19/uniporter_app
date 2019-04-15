@@ -66,7 +66,7 @@ public class ScheduledRideData extends AppCompatActivity {
 
             ScheduledRideInformation current = new ScheduledRideInformation();
 
-            current.location = location[i];
+            current.location = location[0];
             current.meeting_loc = meeting_loc.get(i);
             current.member = members.get(i);
             current.time = time.get(i);

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ImageButton;
 
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
+
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -44,8 +47,13 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.front1:
+                Log.w("airline", airline_value);
+                Log.w("flight", flight_value);
                 if(flight_value != null && airline_value != null) {
-                    //TO DO
+                    SharedPreferenceManager.getInstance(getContext())
+                            .saveFlightNo(flight_value);
+                    SharedPreferenceManager.getInstance(getContext())
+                            .saveAirline(airline_value);
                 }
                 Fragment fragment1 = new Address();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();

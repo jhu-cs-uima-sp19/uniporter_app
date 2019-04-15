@@ -31,6 +31,11 @@ public class SharedPreferenceManager {
         editor.apply();
     }
 
+    public String getUserEmal() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("email", null);
+    }
+
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("email", null) != null;
@@ -51,4 +56,46 @@ public class SharedPreferenceManager {
         return sharedPreferences.getString("token", null);
     }
 
+    public void saveResidence(String residence) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("residence", residence);
+
+        editor.commit();
+    }
+
+    public void saveFlightNo(String flight_no) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("flight_no", flight_no);
+
+        editor.commit();
+    }
+
+    public void saveAirline(String airline) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("airline", airline);
+
+        editor.commit();
+    }
+
+    public String getResidence() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("residence", null);
+    }
+
+
+    public String getFlightNo() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("flight_no", null);
+    }
+
+    public String getAirline() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("airline", null);
+    }
 }

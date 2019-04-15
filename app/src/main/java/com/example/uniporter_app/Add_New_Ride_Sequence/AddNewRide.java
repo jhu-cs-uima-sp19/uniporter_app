@@ -2,11 +2,13 @@ package com.example.uniporter_app.Add_New_Ride_Sequence;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.support.v4.app.Fragment;
 
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 public class AddNewRide extends AppCompatActivity {
     //front buttons

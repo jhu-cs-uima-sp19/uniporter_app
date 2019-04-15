@@ -66,7 +66,7 @@ public class NewRideData extends AppCompatActivity{
 
             NewRideInformation current = new NewRideInformation();
 
-            current.location = location[i];
+            current.location = location[0];
             current.type = type.get(i);
             current.airline = airline.get(i);
             current.flight_no  =flight_no.get(i);

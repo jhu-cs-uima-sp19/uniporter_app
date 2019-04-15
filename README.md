@@ -5,7 +5,5 @@ In terms of front end, we created the main landing page, the register page, the 
 
 Some sample users and passwords for testing purposes:
 Username: madhu@jhu.edu, password: madhu
-Username: jxing8@jhu.edu, password Jx990603
-Username: wiwi@jhu.edu, password: Jx990603
 Username: lilian@jhu.edu, password: heehee
 Username: tyang28@jhu.edu, password: R35YVR9S!

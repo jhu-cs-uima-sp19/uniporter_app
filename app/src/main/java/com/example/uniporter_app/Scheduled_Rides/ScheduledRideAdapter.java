@@ -1,4 +1,4 @@
-package com.example.uniporter_app.New_Pending_Rides;
+package com.example.uniporter_app.Scheduled_Rides;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,22 +10,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uniporter_app.AnimationUtil;
+import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
+import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
 
 import java.util.ArrayList;
 
-
-public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHolder> {
-
+public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdapter.MyViewHolder> {
     private Context context;
 
-    private ArrayList<NewRideInformation> data;
+    private ArrayList<ScheduledRideInformation> data;
 
     private LayoutInflater inflater;
 
     private int previousPosition = 0;
 
-    public NewRideAdapter(Context context, ArrayList<NewRideInformation> data) {
+    public ScheduledRideAdapter(Context context, ArrayList<ScheduledRideInformation> data) {
 
         this.context = context;
         this.data = data;
@@ -33,11 +33,11 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+    public ScheduledRideAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
 
-        View view = inflater.inflate(R.layout.new_ride_list_item_row, parent, false);
+        View view = inflater.inflate(R.layout.scheduled_rides_list_item_row, parent, false);
 
-        MyViewHolder holder = new MyViewHolder(view);
+        ScheduledRideAdapter.MyViewHolder holder = new ScheduledRideAdapter.MyViewHolder(view);
 
         return holder;
     }
@@ -47,11 +47,9 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
         myViewHolder.imageView.setImageResource(data.get(position).location);
 
-        myViewHolder.type.setText(data.get(position).type);
-        myViewHolder.airline.setText(data.get(position).date);
-        myViewHolder.flight_no.setText(data.get(position).flight_no);
-        myViewHolder.date.setText(data.get(position).date);
-        myViewHolder.flight_time.setText(data.get(position).flight_time);
+        myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
+        myViewHolder.time.setText(data.get(position).time);
+        //myViewHolder.weight.setText(data.get(position).weight);
 
         if(position > previousPosition){ // We are scrolling DOWN
 
@@ -66,7 +64,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
 
         final int currentPosition = position;
-        final NewRideInformation infoData = data.get(position);
+        final ScheduledRideInformation infoData = data.get(position);
 
         myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,27 +100,24 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
 
-        TextView type;
-        TextView airline;
-        TextView flight_no;
-        TextView date;
-        TextView flight_time;
+        TextView meeting_loc;
+        TextView time;
+        TextView weight;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.img_row);
-            type = (TextView) itemView.findViewById(R.id.type_row);
-            airline = (TextView) itemView.findViewById(R.id.airline_row);
-            flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);
-            date = (TextView) itemView.findViewById(R.id.date_row);
-            flight_time = (TextView) itemView.findViewById(R.id.flight_time_row);
+
+            meeting_loc = (TextView) itemView.findViewById(R.id.meeting_loc_row);
+            time = (TextView) itemView.findViewById(R.id.time_row);
+            weight = (TextView) itemView.findViewById(R.id.weight_row);
 
         }
     }
 
     // This removes the data from our Dataset and Updates the Recycler View.
-    private void removeItem(NewRideInformation infoData) {
+    private void removeItem(ScheduledRideInformation infoData) {
 
         int currPosition = data.indexOf(infoData);
         data.remove(currPosition);
@@ -130,7 +125,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     }
 
     // This method adds(duplicates) a Object (item ) to our Data set as well as Recycler View.
-    private void addItem(int position, NewRideInformation infoData) {
+    private void addItem(int position, ScheduledRideInformation infoData) {
 
         data.add(position, infoData);
         notifyItemInserted(position);

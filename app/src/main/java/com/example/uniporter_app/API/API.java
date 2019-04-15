@@ -53,8 +53,8 @@ public interface API {
             @Field("airline") String airline,
             @Field("flight_no") String flight_no,
             @Field("date") String date,
-            @Field("preferences[]") ArrayList<Integer> preferences,
-            @Field("tags[]") ArrayList<Integer> tags,
+            @Field(value = "preferences", encoded = true) List<Integer> preferences,
+            @Field(value = "tags", encoded = true) List<Integer> tags,
             @Header("Authorization") String authHeader
     );
 

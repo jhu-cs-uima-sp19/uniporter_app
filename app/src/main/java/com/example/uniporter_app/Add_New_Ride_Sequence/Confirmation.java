@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -31,6 +32,8 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     String flight_no;
     String airline;
     String user_email;
+    int user_id;
+    String user_token;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -51,6 +54,8 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         tags.add(1);
         switch (v.getId()) {
             case R.id.done:
+                user_id = SharedPreferenceManager.getInstance(getContext())
+                        .getUserID();
                 user_email = SharedPreferenceManager.getInstance(getContext())
                         .getUserEmal();
                 residence = SharedPreferenceManager.getInstance(getContext())
@@ -59,11 +64,15 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         .getFlightNo();
                 airline = SharedPreferenceManager.getInstance(getContext())
                         .getAirline();
+                user_token = SharedPreferenceManager.getInstance(getContext())
+                        .getUserToken();
+                Log.w("madhu", user_token);
+                Log.w("madhu2", Integer.toString(user_id));
                 Call<RideResponse> call = RetrofitClientRides
                         .getInstance()
                         .getAPI()
-                        .addRide(3, user_email, "to_airport", airline, flight_no, "04/09/19",
-                                preferences, tags, "token" + SharedPreferenceManager.getInstance(getContext()).getUserToken());
+                        .addRide(user_id , user_email, "to_airport", airline, flight_no, "04/09/19",
+                                preferences, tags, "token " + user_token);
                 call.enqueue(new Callback<RideResponse>() {
                     @Override
                     public void onResponse(Call<RideResponse> call, Response<RideResponse> response) {
@@ -74,6 +83,8 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                             Toast.makeText(getContext(), "Bad Request", Toast.LENGTH_LONG).show();
                         } else if (response.code() == 500){
                             Toast.makeText(getContext(), "Internal Server Error", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getContext(), "Response Code:" + response.code(), Toast.LENGTH_LONG).show();
                         }
                     }
 

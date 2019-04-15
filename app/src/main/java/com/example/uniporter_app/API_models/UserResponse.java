@@ -2,6 +2,7 @@ package com.example.uniporter_app.API_models;
 
 public class UserResponse {
 
+    private int id;
     private String email;
     private String name;
 
@@ -17,4 +18,9 @@ public class UserResponse {
     public String getName() {
         return name;
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

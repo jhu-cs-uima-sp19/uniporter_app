@@ -49,7 +49,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
         myViewHolder.time.setText(data.get(position).time);
-        myViewHolder.weight.setText(data.get(position).weight);
+        //myViewHolder.weight.setText(data.get(position).weight);
 
         if(position > previousPosition){ // We are scrolling DOWN
 

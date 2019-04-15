@@ -46,6 +46,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.011"
         app:srcCompat="@drawable/ic_close_black_24dp" />
+
     <Spinner
         android:id="@+id/airline_spinner"
         android:layout_width="317dp"
@@ -102,25 +103,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/special"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="189dp"
-        android:layout_marginLeft="189dp"
-        android:layout_marginTop="467dp"
-        android:layout_marginEnd="189dp"
-        android:layout_marginRight="189dp"
-        android:layout_marginBottom="230dp"
-        android:text="@string/or"
-        android:textColor="@color/jumbo"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/flightnum"
         android:layout_width="308dp"
@@ -144,12 +126,12 @@
         android:id="@+id/front1"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="302dp"
-        android:layout_marginLeft="302dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginRight="59dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginStart="299dp"
+        android:layout_marginLeft="299dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="91dp"
         android:background="@color/white"
         android:scaleType="fitXY"
         android:tint="@color/primary"
@@ -161,20 +143,18 @@
 
     <ImageView
         android:id="@+id/bubble1"
-        android:layout_width="188dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="81dp"
+        android:layout_width="149dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginTop="641dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginRight="131dp"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/first" />
 
     <FrameLayout
@@ -186,7 +166,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></FrameLayout>
+        app:layout_constraintVertical_bias="1.0"></FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
 

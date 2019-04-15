@@ -69,13 +69,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/blocks_desc"
+        android:id="@+id/early_desc"
         android:layout_width="365dp"
         android:layout_height="97dp"
         android:layout_marginTop="290dp"
         android:layout_marginBottom="344dp"
         android:text="@string/early_desc"
-        android:textColor="@color/material_drawer_dark_background"
+        android:textColor="@color/BigText"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,11 +86,11 @@
         android:id="@+id/front5"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="313dp"
-        android:layout_marginLeft="313dp"
+        android:layout_marginStart="299dp"
+        android:layout_marginLeft="299dp"
         android:layout_marginTop="590dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
         android:layout_marginBottom="91dp"
         android:background="@color/white"
         android:scaleType="fitXY"
@@ -116,7 +116,7 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="194dp"
+        android:layout_width="145dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -126,10 +126,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891"
+        app:layout_constraintVertical_bias="0.929"
         app:srcCompat="@drawable/fifth" />
 
 

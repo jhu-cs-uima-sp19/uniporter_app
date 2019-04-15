@@ -22,7 +22,7 @@ public class Early extends Fragment implements View.OnClickListener {
         View myView = inflater.inflate(R.layout.activity_early, container, false);
         ImageButton front5 = myView.findViewById(R.id.front5);
         ImageButton back5 = myView.findViewById(R.id.back5);
-        ImageButton x5 = myView.findViewById(R.id.back5);
+        ImageButton x5 = myView.findViewById(R.id.x5);
         front5.setOnClickListener(this);
         back5.setOnClickListener(this);
         x5.setOnClickListener(this);

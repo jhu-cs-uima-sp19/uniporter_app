@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UNIPORTER APP</string>
+    <string name="app_name"> </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -39,7 +39,7 @@
     <string name="large_luggage">Large Luggage</string>
     <string name="carry_on_suitcases">Carry-On Suitcases</string>
     <string name="special_luggage">Special Luggage</string>
-    <string name="special_desc">Estimate the size of your additional uniquely shaped luggage. Here, a carry-on is size 2. A large suitcase is size 4. Please select a relative size between 1 and 5.</string>
+    <string name="special_desc">Estimate the size of your uniquely shaped luggage. For example, a carry-on is size 2. A large suitcase is size 4.</string>
     <string name="blocks_desc">This information helps us group you with other riders within your walking range.</string>
     <string name="blocks_question">How many blocks are you willing to walk?</string>
     <string name="early_question">How many hours early are you willing to leave?</string>
@@ -53,7 +53,7 @@
     <string name="manual_flightno">Enter Flight TIme Manually</string>
     <string name="logout">Log Out</string>
     <string name="or">OR</string>
-    <string name="address_question">Where do you live on campus?</string>
+    <string name="address_question">Where is your preferred pickup location?</string>
     <string name="manual_address">Enter Address Manually</string>
     <string name="success">Success!</string>
     <string name="successmsg">You will be notified of your rideshare group 24 hours before your flight time.</string>

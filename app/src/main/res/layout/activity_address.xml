@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
@@ -15,14 +14,14 @@
         android:layout_marginTop="382dp"
         android:layout_marginBottom="255dp"
         android:text='"If none of the above, please select the nearest location.'
-        android:textColor="@color/BigText"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.581" />
 
     <Spinner
         android:id="@+id/address_spinner"
@@ -30,20 +29,23 @@
         android:layout_height="44dp"
         android:layout_marginTop="297dp"
         android:layout_marginBottom="410dp"
+        android:background="@android:drawable/spinner_background"
         android:dropDownWidth="wrap_content"
         android:entries="@array/address_array"
+        android:popupBackground="@android:drawable/spinner_dropdown_background"
         android:spinnerMode="dropdown"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/address_question"
         android:layout_width="320dp"
-        android:layout_height="101dp"
+        android:layout_height="137dp"
         android:layout_marginTop="131dp"
         android:layout_marginBottom="533dp"
         android:text="@string/address_question"
@@ -52,9 +54,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
 
 
     <ImageButton
@@ -63,13 +66,13 @@
         android:layout_height="50dp"
         android:layout_marginStart="299dp"
         android:layout_marginLeft="299dp"
-        android:layout_marginTop="590dp"
+        android:layout_marginTop="570dp"
         android:layout_marginEnd="62dp"
         android:layout_marginRight="62dp"
-        android:layout_marginBottom="91dp"
+        android:layout_marginBottom="111dp"
         android:background="@color/white"
         android:scaleType="fitXY"
-        android:tint="@color/primary"
+        android:tint="@color/primary_darker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,16 +83,16 @@
         android:id="@+id/back2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginTop="590dp"
-        android:layout_marginEnd="299dp"
-        android:layout_marginRight="299dp"
-        android:layout_marginBottom="91dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginEnd="309dp"
+        android:layout_marginRight="309dp"
+        android:layout_marginBottom="111dp"
         android:background="@color/white"
         android:rotation="180"
         android:scaleType="fitXY"
-        android:tint="@color/primary"
+        android:tint="@color/primary_darker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,8 +101,8 @@
 
     <ImageView
         android:id="@+id/bubble2"
-        android:layout_width="152dp"
-        android:layout_height="46dp"
+        android:layout_width="149dp"
+        android:layout_height="42dp"
         android:layout_marginStart="129dp"
         android:layout_marginLeft="129dp"
         android:layout_marginTop="620dp"
@@ -108,8 +111,10 @@
         android:layout_marginBottom="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/second" />
 
     <ImageButton
@@ -117,12 +122,12 @@
         style="@android:style/Widget.ImageButton"
         android:layout_width="47dp"
         android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginLeft="103dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginRight="121dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/accent"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"

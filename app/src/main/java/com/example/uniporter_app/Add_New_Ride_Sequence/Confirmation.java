@@ -63,7 +63,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         .getInstance()
                         .getAPI()
                         .addRide(3, user_email, "to_airport", airline, flight_no, "04/09/19",
-                                preferences, tags, "token 2acb0720e164dbc2677b8702d11179ed4e585b13");
+                                preferences, tags, "token" + SharedPreferenceManager.getInstance(getContext()).getUserToken());
                 call.enqueue(new Callback<RideResponse>() {
                     @Override
                     public void onResponse(Call<RideResponse> call, Response<RideResponse> response) {

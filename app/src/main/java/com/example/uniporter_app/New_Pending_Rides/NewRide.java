@@ -40,20 +40,18 @@ public class NewRide extends AppCompatActivity {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        setUpView(newRide);
+                        adapter = new NewRideAdapter(NewRide.this, newRide.getRideData());
+                        recyclerView.setAdapter(adapter);
+                        LinearLayoutManager llm = new LinearLayoutManager(NewRide.this);
+                        llm.setOrientation(LinearLayoutManager.VERTICAL);
+                        recyclerView.setLayoutManager(llm); // Vertical Orientation By Default
+                        toolBar = findViewById(R.id.toolbar);
+                        setSupportActionBar(toolBar);
+
+                        DrawerUtil.getDrawer(NewRide.this, toolBar);
                         progressDialog.dismiss();
                     }
                 }, 3000);
-    }
-
-    private void setUpView(NewRideData newRide) {
-        adapter = new NewRideAdapter(this, newRide.getRideData());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
-        toolBar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolBar);
-
-        DrawerUtil.getDrawer(this, toolBar);
     }
 
     @Override

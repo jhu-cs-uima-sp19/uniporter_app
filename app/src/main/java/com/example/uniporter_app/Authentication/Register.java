@@ -11,10 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.uniporter_app.API_models.DefaultResponse;
+import com.example.uniporter_app.API_models.LoginResponse;
+import com.example.uniporter_app.API_models.RegisterResponse;
 import com.example.uniporter_app.API.RetrofitClientUser;
+import com.example.uniporter_app.API_models.UserResponse;
 import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +33,9 @@ public class Register extends AppCompatActivity {
     EditText _reEnterPasswordText;
     Button _signupButton;
     TextView _loginLink;
+
+    boolean sign_up_sucess;
+    String auth_token;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,23 +87,80 @@ public class Register extends AppCompatActivity {
         progressDialog.show();
 
         String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
+        final String email = _emailText.getText().toString();
         String mobile = _mobileText.getText().toString();
-        String password = _passwordText.getText().toString();
+        final String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
-        Call<DefaultResponse> call = RetrofitClientUser
+        Call<RegisterResponse> call = RetrofitClientUser
                 .getInstance()
                 .getAPI()
                 .createUser(email, password, name);
 
-        call.enqueue(new Callback<DefaultResponse>() {
+        call.enqueue(new Callback<RegisterResponse>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
                 if (response.code() == 201) {
-                    DefaultResponse rr = response.body();
-                    Toast.makeText(Register.this, rr.getMsg(), Toast.LENGTH_LONG).show();
+                    RegisterResponse rr = response.body();
+                    Call<LoginResponse> call2 = RetrofitClientUser
+                            .getInstance()
+                            .getAPI()
+                            .loginUser(email, password);
+
+                    call2.enqueue(new Callback<LoginResponse>() {
+                        @Override
+                        public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                            LoginResponse loginResponse = response.body();
+
+                            if (response.code() == 200) {
+                                sign_up_sucess = true;
+                                auth_token = loginResponse.getToken();
+                                Log.w("checking auth token", auth_token);
+                                Toast.makeText(Register.this, "Register Success", Toast.LENGTH_LONG).show();
+                                Call<UserResponse> call2 = RetrofitClientUser
+                                        .getInstance()
+                                        .getAPI()
+                                        .getUser("token " + auth_token);
+                                call2.enqueue(new Callback<UserResponse>() {
+                                    @Override
+                                    public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                                        if (response.code() == 200) {
+                                            UserResponse userResponse = response.body();
+                                            int id = userResponse.getId();
+                                            SharedPreferenceManager.getInstance(Register.this)
+                                                    .saveUser(id, email, auth_token);
+                                            Toast.makeText(Register.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
+                                        } else if (response.code() == 400){
+                                            sign_up_sucess = false;
+                                            Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
+                                        } else if (response.code() == 500){
+                                            sign_up_sucess = false;
+                                            Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<UserResponse> call, Throwable t) {
+                                        Toast.makeText(Register.this, "Request failed: Get User Info", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+                            } else if (response.code() == 400){
+                                sign_up_sucess = false;
+                                Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
+                            } else if (response.code() == 500){
+                                sign_up_sucess = false;
+                                Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginResponse> call, Throwable t) {
+                            Toast.makeText(Register.this, "Request failed: Get Token", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    Toast.makeText(Register.this, rr.getEmail(), Toast.LENGTH_LONG).show();
                 } else if (response.code() == 400){
                     Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
                 } else if (response.code() == 500){
@@ -106,7 +169,7 @@ public class Register extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 Toast.makeText(Register.this, "Request Failed", Toast.LENGTH_LONG).show();
             }
         });

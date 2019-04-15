@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
@@ -35,7 +35,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.activity_confirmation, container, false);
-        Button done = myView.findViewById(R.id.done);
+        ImageButton done = myView.findViewById(R.id.done);
         done.setOnClickListener(this);
         return myView;
     }

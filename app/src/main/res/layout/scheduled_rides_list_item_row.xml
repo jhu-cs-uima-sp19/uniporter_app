@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/meeting_loc_row"
             android:text="meeting location"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_horizontal"/>
 
@@ -27,6 +29,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/time_row"
             android:text="flight time"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_horizontal"/>
 
@@ -36,6 +40,8 @@
             android:id="@+id/weight_row"
             android:text="weight"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>

@@ -1,13 +1,12 @@
 package com.example.uniporter_app.API;
 
-import android.preference.Preference;
-
-import com.example.uniporter_app.API_models.DefaultResponse;
+import com.example.uniporter_app.API_models.RegisterResponse;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.API_models.SharerideResponse;
 import com.example.uniporter_app.API_models.UserResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,7 +21,7 @@ public interface API {
 
     @FormUrlEncoded
     @POST("create/")
-    Call<DefaultResponse> createUser(
+    Call<RegisterResponse> createUser(
             @Field("email") String email,
             @Field("password") String password,
             @Field("name") String name
@@ -54,8 +53,8 @@ public interface API {
             @Field("airline") String airline,
             @Field("flight_no") String flight_no,
             @Field("date") String date,
-            @Field("preference[]") List<Integer> preferences,
-            @Field("tags[]") List<Integer> tags,
+            @Field("preferences[]") ArrayList<Integer> preferences,
+            @Field("tags[]") ArrayList<Integer> tags,
             @Header("Authorization") String authHeader
     );
 

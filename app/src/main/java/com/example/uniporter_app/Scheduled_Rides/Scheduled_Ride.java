@@ -36,12 +36,12 @@ public class Scheduled_Ride extends AppCompatActivity {
         progressDialog.show();
 
         recyclerView = findViewById(R.id.recycleView2);
-        final ScheduledRideData newRide = new ScheduledRideData();
-        newRide.callRideAPI();
+        final ScheduledRideData newShareride = new ScheduledRideData();
+        newShareride.callShareRideAPI();
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        setUpView(newRide);
+                        setUpView(newShareride);
                         progressDialog.dismiss();
                     }
                 }, 3000);

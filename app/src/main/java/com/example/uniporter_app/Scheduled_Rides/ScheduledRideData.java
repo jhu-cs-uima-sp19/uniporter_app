@@ -24,7 +24,7 @@ public class ScheduledRideData extends AppCompatActivity {
     final List<String> time = new ArrayList<>();
     final List<Integer> weight = new ArrayList<>();
 
-    public void callRideAPI() {
+    public void callShareRideAPI() {
         Call<List<SharerideResponse>> call = RetrofitClientSharerides
                 .getInstance()
                 .getAPI()
@@ -39,7 +39,7 @@ public class ScheduledRideData extends AppCompatActivity {
                     members.add(ride.getMemeber());
                     time.add(ride.getTime());
                     weight.add(ride.getWeight());
-                    Log.w("response", Integer.toString(meeting_loc.size()));
+                    Log.w("response_in", Integer.toString(meeting_loc.size()));
                 }
             }
 
@@ -61,7 +61,7 @@ public class ScheduledRideData extends AppCompatActivity {
 
         String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
 
-        Log.w("response", Integer.toString(meeting_loc.size()));
+        Log.w("response_out", Integer.toString(meeting_loc.size()));
         for (int i = 0; i < meeting_loc.size(); i++) {
 
             ScheduledRideInformation current = new ScheduledRideInformation();

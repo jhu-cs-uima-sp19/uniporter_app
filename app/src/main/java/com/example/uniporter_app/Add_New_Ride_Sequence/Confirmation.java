@@ -13,15 +13,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
-import com.example.uniporter_app.API_models.DefaultResponse;
 import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.Authentication.MainActivity;
-import com.example.uniporter_app.Authentication.Register;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,10 +45,10 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        List<Integer> preferences = new ArrayList<>();
-        preferences.add(1);
-        List<Integer> tags = new ArrayList<>();
-        tags.add(1);
+        ArrayList<Integer> preferences = new ArrayList<>();
+        preferences.add(new Integer(1));
+        ArrayList<Integer> tags = new ArrayList<>();
+        tags.add(new Integer(1));
         switch (v.getId()) {
             case R.id.done:
                 user_id = SharedPreferenceManager.getInstance(getContext())
@@ -68,6 +65,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         .getUserToken();
                 Log.w("madhu", user_token);
                 Log.w("madhu2", Integer.toString(user_id));
+                Log.w("arraylist", Integer.toString(preferences.get(0)));
                 Call<RideResponse> call = RetrofitClientRides
                         .getInstance()
                         .getAPI()

@@ -54,6 +54,10 @@ public class NewRideData extends AppCompatActivity{
 
         int[] location = {
                 R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
+                R.drawable.uniporter_background,
                 R.drawable.uniporter_background
         };
 

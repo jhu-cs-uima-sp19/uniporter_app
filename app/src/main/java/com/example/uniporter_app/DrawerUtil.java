@@ -27,7 +27,7 @@ public class DrawerUtil {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem drawerEmptyItem= new PrimaryDrawerItem().withIdentifier(0).withName("");
         drawerEmptyItem.withEnabled(false);
-
+        String newride = "New Ride";
         PrimaryDrawerItem drawerItemManagePlayers = new PrimaryDrawerItem().withIdentifier(1)
                 .withName(R.string.new_ride).withIcon(R.drawable.ic_add_circle_outline_black_24dp);
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
@@ -41,7 +41,7 @@ public class DrawerUtil {
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.drawable.uniporter_background)
+                .withHeaderBackground(R.color.primary)
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {

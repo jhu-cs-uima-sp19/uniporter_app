@@ -45,8 +45,8 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
-        myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
-        myViewHolder.time.setText(data.get(position).time);
+        myViewHolder.meeting_loc.setText("Meeting Location: " + data.get(position).meeting_loc);
+        myViewHolder.time.setText("Meeting Time: " + data.get(position).time);
         //myViewHolder.weight.setText(data.get(position).weight);
 
         if(position > previousPosition){ // We are scrolling DOWN

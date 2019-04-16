@@ -79,8 +79,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
         public MyViewHolder(View itemView) {
             super(itemView);
-
-            imageView = (ImageView) itemView.findViewById(R.id.img_row);
             meeting_loc = (TextView) itemView.findViewById(R.id.meeting_loc_row);
             time = (TextView) itemView.findViewById(R.id.time_row);
             weight = (TextView) itemView.findViewById(R.id.weight_row);

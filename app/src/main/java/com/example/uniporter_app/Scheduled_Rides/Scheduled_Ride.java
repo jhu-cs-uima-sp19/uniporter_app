@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.uniporter_app.DrawerUtil;
+import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.Scheduled_Rides.Scheduled_Ride;
 import com.example.uniporter_app.Scheduled_Rides.ScheduledRideAdapter;
 import com.example.uniporter_app.Scheduled_Rides.ScheduledRideData;
@@ -41,20 +42,16 @@ public class Scheduled_Ride extends AppCompatActivity {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        setUpView(newShareride);
+                        adapter = new ScheduledRideAdapter(Scheduled_Ride.this, newShareride.getRideData());
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(Scheduled_Ride.this)); // Vertical Orientation By Default
+                        toolBar = findViewById(R.id.toolbar);
+                        setSupportActionBar(toolBar);
+
+                        DrawerUtil.getDrawer(Scheduled_Ride.this, toolBar);
                         progressDialog.dismiss();
                     }
                 }, 3000);
-    }
-
-    private void setUpView(ScheduledRideData newRide) {
-        adapter = new ScheduledRideAdapter(this, newRide.getRideData());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this)); // Vertical Orientation By Default
-        toolBar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolBar);
-
-        DrawerUtil.getDrawer(this, toolBar);
     }
 
     @Override

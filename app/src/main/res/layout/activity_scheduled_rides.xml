@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Scheduled_Rides.Scheduled_Ride">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Scheduled_Rides.Scheduled_Ride"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    app:popupTheme="@style/AppTheme.PopupOverlay">
 
     <include
         android:id="@+id/toolbar"
@@ -13,7 +17,9 @@
         android:id="@+id/recycleView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fitsSystemWindows="true"
+        >
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

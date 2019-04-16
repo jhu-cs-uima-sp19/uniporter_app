@@ -45,11 +45,13 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
-        myViewHolder.type.setText("Direction: " + data.get(position).type);
-        myViewHolder.airline.setText("Airline: " + data.get(position).date);
-        myViewHolder.flight_no.setText("Flight Number: " + data.get(position).flight_no);
-        myViewHolder.date.setText("Date: " + data.get(position).date);
-        myViewHolder.flight_time.setText("Flight Time: " + data.get(position).flight_time);
+        String dest = (data.get(position).type != "to_airport") ? "BWI International Airport" : "Johns Hopkins University";
+
+        myViewHolder.type.setText(dest);
+        myViewHolder.airline.setText(data.get(position).date);
+        myViewHolder.flight_no.setText(data.get(position).flight_no);
+        myViewHolder.date.setText(data.get(position).date);
+        myViewHolder.flight_time.setText(data.get(position).flight_time);
 
         if(position > previousPosition){ // We are scrolling DOWN
 

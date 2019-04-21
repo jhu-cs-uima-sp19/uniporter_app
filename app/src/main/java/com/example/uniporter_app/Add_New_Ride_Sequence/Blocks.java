@@ -13,10 +13,12 @@ import android.widget.ImageButton;
 
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
+
 import android.widget.Spinner;
 
 public class Blocks extends Fragment implements View.OnClickListener {
-    String blocks_value;
+    int blocks_value;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -28,7 +30,7 @@ public class Blocks extends Fragment implements View.OnClickListener {
         back3.setOnClickListener(this);
         x3.setOnClickListener(this);
         Spinner spinner = (Spinner) myView.findViewById(R.id.blocks_spinner);
-        blocks_value = spinner.getSelectedItem().toString();
+        blocks_value = Integer.parseInt(spinner.getSelectedItem().toString());
         return myView;
     }
     @Override
@@ -40,6 +42,8 @@ public class Blocks extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.front3:
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveBlocks(blocks_value);
                 Fragment fragment1 = new Luggage();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 ft1.replace(R.id.screen_area, fragment1, "Luggage");

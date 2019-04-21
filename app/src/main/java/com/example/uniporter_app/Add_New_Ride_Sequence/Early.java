@@ -12,10 +12,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
+
 import android.widget.Spinner;
 
 public class Early extends Fragment implements View.OnClickListener {
-    String early_value;
+    int early_value;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -27,7 +29,7 @@ public class Early extends Fragment implements View.OnClickListener {
         back5.setOnClickListener(this);
         x5.setOnClickListener(this);
         Spinner spinner = (Spinner) myView.findViewById(R.id.early_spinner);
-        early_value = spinner.getSelectedItem().toString();
+        early_value = Integer.parseInt(spinner.getSelectedItem().toString());
         return myView;
     }
     @Override
@@ -38,6 +40,8 @@ public class Early extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.front5:
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveWaitTime(early_value);
                 Fragment fragment1 = new Confirmation();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 ft1.replace(R.id.screen_area, fragment1, "Confirmation");

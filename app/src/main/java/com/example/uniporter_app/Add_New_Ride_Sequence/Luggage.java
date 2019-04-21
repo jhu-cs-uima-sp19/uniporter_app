@@ -14,11 +14,14 @@ import android.widget.Spinner;
 
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 public class Luggage extends Fragment implements View.OnClickListener {
-    String large_lugg_value;
-    String small_lugg_value;
-    String special_lugg_value;
+
+    int large_lugg_value;
+    int small_lugg_value;
+    int special_lugg_value;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -30,22 +33,26 @@ public class Luggage extends Fragment implements View.OnClickListener {
         back4.setOnClickListener(this);
         x4.setOnClickListener(this);
         Spinner spinner1 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
-        large_lugg_value = spinner1.getSelectedItem().toString();
+        large_lugg_value = Integer.parseInt(spinner1.getSelectedItem().toString());
         Spinner spinner2 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
-        small_lugg_value = spinner2.getSelectedItem().toString();
+        small_lugg_value = Integer.parseInt(spinner2.getSelectedItem().toString());
         Spinner spinner3 = (Spinner) myView.findViewById(R.id.special_luggage_spinner);
-        special_lugg_value = spinner3.getSelectedItem().toString();
+        special_lugg_value = Integer.parseInt(spinner3.getSelectedItem().toString());
         return myView;
-
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.front4:
+                int total_lugguge_weight = compute_lugugge_weight(large_lugg_value, small_lugg_value, special_lugg_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveLuggage(total_lugguge_weight);
                 Fragment fragment1 = new Early();
                 FragmentTransaction ft1 = getFragmentManager().beginTransaction();
                 ft1.replace(R.id.screen_area, fragment1, "Luggage");
@@ -64,5 +71,9 @@ public class Luggage extends Fragment implements View.OnClickListener {
             default:
                 break;
         }
+    }
+
+    public int compute_lugugge_weight(int large_lugg_value, int small_lugg_value, int special_lugg_value) {
+        return large_lugg_value * 2 + small_lugg_value + special_lugg_value;
     }
 }

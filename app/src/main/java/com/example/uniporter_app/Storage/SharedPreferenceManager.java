@@ -89,6 +89,31 @@ public class SharedPreferenceManager {
         editor.commit();
     }
 
+    public void saveBlocks(int blocks) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("blocks", blocks);
+
+        editor.commit();
+    }
+
+    public void saveLuggage(int luggage) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("luggage", luggage);
+        editor.commit();
+    }
+
+    public void saveWaitTime(int wait_time) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("wait_time", wait_time);
+        editor.commit();
+    }
+
     public String getResidence() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("residence", null);
@@ -103,5 +128,20 @@ public class SharedPreferenceManager {
     public String getAirline() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("airline", null);
+    }
+
+    public int getBlocks() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("blocks", -1);
+    }
+
+    public int getLuggage() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("luggage", -1);
+    }
+
+    public int getWaitTime() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("wait_time", -1);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.uniporter_app.API;
 
+import com.example.uniporter_app.API_models.PreferenceResponse;
 import com.example.uniporter_app.API_models.RegisterResponse;
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.RideResponse;
@@ -62,5 +63,15 @@ public interface API {
     @POST("sharerides")
     Call<List<SharerideResponse>> getShareRides(
             @Field("date") String date
+    );
+
+    @FormUrlEncoded
+    @POST("preferences/")
+    Call<PreferenceResponse> addPreference(
+            @Field("name") String name,
+            @Field("weight") int weight,
+            @Field("wait_time") int wait_time,
+            @Field("residence") String residence,
+            @Header("Authorization") String authHeader
     );
 }

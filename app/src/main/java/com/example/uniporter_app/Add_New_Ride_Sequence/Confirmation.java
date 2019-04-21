@@ -75,6 +75,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         .getResidence();
                 flight_no = SharedPreferenceManager.getInstance(getContext())
                         .getFlightNo();
+                Log.w("flight_no", flight_no);
                 airline = SharedPreferenceManager.getInstance(getContext())
                         .getAirline();
                 user_token = SharedPreferenceManager.getInstance(getContext())

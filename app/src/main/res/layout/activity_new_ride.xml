@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true"
     android:background="@color/md_grey_300">
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"

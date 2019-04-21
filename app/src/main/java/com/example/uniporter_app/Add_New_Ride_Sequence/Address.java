@@ -18,28 +18,41 @@ import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 public class Address extends Fragment implements View.OnClickListener {
+
     String residence_value;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    View myView;
+    ImageButton front2;
+    ImageButton back2;
+    ImageButton x2;
+    Spinner spinner;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View myView = inflater.inflate(R.layout.activity_address, container, false);
-        ImageButton front2 = myView.findViewById(R.id.front2);
-        ImageButton back2 = myView.findViewById(R.id.back2);
-        ImageButton x2 = myView.findViewById(R.id.x2);
+        myView = inflater.inflate(R.layout.activity_address, container, false);
+
+        front2 = myView.findViewById(R.id.front2);
+        back2 = myView.findViewById(R.id.back2);
+        x2 = myView.findViewById(R.id.x2);
+
         front2.setOnClickListener(this);
         back2.setOnClickListener(this);
         x2.setOnClickListener(this);
-        Spinner spinner = (Spinner) myView.findViewById(R.id.address_spinner);
+
+        spinner = (Spinner) myView.findViewById(R.id.address_spinner);
         residence_value = spinner.getSelectedItem().toString();
+
         return myView;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
+
             case R.id.front2:
                 SharedPreferenceManager.getInstance(getContext())
                         .saveResidence(residence_value);
@@ -62,7 +75,6 @@ public class Address extends Fragment implements View.OnClickListener {
                break;
             default:
                 break;
-
         }
     }
 }

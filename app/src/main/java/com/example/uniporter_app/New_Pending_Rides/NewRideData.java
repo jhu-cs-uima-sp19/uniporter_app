@@ -17,6 +17,7 @@ import retrofit2.Response;
 
 public class NewRideData extends AppCompatActivity{
 
+    final List<Integer> id = new ArrayList<>();
     final List<String> type = new ArrayList<>();
     final List<String> airline = new ArrayList<>();
     final List<String> flight_no = new ArrayList<>();
@@ -34,6 +35,7 @@ public class NewRideData extends AppCompatActivity{
             public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
                 if (response.body() != null) {
                     for (RideResponse ride : response.body()) {
+                        id.add(ride.getId());
                         type.add(ride.getType());
                         airline.add(ride.getAirline());
                         flight_no.add(ride.getFlight_no());
@@ -68,6 +70,7 @@ public class NewRideData extends AppCompatActivity{
 
             NewRideInformation current = new NewRideInformation();
 
+            current.id = id.get(i);
             current.type = type.get(i);
             current.airline = airline.get(i);
             current.flight_no  =flight_no.get(i);

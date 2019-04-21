@@ -9,10 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.AnimationUtil;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHolder> {
@@ -47,6 +54,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
         String dest = (data.get(position).type != "to_airport") ? "BWI International Airport" : "Johns Hopkins University";
 
+        myViewHolder.id.setText("delete");
         myViewHolder.type.setText(dest);
         myViewHolder.airline.setText(data.get(position).date);
         myViewHolder.flight_no.setText(data.get(position).flight_no);
@@ -67,6 +75,31 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
         final int currentPosition = position;
         final NewRideInformation infoData = data.get(position);
+
+        myViewHolder.id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user_token = SharedPreferenceManager.getInstance(context)
+                        .getUserToken();
+                Call<ResponseBody> call = RetrofitClientRides
+                        .getInstance()
+                        .getAPI()
+                        .deleteItem(data.get(position).id, "token " + user_token);
+
+                call.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Toast.makeText(context, "Deleted Ride " + Integer.toString(data.get(position).id), Toast.LENGTH_SHORT).show();
+                        removeItem(data.get(position));
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
 
         /*
         myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +136,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
+        TextView id;
         TextView type;
         TextView airline;
         TextView flight_no;
@@ -112,6 +146,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         public MyViewHolder(View itemView) {
             super(itemView);
 
+            id = (TextView) itemView.findViewById(R.id.ride_id);
             type = (TextView) itemView.findViewById(R.id.type_row);
             airline = (TextView) itemView.findViewById(R.id.airline_row);
             flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);

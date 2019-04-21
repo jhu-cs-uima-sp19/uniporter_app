@@ -27,7 +27,7 @@
                 android:id="@+id/destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Destination:"
+                android:text="Your Arranged Shareride"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/md_orange_300"
                 android:textSize="23sp"/>
@@ -36,7 +36,7 @@
                 android:id="@+id/type_row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="type"
+                android:text="please see details below"
                 android:textColor="@color/md_grey_800"
                 android:textSize="18sp"/>
         </LinearLayout>
@@ -134,7 +134,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/date_row"
+                android:id="@+id/scheduled_date_row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="date"
@@ -144,91 +144,9 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:id="@+id/airline"
-                android:layout_width="213dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="Airline  "
-                android:textColor="@color/md_grey_500"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/airline_row"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Air Canada (AC)"
-                android:textColor="@color/md_grey_600"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/flight_number"
-                android:layout_width="213dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="Flight Number  "
-                android:textColor="@color/md_grey_500"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/flight_no_row"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="flight no"
-                android:textColor="@color/md_grey_600"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/flight_time"
-                android:layout_width="213dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="Departure Time  "
-                android:textColor="@color/md_grey_500"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/flight_time_row"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="flight time"
-                android:textColor="@color/md_grey_600"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -253,7 +171,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -294,43 +211,11 @@
                 android:id="@+id/weight_row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="luggAGE"
+                android:text="luggage"
                 android:textColor="@color/md_grey_600"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <TextView
-            android:id="@+id/edit_ride"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="edit ride"
-            android:textColor="@color/md_blue_600"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <TextView
-            android:id="@+id/delete_ride"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="delete ride"
-            android:textColor="@color/md_red_400"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
 
     </LinearLayout>

@@ -246,7 +246,7 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
-            android:id="@+id/delete_ride"
+            android:id="@+id/ride_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

@@ -19,27 +19,29 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ScheduledRideData extends AppCompatActivity {
+
+    final List<String> schedule_date = new ArrayList<>();
     final List<String> meeting_loc = new ArrayList<>();
     final List<List<String>> members = new ArrayList<>();
     final List<String> time = new ArrayList<>();
     final List<Integer> weight = new ArrayList<>();
 
     public void callShareRideAPI() {
+        final String target_date = "04/25/19";
         Call<List<SharerideResponse>> call = RetrofitClientSharerides
                 .getInstance()
                 .getAPI()
-                .getShareRides("04/09/19");
+                .getShareRides(target_date);
 
         call.enqueue(new Callback<List<SharerideResponse>>() {
             @Override
             public void onResponse(Call<List<SharerideResponse>> call, Response<List<SharerideResponse>> response) {
                 for (SharerideResponse ride: response.body()) {
+                    schedule_date.add(target_date);
                     meeting_loc.add(ride.getMeeting_loc());
-                    Log.w("meeting", ride.getMeeting_loc());
                     members.add(ride.getMemeber());
                     time.add(ride.getTime());
                     weight.add(ride.getWeight());
-                    Log.w("response_in", Integer.toString(meeting_loc.size()));
                 }
             }
 
@@ -59,14 +61,13 @@ public class ScheduledRideData extends AppCompatActivity {
                 R.drawable.uniporter_background
         };
 
-        String[] dates = {"fuck, we can't finish this", "gotta code like crazy for the next two days"};
-
         Log.w("response_out", Integer.toString(meeting_loc.size()));
         for (int i = 0; i < meeting_loc.size(); i++) {
 
             ScheduledRideInformation current = new ScheduledRideInformation();
 
             current.location = location[0];
+            current.schedule_date = schedule_date.get(i);
             current.meeting_loc = meeting_loc.get(i);
             current.member = members.get(i);
             current.time = time.get(i);

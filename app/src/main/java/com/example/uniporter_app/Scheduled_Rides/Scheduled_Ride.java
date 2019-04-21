@@ -46,6 +46,7 @@ public class Scheduled_Ride extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(Scheduled_Ride.this)); // Vertical Orientation By Default
                         toolBar = findViewById(R.id.toolbar);
+                        toolBar.setTitle("Your Scheduled Sharerides");
                         setSupportActionBar(toolBar);
 
                         DrawerUtil.getDrawer(Scheduled_Ride.this, toolBar);

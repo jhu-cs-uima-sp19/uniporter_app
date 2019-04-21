@@ -50,6 +50,7 @@ public class NewRide extends AppCompatActivity {
                         llm.setOrientation(LinearLayoutManager.VERTICAL);
                         recyclerView.setLayoutManager(llm); // Vertical Orientation By Default
                         toolBar = findViewById(R.id.toolbar);
+                        toolBar.setTitle("Your Pending Rides");
                         setSupportActionBar(toolBar);
 
                         DrawerUtil.getDrawer(NewRide.this, toolBar);

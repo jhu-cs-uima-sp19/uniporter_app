@@ -17,6 +17,7 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
@@ -37,11 +38,17 @@ public class DrawerUtil {
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 
+        String user_email = SharedPreferenceManager.getInstance(activity)
+                .getUserEmal();
+
 
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.color.primary)
+                .withHeaderBackground(R.drawable.logo)
+                .addProfiles(
+                        new ProfileDrawerItem().withName("Random Person").withEmail(user_email).withIcon(activity.getResources().getDrawable(R.drawable.avatar))
+                )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
@@ -49,6 +56,7 @@ public class DrawerUtil {
                     }
                 })
                 .build();
+
 
         //create the drawer and remember the `Drawer` result object
         DrawerBuilder drawerBuilder = new DrawerBuilder();
@@ -80,7 +88,7 @@ public class DrawerUtil {
                     Intent intent = new Intent(activity, MainActivity.class);
                     view.getContext().startActivity(intent);
                 }
-                else if (drawerItem.getIdentifier() == 3) {
+                else if (drawerItem.getIdentifier() == 3 && !(activity instanceof Scheduled_Ride)) {
                     // load screen
                     Intent intent = new Intent(activity, Scheduled_Ride.class);
                     view.getContext().startActivity(intent);

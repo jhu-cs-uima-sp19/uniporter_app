@@ -2,44 +2,33 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="370dp"
-    card_view:cardCornerRadius="5dp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="2dp"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     >
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@color/md_white_1000">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:background="@color/md_white_1000"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="20dp">
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/destination"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="DESTINATION"
+                    android:text="Your Destination:"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/md_orange_300"
                     android:textSize="23sp"/>
 
                 <TextView
@@ -47,171 +36,226 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="type"
-                    android:textColor="@color/BigText"
-                    android:textSize="23sp"/>
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/darker_gray" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
                     >
 
-                    <ImageView
-                        android:id="@+id/JHU_logo"
-                        android:layout_width="73dp"
-                        android:layout_height="71dp"
-                        android:src="@drawable/jhu_logo" />
+                    <LinearLayout
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/JHU_logo"
+                            android:layout_width="47dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/jhu_logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Johns Hopkins" />
+                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/arrow"
-                        android:layout_width="73dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="111dp"
+                        android:layout_height="49dp"
                         android:src="@drawable/arrow" />
-
-                    <ImageView
-                        android:id="@+id/BWI_logo"
-                        android:layout_width="104dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/bwi_logo" />
-                </LinearLayout>
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/BWI_logo"
+                            android:layout_width="72dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/bwi_logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BWI Airport"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Trip Details"
+                android:textColor="@color/md_grey_700"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/flight_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="   on   "
+                android:textColor="@color/md_grey_500"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/date_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="date"
+                android:textColor="@color/md_orange_300"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginTop="5dp">
 
                         <TextView
                             android:id="@+id/airline"
-                            android:layout_width="wrap_content"
+                            android:layout_width="213dp"
                             android:layout_height="wrap_content"
-                            android:text="Airline  "
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/design_default_color_primary_dark"
-                            android:textSize="18sp"/>
+                            android:text="Airline  "
+                            android:textColor="@color/md_grey_500"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/airline_row"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="right"
                             android:text="Air Canada (AC)"
-                            android:textColor="@color/black"
+                            android:textColor="@color/md_grey_600"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/flight_number"
-                            android:layout_width="wrap_content"
+                            android:layout_width="213dp"
                             android:layout_height="wrap_content"
-                            android:text="Flight Number  "
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/design_default_color_primary_dark"
-                            android:textSize="18sp"/>
+                            android:text="Flight Number  "
+                            android:textColor="@color/md_grey_500"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/flight_no_row"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="flight no"
-                            android:textColor="@color/black"
+                            android:textColor="@color/md_grey_600"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp">
-
-                        <TextView
-                            android:id="@+id/flight_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Departure Date  "
-                            android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/design_default_color_primary_dark"
-                            android:textSize="18sp"/>
-
-                        <TextView
-                            android:id="@+id/date_row"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="date"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/flight_time"
-                            android:layout_width="wrap_content"
+                            android:layout_width="213dp"
                             android:layout_height="wrap_content"
-                            android:text="Departure Time  "
                             android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/design_default_color_primary_dark"
-                            android:textSize="18sp"/>
+                            android:text="Departure Time  "
+                            android:textColor="@color/md_grey_500"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/flight_time_row"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="flight time"
-                            android:textColor="@color/black"
+                            android:textColor="@color/md_grey_600"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_horizontal">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit"
-                        android:background="@color/md_blue_600"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/edit_ride"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="edit ride"
+            android:textColor="@color/md_blue_600"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Delete"
-                        android:background="@color/md_red_A400"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/delete_ride"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="delete ride"
+            android:textColor="@color/md_red_400"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
 
     </LinearLayout>
 

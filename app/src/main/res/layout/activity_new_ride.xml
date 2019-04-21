@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".New_Pending_Rides.NewRide"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="@color/md_grey_300">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView"

@@ -1,5 +1,6 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -49,33 +50,33 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         done.setOnClickListener(this);
         return myView;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
     @Override
     public void onClick(final View v) {
         final ArrayList<Integer> preferences = new ArrayList<>();
-        // preferences.add(new Integer(1));
         final ArrayList<Integer> tags = new ArrayList<>();
         tags.add(new Integer(1));
         switch (v.getId()) {
             case R.id.done:
+                final ProgressDialog progressDialog = new ProgressDialog(getContext(), R.style.AppTheme_Dark_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Sending your information...");
+                progressDialog.show();
                 user_id = SharedPreferenceManager.getInstance(getContext())
                         .getUserID();
-                Log.w("user_id", Integer.toString(user_id));
                 user_email = SharedPreferenceManager.getInstance(getContext())
                         .getUserEmal();
-                Log.w("user_email", user_email);
                 residence = SharedPreferenceManager.getInstance(getContext())
                         .getResidence();
-                Log.w("user_residence", residence);
                 flight_no = SharedPreferenceManager.getInstance(getContext())
                         .getFlightNo();
-                // Log.w("user_flight_no", flight_no);
                 airline = SharedPreferenceManager.getInstance(getContext())
                         .getAirline();
-                //Log.w("user_airline", airline);
                 user_token = SharedPreferenceManager.getInstance(getContext())
                         .getUserToken();
                 luggage = SharedPreferenceManager.getInstance(getContext())
@@ -142,12 +143,11 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                         Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_LONG).show();
                                     }
                                 });
+                                progressDialog.dismiss();
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
                                 v.getContext().startActivity(intent);
                             }
                         }, 3000);
-
-
                 break;
             default:
                 break;

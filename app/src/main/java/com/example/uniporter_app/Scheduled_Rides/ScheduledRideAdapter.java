@@ -15,6 +15,7 @@ import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdapter.MyViewHolder> {
     private Context context;
@@ -48,7 +49,15 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         myViewHolder.schedule_date.setText(data.get(position).schedule_date);
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
         myViewHolder.time.setText( data.get(position).time);
-        myViewHolder.weight.setText(Integer.toString(data.get(position).weight));
+        myViewHolder.weight.setText(Integer.toString(data.get(position).weight * 10) + " kg");
+
+        List<String> group = data.get(position).member;
+        String concatenatedNames = "";
+        for (int i = 0; i < group.size(); i++) {
+            concatenatedNames += (group.get(i) + "\n");
+        }
+
+        myViewHolder.members.setText(concatenatedNames);
 
         if(position > previousPosition){ // We are scrolling DOWN
 
@@ -78,6 +87,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         TextView time;
         TextView weight;
         TextView schedule_date;
+        TextView members;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -85,6 +95,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
             time = (TextView) itemView.findViewById(R.id.time_row);
             weight = (TextView) itemView.findViewById(R.id.weight_row);
             schedule_date = (TextView) itemView.findViewById(R.id.scheduled_date_row);
+            members = (TextView) itemView.findViewById(R.id.members_row);
         }
     }
 

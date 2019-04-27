@@ -39,7 +39,7 @@ public class ScheduledRideData extends AppCompatActivity {
                 for (SharerideResponse ride: response.body()) {
                     schedule_date.add(target_date);
                     meeting_loc.add(ride.getMeeting_loc());
-                    members.add(ride.getMemeber());
+                    members.add(ride.getMember());
                     time.add(ride.getTime());
                     weight.add(ride.getWeight());
                 }

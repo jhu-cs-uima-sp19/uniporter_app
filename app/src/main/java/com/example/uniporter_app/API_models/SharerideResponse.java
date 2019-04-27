@@ -7,7 +7,7 @@ public class SharerideResponse {
     private String date;
     private int distance_score;
     private String meeting_loc;
-    private List<String> memeber;
+    private List<String> members;
     private String time;
     private int weight;
 
@@ -15,7 +15,7 @@ public class SharerideResponse {
         this.date = date;
         this.distance_score = distance_score;
         this.meeting_loc = meeting_loc;
-        this.memeber = memeber;
+        this.members = memeber;
         this.time = time;
         this.weight = weight;
     }
@@ -32,8 +32,8 @@ public class SharerideResponse {
         return meeting_loc;
     }
 
-    public List<String> getMemeber() {
-        return memeber;
+    public List<String> getMember() {
+        return members;
     }
 
     public String getTime() {

@@ -93,7 +93,6 @@ public class Login extends AppCompatActivity {
 
         final String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-
         Call<LoginResponse> call = RetrofitClientUser
                 .getInstance()
                 .getAPI()

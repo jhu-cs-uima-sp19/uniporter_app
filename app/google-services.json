@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "66413189843",
+    "firebase_url": "https://uniporterapp.firebaseio.com",
+    "project_id": "uniporterapp",
+    "storage_bucket": "uniporterapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66413189843:android:d9e133c3009544f1",
+        "android_client_info": {
+          "package_name": "com.example.uniporter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66413189843-tndo9tgb5bc6jp4q9k2b4r7v06f0hna0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.uniporter_app",
+            "certificate_hash": "c9369548393a991d98c5bf70f19a05dadd4990e3"
+          }
+        },
+        {
+          "client_id": "66413189843-d58lsfecjqkdu3gl2390r1vhrubvlvqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-vgVyz52qOLu9NQCQaOjXRtaAEZ1SKGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66413189843-d58lsfecjqkdu3gl2390r1vhrubvlvqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -147,7 +147,8 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(Login.this, "Request failed: Get Token", Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.w("login", t.getMessage());
             }
         });
 

@@ -9,9 +9,40 @@
     android:fitsSystemWindows="true"
     app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    <include
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
+            <EditText
+                android:background="@drawable/rounded_corner"
+                android:layout_width="190dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:id="@+id/shareride_date"
+                android:text="04/25/19"
+                android:textColor="@color/md_blue_900"
+                android:shadowRadius="@integer/google_play_services_version"
+                />
+            <Button
+
+                android:id="@+id/select_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Enter" />
+
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView2"

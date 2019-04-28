@@ -34,9 +34,13 @@ public class DrawerUtil {
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.pending_rides).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem scheduled_rides = new PrimaryDrawerItem()
+<<<<<<< HEAD
                 .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem my_preferences = new PrimaryDrawerItem()
                 .withIdentifier(5).withName("My Preferences").withIcon(R.drawable.profile);
+=======
+                .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic_schedule_24dp);
+>>>>>>> 37c95f4a117e154969c6312c6cfcb5b4ebf90914
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 
@@ -48,7 +52,7 @@ public class DrawerUtil {
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.drawable.logo)
+                .withHeaderBackground(R.drawable.blue_bg)
                 .addProfiles(
                         new ProfileDrawerItem().withName("Random Person").withEmail(user_email).withIcon(activity.getResources().getDrawable(R.drawable.avatar))
                 )

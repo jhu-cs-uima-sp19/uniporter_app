@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:orientation="horizontal">
-
             <EditText
+                android:background="@drawable/rounded_corner"
                 android:layout_width="190dp"
                 android:layout_height="match_parent"
                 android:gravity="left"
@@ -30,14 +30,17 @@
                 android:text="04/25/19"
                 android:textColor="@color/md_blue_900"
                 android:shadowRadius="@integer/google_play_services_version"
-                android:background="@color/white" />
+                />
             <Button
+
                 android:id="@+id/select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
-                android:background="@color/md_light_blue_200"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/colorPrimary"
                 android:text="Enter" />
+
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 

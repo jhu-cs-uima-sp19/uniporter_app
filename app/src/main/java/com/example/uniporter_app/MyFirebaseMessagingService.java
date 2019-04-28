@@ -25,8 +25,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.d(TAG, "Demo Notification Body -> " + remotemsg.getNotification().getBody());
         sendNotification(remotemsg.getNotification().getBody());
     }
-
-
     private void sendNotification(String messageBody) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

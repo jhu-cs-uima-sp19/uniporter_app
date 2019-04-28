@@ -32,6 +32,20 @@ public class SharedPreferenceManager {
         editor.apply();
     }
 
+    public void saveUserEmail(String email) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("user_email", email);
+
+        editor.commit();
+    }
+
+    public String getUserEmail() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("user_email", null);
+    }
+
     public String getUserEmal() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("email", null);

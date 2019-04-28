@@ -13,13 +13,14 @@ public class Profile extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.profile);
 
         TextView name_text = (TextView) findViewById(R.id.name);
         user_name = SharedPreferenceManager.getInstance(Profile.this).getName();
         name_text.setText(user_name);
 
         TextView email_text = (TextView) findViewById(R.id.email);
-        user_email = SharedPreferenceManager.getInstance(Profile.this).getUserEmal();
+        user_email = SharedPreferenceManager.getInstance(Profile.this).getUserEmail();
         email_text.setText(user_email);
 
     }

@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientSharerides {
-    private static final String BASE_URL = "http://ec2-18-219-125-125.us-east-2.compute.amazonaws.com/api/";
+    private static final String BASE_URL = "http://ec2-18-219-125-125.us-east-2.compute.amazonaws.com:5000/api/";
     private static RetrofitClientSharerides mInstance;
     private Retrofit retrofit;
 

@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.New_Pending_Rides.NewRide;
@@ -27,6 +29,10 @@ public class Scheduled_Ride extends AppCompatActivity {
     //NavDrawer
     Toolbar toolBar;
 
+    // Get date
+    EditText shareride_date;
+    Button get_date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +42,19 @@ public class Scheduled_Ride extends AppCompatActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading Your Data...");
         progressDialog.show();
+        grabSharerideDate(progressDialog);
 
+        get_date = findViewById(R.id.select_date);
+        get_date.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                shareride_date = findViewById(R.id.shareride_date);
+                String date = shareride_date.getText().toString();
+            }
+        });
+
+    }
+
+    private void grabSharerideDate(final ProgressDialog progressDialog) {
         recyclerView = findViewById(R.id.recycleView2);
         final ScheduledRideData newShareride = new ScheduledRideData();
         newShareride.callShareRideAPI();

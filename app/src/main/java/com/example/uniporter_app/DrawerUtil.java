@@ -45,7 +45,7 @@ public class DrawerUtil {
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.drawable.logo)
+                .withHeaderBackground(R.drawable.blue_bg)
                 .addProfiles(
                         new ProfileDrawerItem().withName("Random Person").withEmail(user_email).withIcon(activity.getResources().getDrawable(R.drawable.avatar))
                 )

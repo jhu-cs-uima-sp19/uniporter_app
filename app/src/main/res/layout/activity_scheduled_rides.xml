@@ -30,14 +30,16 @@
                 android:text="04/25/19"
                 android:textColor="@color/md_blue_900"
                 android:shadowRadius="@integer/google_play_services_version"
+                android:radius="5dp"
                 android:background="@color/white" />
             <Button
                 android:id="@+id/select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
+                android:radius="5dp"
                 android:background="@color/md_light_blue_200"
-                android:text="Enter" />
+                android:text="Search" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 

@@ -11,4 +11,5 @@
     app:layout_collapseMode="pin"
     app:layout_scrollFlags="scroll|enterAlways"
     android:fitsSystemWindows="true"
-    />
+    >
+    </android.support.v7.widget.Toolbar>

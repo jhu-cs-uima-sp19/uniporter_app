@@ -35,6 +35,9 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <activity
+            android:name=".Profile"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".New_Pending_Rides.NewRide"
             android:screenOrientation="portrait" />
         <activity

@@ -170,4 +170,9 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         data.add(position, infoData);
         notifyItemInserted(position);
     }
+
+    @Override
+    public final int getItemViewType(int position) {
+        return data.get(position).getViewType();
+    }
 }

@@ -7,4 +7,8 @@ public class NewRideInformation {
     public String flight_no;
     public String date;
     public String flight_time;
+
+    public int getViewType() {
+        return 1;
+    }
 }

@@ -35,8 +35,11 @@ public class DrawerUtil {
                 .withIdentifier(2).withName(R.string.pending_rides).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem scheduled_rides = new PrimaryDrawerItem()
                 .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic__car_24dp);
+        PrimaryDrawerItem my_preferences = new PrimaryDrawerItem()
+                .withIdentifier(5).withName("My Preferences").withIcon(R.drawable.profile);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
+
 
         String user_email = SharedPreferenceManager.getInstance(activity)
                 .getUserEmal();
@@ -72,6 +75,7 @@ public class DrawerUtil {
                 drawerItemManagePlayersTournaments,
                 scheduled_rides,
                 logout,
+                my_preferences,
                 new DividerDrawerItem()
         );
 
@@ -97,6 +101,11 @@ public class DrawerUtil {
                     // load screen
                     SharedPreferenceManager.getInstance(activity).logoutUser();
                     Intent intent = new Intent(activity, Login.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (drawerItem.getIdentifier() == 5) {
+                    // load screen
+                    Intent intent = new Intent(activity, Profile.class);
                     view.getContext().startActivity(intent);
                 }
                 return true;

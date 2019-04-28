@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grad">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="170dp"
+            >
+
+            <ImageView
+                android:id="@+id/usericon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/usericon" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="230dp"/>
+
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="270dp"/>
+
+        <TextView
+            android:id="@+id/num_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Default RideShare Preferences"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="345dp"/>
+
+        <ImageButton
+            android:id="@+id/profile_x"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/gradEnd"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.011"
+            app:srcCompat="@drawable/ic_close_black_24dp"
+            tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/luggage_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="470dp"
+        android:text="Amount of Luggage: "
+        android:textColor="@color/base"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/airline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="520dp"
+        android:text="Airline: "
+        android:textColor="@color/base"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Willing to walk: "
+        android:textSize="22sp"
+        android:textColor="@color/base"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="570dp"/>
+
+    <TextView
+        android:id="@+id/early"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginTop="620dp"
+        android:text="Hours before flight you would like to be at the airport: "
+        android:textColor="@color/base"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Address: "
+        android:textSize="22sp"
+        android:textColor="@color/base"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="420dp"/>
+
+    <Spinner
+        android:id="@+id/address_spinner"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="300dp"
+        android:background="@android:drawable/spinner_background"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/address_array"
+        android:popupBackground="@android:drawable/spinner_dropdown_background"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</RelativeLayout>

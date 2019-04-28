@@ -34,7 +34,7 @@ public class DrawerUtil {
         PrimaryDrawerItem drawerItemManagePlayersTournaments = new PrimaryDrawerItem()
                 .withIdentifier(2).withName(R.string.pending_rides).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem scheduled_rides = new PrimaryDrawerItem()
-                .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic__car_24dp);
+                .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic_schedule_24dp);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(4).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
 

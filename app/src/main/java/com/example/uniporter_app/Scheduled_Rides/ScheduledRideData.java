@@ -20,6 +20,10 @@ import retrofit2.Response;
 
 public class ScheduledRideData extends AppCompatActivity {
 
+    String user_email = SharedPreferenceManager
+            .getInstance(ScheduledRideData.this)
+            .getUserEmal();
+
     final List<String> schedule_date = new ArrayList<>();
     final List<String> meeting_loc = new ArrayList<>();
     final List<List<String>> members = new ArrayList<>();
@@ -36,11 +40,13 @@ public class ScheduledRideData extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<SharerideResponse>> call, Response<List<SharerideResponse>> response) {
                 for (SharerideResponse ride: response.body()) {
-                    schedule_date.add(target_date);
-                    meeting_loc.add(ride.getMeeting_loc());
-                    members.add(ride.getMember());
-                    time.add(ride.getTime());
-                    weight.add(ride.getWeight());
+                    if (ride.getMember().contains(user_email)) {
+                        schedule_date.add(target_date);
+                        meeting_loc.add(ride.getMeeting_loc());
+                        members.add(ride.getMember());
+                        time.add(ride.getTime());
+                        weight.add(ride.getWeight());
+                    }
                 }
             }
 

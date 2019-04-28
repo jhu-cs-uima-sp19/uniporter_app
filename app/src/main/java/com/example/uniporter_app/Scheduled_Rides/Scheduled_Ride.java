@@ -42,22 +42,26 @@ public class Scheduled_Ride extends AppCompatActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading Your Data...");
         progressDialog.show();
-        grabSharerideDate(progressDialog);
+        shareride_date = findViewById(R.id.shareride_date);
+        grabSharerideDate(progressDialog, shareride_date.getText().toString());
 
         get_date = findViewById(R.id.select_date);
         get_date.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                progressDialog.show();
+                progressDialog.setMessage("Loading Your Data...");
                 shareride_date = findViewById(R.id.shareride_date);
                 String date = shareride_date.getText().toString();
+                grabSharerideDate(progressDialog, date);
             }
         });
 
     }
 
-    private void grabSharerideDate(final ProgressDialog progressDialog) {
+    private void grabSharerideDate(final ProgressDialog progressDialog, final String target_date) {
         recyclerView = findViewById(R.id.recycleView2);
         final ScheduledRideData newShareride = new ScheduledRideData();
-        newShareride.callShareRideAPI();
+        newShareride.callShareRideAPI(target_date);
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {

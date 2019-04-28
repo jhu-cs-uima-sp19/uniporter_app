@@ -26,8 +26,7 @@ public class ScheduledRideData extends AppCompatActivity {
     final List<String> time = new ArrayList<>();
     final List<Integer> weight = new ArrayList<>();
 
-    public void callShareRideAPI() {
-        final String target_date = "04/25/19";
+    public void callShareRideAPI(final String target_date) {
         Call<List<SharerideResponse>> call = RetrofitClientSharerides
                 .getInstance()
                 .getAPI()

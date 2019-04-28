@@ -27,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:gravity="left"
                 android:id="@+id/shareride_date"
+                android:text="04/25/19"
                 android:textColor="@color/md_blue_900"
                 android:shadowRadius="@integer/google_play_services_version"
                 android:background="@color/white" />
@@ -34,6 +35,7 @@
                 android:id="@+id/select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
                 android:background="@color/md_light_blue_200"
                 android:text="Enter" />
         </LinearLayout>

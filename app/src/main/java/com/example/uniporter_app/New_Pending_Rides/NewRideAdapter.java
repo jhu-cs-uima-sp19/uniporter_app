@@ -25,11 +25,8 @@ import retrofit2.Response;
 public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHolder> {
 
     private Context context;
-
     private ArrayList<NewRideInformation> data;
-
     private LayoutInflater inflater;
-
     private int previousPosition = 0;
 
     public NewRideAdapter(Context context, ArrayList<NewRideInformation> data) {
@@ -43,9 +40,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
 
         View view = inflater.inflate(R.layout.new_ride_list_item_row, parent, false);
-
         MyViewHolder holder = new MyViewHolder(view);
-
         return holder;
     }
 
@@ -100,31 +95,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
                 });
             }
         });
-
-        /*
-        myViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(context, "OnClick Called at position " + position, Toast.LENGTH_SHORT).show();
-                addItem(currentPosition, infoData);
-            }
-        });
-
-        myViewHolder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-
-                Toast.makeText(context, "OnLongClick Called at position " + position, Toast.LENGTH_SHORT).show();
-
-                removeItem(infoData);
-
-                return true;
-            }
-
-
-        });
-        */
 
 
     }

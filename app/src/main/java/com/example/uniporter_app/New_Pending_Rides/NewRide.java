@@ -3,6 +3,7 @@ package com.example.uniporter_app.New_Pending_Rides;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,9 @@ import android.widget.Toast;
 import com.example.uniporter_app.Authentication.Login;
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewRide extends AppCompatActivity {
 
@@ -39,16 +43,30 @@ public class NewRide extends AppCompatActivity {
         progressDialog.show();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
         final NewRideData newRide = new NewRideData();
         newRide.callRideAPI();
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        // view adapter
                         adapter = new NewRideAdapter(NewRide.this, newRide.getRideData());
-                        recyclerView.setAdapter(adapter);
-                        LinearLayoutManager llm = new LinearLayoutManager(NewRide.this);
-                        llm.setOrientation(LinearLayoutManager.VERTICAL);
-                        recyclerView.setLayoutManager(llm); // Vertical Orientation By Default
+                        List<SectionedRideAdapter.Section> sections =
+                                new ArrayList<SectionedRideAdapter.Section>();
+
+                        // sections
+                        sections.add(new SectionedRideAdapter.Section(0,"Pending Rides"));
+                        sections.add(new SectionedRideAdapter.Section(1,"Past Rides"));
+
+                        //Add your adapter to the sectionAdapter
+                        SectionedRideAdapter.Section[] dummy = new SectionedRideAdapter.Section[sections.size()];
+                        SectionedRideAdapter sectionedRideAdapter = new
+                                SectionedRideAdapter(NewRide.this, R.layout.section, R.id.section_text, adapter);
+                        sectionedRideAdapter.setSections(sections.toArray(dummy));
+
+                        recyclerView.setAdapter(sectionedRideAdapter);
                         toolBar = findViewById(R.id.toolbar);
                         toolBar.setTitle("Your Pending Rides");
                         setSupportActionBar(toolBar);

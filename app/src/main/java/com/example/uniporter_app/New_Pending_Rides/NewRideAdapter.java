@@ -51,7 +51,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
         myViewHolder.id.setText("delete");
         myViewHolder.type.setText(dest);
-        myViewHolder.airline.setText(data.get(position).date);
+        myViewHolder.airline.setText(data.get(position).airline);
         myViewHolder.flight_no.setText(data.get(position).flight_no);
         myViewHolder.date.setText(data.get(position).date);
         myViewHolder.flight_time.setText(data.get(position).flight_time);

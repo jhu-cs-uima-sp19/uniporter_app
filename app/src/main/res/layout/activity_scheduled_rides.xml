@@ -7,13 +7,14 @@
     tools:context=".Scheduled_Rides.Scheduled_Ride"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:background="@color/md_grey_300"
     app:popupTheme="@style/AppTheme.PopupOverlay">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/primary"
+        android:background="@color/primary_darker"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         <LinearLayout
@@ -27,19 +28,19 @@
                 android:layout_height="match_parent"
                 android:gravity="left"
                 android:id="@+id/shareride_date"
-                android:text="04/25/19"
+                android:text="MM/DD/YY"
+                android:inputType="date"
                 android:textColor="@color/md_blue_900"
-                android:shadowRadius="@integer/google_play_services_version"
-                />
+                android:shadowRadius="@integer/google_play_services_version" />
             <Button
-
                 android:id="@+id/select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="Enter" />
+                android:backgroundTint="@color/white"
+                android:text="Enter"
+                android:textColor="@color/primary_darker"/>
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>

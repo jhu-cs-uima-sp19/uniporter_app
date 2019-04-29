@@ -96,7 +96,19 @@
         android:layout_marginTop="470dp"
         android:text="Amount of Luggage: "
         android:textColor="@color/base"
-        android:textSize="22sp" />
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/large_luggage_spinner"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="470dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/large_luggage_array"
+        android:background="@drawable/gradient_spinner"
+        android:spinnerMode="dropdown"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/airline"
@@ -106,35 +118,69 @@
         android:layout_marginTop="520dp"
         android:text="Airline: "
         android:textColor="@color/base"
-        android:textSize="22sp" />
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/airline_spinner"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="520dp"
+        android:background="@drawable/gradient_spinner"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/airline_array"
+        android:prompt="@string/airline_prompt"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"/>
 
     <TextView
         android:id="@+id/block"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Willing to walk: "
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textColor="@color/base"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="570dp"/>
+
+    <Spinner
+        android:id="@+id/blocks_spinner"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginLeft="300dp"
+        android:dropDownWidth="wrap_content"
+        android:background="@drawable/gradient_spinner"
+        android:entries="@array/blocks_array"
+        android:popupBackground="@android:drawable/spinner_dropdown_background" />
 
     <TextView
         android:id="@+id/early"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="95dp"
+        android:layout_marginRight="140dp"
         android:layout_marginTop="620dp"
         android:text="Hours before flight you would like to be at the airport: "
         android:textColor="@color/base"
-        android:textSize="22sp" />
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/early_spinner"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="630dp"
+        android:background="@drawable/gradient_spinner"
+        android:entries="@array/early_array"
+        android:popupBackground="@android:drawable/spinner_dropdown_background" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home Address: "
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textColor="@color/base"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="420dp"/>
@@ -142,20 +188,14 @@
     <Spinner
         android:id="@+id/address_spinner"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="410dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="415dp"
         android:layout_marginLeft="300dp"
-        android:background="@android:drawable/spinner_background"
         android:dropDownWidth="wrap_content"
         android:entries="@array/address_array"
         android:popupBackground="@android:drawable/spinner_dropdown_background"
         android:spinnerMode="dropdown"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:background="@drawable/gradient_spinner" />
 
 </RelativeLayout>

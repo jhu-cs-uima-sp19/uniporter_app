@@ -41,6 +41,10 @@
             android:name=".New_Pending_Rides.NewRide"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Messenger"
+            android:label="Messenger"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Scheduled_Rides.Scheduled_Ride"
             android:screenOrientation="portrait" />
         <activity

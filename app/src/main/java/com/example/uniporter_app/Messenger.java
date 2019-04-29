@@ -19,7 +19,7 @@ public class Messenger extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger);
-        myDatabase = FirebaseDatabase.getInstance().getReference("Message");
+        /*myDatabase = FirebaseDatabase.getInstance().getReference("Message");
         final TextView myTexts = findViewById(R.id.messageview);
 
         myDatabase.addValueEventListener(new ValueEventListener() {
@@ -32,11 +32,12 @@ public class Messenger extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 myTexts.setText("CANCELLED");
             }
-        });
+        });*/
     }
     public void sendMessage(View view) {
         final EditText myEdits = findViewById(R.id.messagetext);
         myDatabase.child("name").setValue(myEdits.getText().toString());
         myEdits.setText("");
     }
+
 }

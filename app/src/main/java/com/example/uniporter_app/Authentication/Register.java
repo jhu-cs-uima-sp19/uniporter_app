@@ -216,14 +216,14 @@ public class Register extends AppCompatActivity {
             valid = false;
         } else {
             _nameText.setError(null);
-            SharedPreferenceManager.getInstance(this).saveName(name);
+            SharedPreferenceManager.getInstance(Register.this).saveName(name);
         }
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
             valid = false;
         } else {
             _emailText.setError(null);
-            SharedPreferenceManager.getInstance(this).saveUserEmail(email);
+            SharedPreferenceManager.getInstance(Register.this).saveUserEmail(email);
         }
 
         if (mobile.isEmpty() || mobile.length()!=10) {

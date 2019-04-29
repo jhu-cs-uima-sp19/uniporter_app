@@ -40,8 +40,7 @@ public class DrawerUtil {
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(5).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
         PrimaryDrawerItem messages = new PrimaryDrawerItem()
-                .withIdentifier(6).withName("Messages").withIcon(R.drawable.ic_exit_to_app_black_24dp);
-
+                .withIdentifier(6).withName("Messages").withIcon(R.drawable.ic_message_black_24dp);
         String user_email = SharedPreferenceManager.getInstance(activity)
                 .getUserEmal();
 

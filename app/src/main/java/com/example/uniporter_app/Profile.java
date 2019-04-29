@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.uniporter_app.Authentication.MainActivity;
-import com.example.uniporter_app.Authentication.Start;
 import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
@@ -16,17 +14,20 @@ import com.example.uniporter_app.Storage.SharedPreferenceManager;
 public class Profile extends AppCompatActivity {
     String user_email;
     String user_name;
-    TextView email_text = (TextView) findViewById(R.id.email);
-    TextView name_text = (TextView) findViewById(R.id.name);
 
+    TextView email_text;
+    TextView name_text;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
+        email_text = findViewById(R.id.email);
+        name_text = findViewById(R.id.name);
 
         user_name = SharedPreferenceManager.getInstance(Profile.this).getName();
         name_text.setText(user_name);
-
 
         user_email = SharedPreferenceManager.getInstance(Profile.this).getUserEmail();
         email_text.setText(user_email);

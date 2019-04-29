@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.uniporter_app.Authentication.Login;
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,10 +57,18 @@ public class NewRide extends AppCompatActivity {
                         adapter = new NewRideAdapter(NewRide.this, newRide.getRideData());
                         List<SectionedRideAdapter.Section> sections =
                                 new ArrayList<SectionedRideAdapter.Section>();
+                        int pending_rides = 0;
+                        try {
+                            pending_rides = newRide.past_rides();
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        final int final_pending_rides = pending_rides;
+                        Log.w("pending ride count", Integer.toString(final_pending_rides));
 
                         // sections
                         sections.add(new SectionedRideAdapter.Section(0,"Pending Rides"));
-                        sections.add(new SectionedRideAdapter.Section(1,"Past Rides"));
+                        sections.add(new SectionedRideAdapter.Section(final_pending_rides,"Past Rides"));
 
                         //Add your adapter to the sectionAdapter
                         SectionedRideAdapter.Section[] dummy = new SectionedRideAdapter.Section[sections.size()];

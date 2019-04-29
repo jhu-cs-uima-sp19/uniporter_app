@@ -8,7 +8,11 @@ import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,6 +27,21 @@ public class NewRideData extends AppCompatActivity{
     final List<String> flight_no = new ArrayList<>();
     final List<String> date = new ArrayList<>();
     final List<String> flight_time = new ArrayList<>();
+
+    public int past_rides() throws ParseException {
+        int future = 0;
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+        Date today_obj = new Date();
+        Log.w("today", today_obj.toString());
+        for (int i = 0; i < date.size(); ++i) {
+            Date date_val = sdf.parse(date.get(i));
+            if (date_val.compareTo(today_obj) < 0) {
+                future++;
+            }
+            Log.w("current date", date_val.toString());
+        }
+        return future;
+    }
 
     public void callRideAPI() {
         Call<List<RideResponse>> call = RetrofitClientRides
@@ -77,8 +96,10 @@ public class NewRideData extends AppCompatActivity{
             current.date = date.get(i);
             current.flight_time = flight_time.get(i);
 
+            Collections.sort(data, Collections.reverseOrder());
             data.add(current);
         }
+
 
         return data;
     }

@@ -42,8 +42,7 @@ public class Scheduled_Ride extends AppCompatActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading Your Data...");
         progressDialog.show();
-        shareride_date = findViewById(R.id.shareride_date);
-        grabSharerideDate(progressDialog, shareride_date.getText().toString());
+        grabSharerideDate(progressDialog, "04/25/19");
 
         get_date = findViewById(R.id.select_date);
         get_date.setOnClickListener(new View.OnClickListener() {

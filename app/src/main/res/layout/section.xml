@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/section_container"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:gravity="center_vertical"
-    android:paddingLeft="16dp"
-    android:singleLine="true"
-    android:textAllCaps="true"
-    android:textColor="@color/black"
-    android:background="@android:color/transparent"
-    android:textSize="16sp"
-    android:id="@+id/section_text"
-    android:textStyle="bold" />
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textColor="@color/primary_dark"
+        android:background="@android:color/transparent"
+        android:textSize="16sp"
+        android:id="@+id/section_text"
+        android:textStyle="bold" />
+</LinearLayout>

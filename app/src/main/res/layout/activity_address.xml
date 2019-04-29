@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -7,135 +7,106 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/manual_address"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="382dp"
-        android:layout_marginBottom="255dp"
-        android:text='"If none of the above, please select the nearest location.'
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581" />
+        <ImageButton
+            android:id="@+id/x2"
+            style="@android:style/Widget.ImageButton"
+            android:layout_width="47dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="345dp"
+            android:layout_marginLeft="380dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/accent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_close_black_24dp" />
 
-    <Spinner
-        android:id="@+id/address_spinner"
-        android:layout_width="326dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="297dp"
-        android:layout_marginBottom="410dp"
-        android:background="@android:drawable/spinner_background"
-        android:dropDownWidth="wrap_content"
-        android:entries="@array/address_array"
-        android:popupBackground="@android:drawable/spinner_dropdown_background"
-        android:spinnerMode="dropdown"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/address_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/address_question"
+            android:textColor="@color/BigText"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/address_question"
-        android:layout_width="320dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="131dp"
-        android:layout_marginBottom="533dp"
-        android:text="@string/address_question"
-        android:textColor="@color/BigText"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
+        <Spinner
+            android:id="@+id/address_spinner"
+            android:layout_width="326dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:background="@android:drawable/spinner_background"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/address_array"
+            android:popupBackground="@android:drawable/spinner_dropdown_background"
+            android:spinnerMode="dropdown"
+            android:visibility="visible" />
 
+        <TextView
+            android:id="@+id/manual_address"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text='"If none of the above, please select the nearest location.'
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-    <ImageButton
-        android:id="@+id/front2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="299dp"
-        android:layout_marginLeft="299dp"
-        android:layout_marginTop="570dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginRight="62dp"
-        android:layout_marginBottom="111dp"
-        android:background="@color/white"
-        android:scaleType="fitXY"
-        android:tint="@color/primary_darker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_25245" />
+        <ImageButton
+            android:id="@+id/back2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="309dp"
+            android:layout_marginRight="309dp"
+            android:layout_marginBottom="111dp"
+            android:background="@color/white"
+            android:rotation="180"
+            android:scaleType="fitXY"
+            android:tint="@color/primary_darker"
+            app:srcCompat="@drawable/ic_25245" />
 
-    <ImageButton
-        android:id="@+id/back2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="570dp"
-        android:layout_marginEnd="309dp"
-        android:layout_marginRight="309dp"
-        android:layout_marginBottom="111dp"
-        android:background="@color/white"
-        android:rotation="180"
-        android:scaleType="fitXY"
-        android:tint="@color/primary_darker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_25245" />
+        <ImageButton
+            android:id="@+id/front2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="299dp"
+            android:layout_marginLeft="299dp"
+            android:layout_marginTop="-161dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginRight="62dp"
+            android:layout_marginBottom="111dp"
+            android:background="@color/white"
+            android:scaleType="fitXY"
+            android:tint="@color/primary_darker"
+            app:srcCompat="@drawable/ic_25245" />
 
-    <ImageView
-        android:id="@+id/bubble2"
-        android:layout_width="149dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="129dp"
-        android:layout_marginLeft="129dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginRight="130dp"
-        android:layout_marginBottom="65dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/second" />
-
-    <ImageButton
-        android:id="@+id/x2"
-        style="@android:style/Widget.ImageButton"
-        android:layout_width="47dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="334dp"
-        android:layout_marginLeft="334dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="656dp"
-        android:background="@color/accent"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_close_black_24dp" />
+        <ImageView
+            android:id="@+id/bubble2"
+            android:layout_width="149dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="129dp"
+            android:layout_marginLeft="129dp"
+            android:layout_marginTop="-100dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginRight="130dp"
+            android:layout_marginBottom="65dp"
+            app:srcCompat="@drawable/second" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+</LinearLayout>

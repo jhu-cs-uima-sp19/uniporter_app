@@ -15,9 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.uniporter_app.DrawerUtil;
@@ -89,7 +88,6 @@ public class Scheduled_Ride extends AppCompatActivity {
                 grabSharerideDate(progressDialog, date);
             }
         });
-
     }
 
     private void grabSharerideDate(final ProgressDialog progressDialog, final String target_date) {

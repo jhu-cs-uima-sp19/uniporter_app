@@ -33,8 +33,6 @@ public class DrawerUtil {
                 .withIdentifier(2).withName(R.string.pending_rides).withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem scheduled_rides = new PrimaryDrawerItem()
                 .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic_schedule_24dp);
-        PrimaryDrawerItem my_preferences = new PrimaryDrawerItem()
-                .withIdentifier(4).withName("My Preferences").withIcon(R.drawable.ic_person_outline_black_24dp);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(5).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
         PrimaryDrawerItem messages = new PrimaryDrawerItem()
@@ -77,7 +75,6 @@ public class DrawerUtil {
                 pending_rides,
                 scheduled_rides,
                 new DividerDrawerItem(),
-                my_preferences,
                 messages,
                 logout,
                 new DividerDrawerItem()
@@ -99,11 +96,6 @@ public class DrawerUtil {
                 else if (drawerItem.getIdentifier() == 3 && !(activity instanceof Scheduled_Ride)) {
                     // load screen
                     Intent intent = new Intent(activity, Scheduled_Ride.class);
-                    view.getContext().startActivity(intent);
-                }
-                else if (drawerItem.getIdentifier() == 4) {
-                    // load screen
-                    Intent intent = new Intent(activity, Profile.class);
                     view.getContext().startActivity(intent);
                 }
                 else if (drawerItem.getIdentifier() == 5) {

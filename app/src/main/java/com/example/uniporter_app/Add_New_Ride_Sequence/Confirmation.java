@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -33,23 +36,76 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Confirmation extends Fragment implements View.OnClickListener {
+    ImageButton x_confirm;
+    Button done;
+    Button back;
+
     String residence;
+    TextView residence_confirm;
     String flight_no;
     String airline;
     String user_email;
     int user_id;
     String user_token;
     int luggage;
+    TextView luggage_confirm;
     int blocks;
+    TextView blocks_confirm;
     int early;
+    TextView early_confirm;
     String depature_date;
+    TextView depature_date_confirm;
     String depature_time;
+    TextView depature_time_confirm;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.activity_confirmation, container, false);
-        ImageButton done = myView.findViewById(R.id.done);
+
+        x_confirm = myView.findViewById(R.id.x_confirm);
+        x_confirm.setOnClickListener(this);
+
+        done = myView.findViewById(R.id.done);
         done.setOnClickListener(this);
+
+        back = myView.findViewById(R.id.confirm_back);
+        back.setOnClickListener(this);
+
+        user_id = SharedPreferenceManager.getInstance(getContext())
+                .getUserID();
+        user_email = SharedPreferenceManager.getInstance(getContext())
+                .getUserEmal();
+        residence = SharedPreferenceManager.getInstance(getContext())
+                .getResidence();
+        residence_confirm = myView.findViewById(R.id.confirm_residence);
+        residence_confirm.setText(residence);
+        flight_no = SharedPreferenceManager.getInstance(getContext())
+                .getFlightNo();
+        Log.w("flight_no", flight_no);
+        airline = SharedPreferenceManager.getInstance(getContext())
+                .getAirline();
+        user_token = SharedPreferenceManager.getInstance(getContext())
+                .getUserToken();
+        luggage = SharedPreferenceManager.getInstance(getContext())
+                .getLuggage();
+        luggage_confirm = myView.findViewById(R.id.confirm_luggage);
+        luggage_confirm.setText(Integer.toString((luggage / 2) * 20) + " kg");
+        blocks = SharedPreferenceManager.getInstance(getContext())
+                .getBlocks();
+        blocks_confirm = myView.findViewById(R.id.confirm_max_blocks);
+        blocks_confirm.setText(Integer.toString(blocks) + " blocks");
+        early = SharedPreferenceManager.getInstance(getContext())
+                .getWaitTime();
+        early_confirm = myView.findViewById(R.id.confirm_max_early);
+        early_confirm.setText(Integer.toString(early) + " hrs");
+        depature_date = SharedPreferenceManager.getInstance(getContext())
+                .getFlightDate();
+        depature_date_confirm = myView.findViewById(R.id.confirm_depart_date);
+        depature_date_confirm.setText(depature_date);
+        depature_time = SharedPreferenceManager.getInstance(getContext())
+                .getFlightTime();
+        depature_date_confirm = myView.findViewById(R.id.confirm_depart_time);
+        depature_date_confirm.setText(depature_time);
         return myView;
     }
 
@@ -64,34 +120,21 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         final ArrayList<Integer> tags = new ArrayList<>();
         tags.add(new Integer(1));
         switch (v.getId()) {
+            case R.id.x_confirm:
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                v.getContext().startActivity(intent);
+                break;
+            case R.id.confirm_back:
+                Fragment fragment = new Early();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.screen_area, fragment, "Early");
+                ft.commit();
+                break;
             case R.id.done:
                 final ProgressDialog progressDialog = new ProgressDialog(getContext(), R.style.AppTheme_Dark_Dialog);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Sending your information...");
                 progressDialog.show();
-                user_id = SharedPreferenceManager.getInstance(getContext())
-                        .getUserID();
-                user_email = SharedPreferenceManager.getInstance(getContext())
-                        .getUserEmal();
-                residence = SharedPreferenceManager.getInstance(getContext())
-                        .getResidence();
-                flight_no = SharedPreferenceManager.getInstance(getContext())
-                        .getFlightNo();
-                Log.w("flight_no", flight_no);
-                airline = SharedPreferenceManager.getInstance(getContext())
-                        .getAirline();
-                user_token = SharedPreferenceManager.getInstance(getContext())
-                        .getUserToken();
-                luggage = SharedPreferenceManager.getInstance(getContext())
-                        .getLuggage();
-                blocks = SharedPreferenceManager.getInstance(getContext())
-                        .getBlocks();
-                early = SharedPreferenceManager.getInstance(getContext())
-                        .getWaitTime();
-                depature_date = SharedPreferenceManager.getInstance(getContext())
-                        .getFlightDate();
-                depature_time = SharedPreferenceManager.getInstance(getContext())
-                        .getFlightTime();
                 Call<PreferenceResponse> call_pref = RetrofitClientPreferences
                         .getInstance()
                         .getAPI()

@@ -52,7 +52,6 @@ public class Address extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
-
             case R.id.front2:
                 SharedPreferenceManager.getInstance(getContext())
                         .saveResidence(residence_value);

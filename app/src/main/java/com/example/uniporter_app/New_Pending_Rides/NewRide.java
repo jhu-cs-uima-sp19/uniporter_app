@@ -53,7 +53,7 @@ public class NewRide extends AppCompatActivity {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        // view adapter
+                        progressDialog.setMessage("Rendering View...");
                         adapter = new NewRideAdapter(NewRide.this, newRide.getRideData());
                         List<SectionedRideAdapter.Section> sections =
                                 new ArrayList<SectionedRideAdapter.Section>();
@@ -84,7 +84,7 @@ public class NewRide extends AppCompatActivity {
                         DrawerUtil.getDrawer(NewRide.this, toolBar);
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 2000);
     }
 
     @Override

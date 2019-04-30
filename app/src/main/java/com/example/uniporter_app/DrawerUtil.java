@@ -1,14 +1,12 @@
 package com.example.uniporter_app;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.uniporter_app.Add_New_Ride_Sequence.AddNewRide;
 import com.example.uniporter_app.Authentication.Login;
-import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.New_Pending_Rides.NewRide;
 import com.example.uniporter_app.Scheduled_Rides.Scheduled_Ride;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
@@ -19,7 +17,6 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
@@ -52,7 +49,8 @@ public class DrawerUtil {
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
-                .withHeaderBackground(R.drawable.blue_bg)
+                .withTranslucentStatusBar(true)
+                .withHeaderBackground(R.color.white)
                 .addProfiles(
                         new ProfileDrawerItem().withName(username).withEmail(user_email).withIcon(activity.getResources().getDrawable(R.drawable.avatar))
                 )

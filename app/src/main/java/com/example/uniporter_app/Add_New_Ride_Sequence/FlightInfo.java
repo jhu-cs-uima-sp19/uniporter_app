@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class FlightInfo extends Fragment implements View.OnClickListener {
 
@@ -102,6 +103,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mDateSetListener,
                 year, month, day);
+        dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
         Log.w("date picker", Integer.toString(day));

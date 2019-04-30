@@ -1,6 +1,7 @@
 package com.example.uniporter_app.Scheduled_Rides;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uniporter_app.AnimationUtil;
+import com.example.uniporter_app.Authentication.Login;
 import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
 import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
@@ -50,6 +52,13 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
         myViewHolder.time.setText( data.get(position).time);
         myViewHolder.weight.setText(Integer.toString(data.get(position).weight * 10) + " kg");
+        myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO: Launch Acitivity Here
+                Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         List<String> group = data.get(position).member;
         String concatenatedNames = "";
@@ -88,6 +97,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         TextView weight;
         TextView schedule_date;
         TextView members;
+        ImageView enter_chatroom;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -96,6 +106,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
             weight = (TextView) itemView.findViewById(R.id.weight_row);
             schedule_date = (TextView) itemView.findViewById(R.id.scheduled_date_row);
             members = (TextView) itemView.findViewById(R.id.members_row);
+            enter_chatroom = (ImageView) itemView.findViewById(R.id.enter_chat_room);
         }
     }
 

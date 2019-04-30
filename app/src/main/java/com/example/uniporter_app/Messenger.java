@@ -13,16 +13,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Messenger extends AppCompatActivity {
-    private DatabaseReference myDatabase;
+    DatabaseReference myDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger);
-        //myDatabase = FirebaseDatabase.getInstance().getReference("Message");
+        myDatabase = FirebaseDatabase.getInstance().getReference("messages");
         final TextView myTexts = findViewById(R.id.messageview);
 
-       /*myDatabase.addValueEventListener(new ValueEventListener() {
+       myDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myTexts.setText(dataSnapshot.getValue().toString());
@@ -31,7 +31,7 @@ public class Messenger extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 myTexts.setText("CANCELLED");
             }
-        });*/
+        });
     }
     public void sendMessage(View view) {
         final EditText myEdits = findViewById(R.id.messagetext);

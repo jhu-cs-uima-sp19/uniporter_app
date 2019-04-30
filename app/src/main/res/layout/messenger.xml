@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,11 +9,10 @@
         android:id="@+id/messagebutton"
         android:layout_width="113dp"
         android:layout_height="58dp"
-        android:layout_marginStart="294dp"
-        android:layout_marginLeft="294dp"
-        android:layout_marginTop="674dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginStart="299dp"
+        android:layout_marginLeft="299dp"
+        android:layout_marginTop="657dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="1"
         android:onClick="sendMessage"
         android:text="Send"
@@ -26,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="674dp"
+        android:layout_marginTop="657dp"
         android:layout_marginEnd="127dp"
         android:layout_marginRight="127dp"
-        android:hint="Type here"
+        android:layout_marginBottom="16dp"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,26 +40,21 @@
             android:id="@+id/messagetext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Type here" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
         android:id="@+id/messageview"
-        android:layout_width="402dp"
-        android:layout_height="674dp"
+        android:layout_width="406dp"
+        android:layout_height="643dp"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="88dp"
         android:gravity="bottom"
         android:text="Chat messages will appear here."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

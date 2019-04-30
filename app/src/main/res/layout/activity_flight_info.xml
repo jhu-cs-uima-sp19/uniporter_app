@@ -31,19 +31,19 @@
             android:layout_gravity="right"
             android:contentDescription="TODO" />
 
-        <TextView
-            android:id="@+id/luggage_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/flight_question"
-            android:textColor="@color/BigText"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/luggage_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/flight_question"
+                    android:textColor="@color/BigText"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/large"
@@ -155,16 +155,16 @@
             android:layout_gravity="right"
             app:srcCompat="@drawable/ic_25245" />
 
-        <ImageView
-            android:id="@+id/bubble1"
-            android:layout_width="137dp"
-            android:layout_height="45dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/first" />
+                <ImageView
+                    android:id="@+id/bubble1"
+                    android:layout_width="137dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/first" />
         </LinearLayout>
 </LinearLayout>
 

@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/white"
@@ -40,8 +41,8 @@
 
             <TextView
                 android:id="@+id/success"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
                 android:text="Please Confirm Your Information"
                 android:textColor="@color/BigText"
                 android:textSize="30sp"
@@ -61,7 +62,7 @@
                     android:text="Departure Date: "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_depart_date"
@@ -70,7 +71,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,7 +88,7 @@
                     android:text="Departure Time: "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_depart_time"
@@ -96,7 +97,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
@@ -113,7 +114,7 @@
                     android:text="Max Early Arrival: "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_max_early"
@@ -122,7 +123,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
@@ -139,7 +140,7 @@
                     android:text="Max Walking Distance: "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_max_blocks"
@@ -148,7 +149,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +166,7 @@
                     android:text="Luggage Weight (est): "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_luggage"
@@ -174,7 +175,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <LinearLayout
@@ -191,7 +192,7 @@
                     android:text="Residence: "
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/confirm_residence"
@@ -200,7 +201,7 @@
                     android:text="unknown"
                     android:textColor="@color/BigText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
 
             <Button

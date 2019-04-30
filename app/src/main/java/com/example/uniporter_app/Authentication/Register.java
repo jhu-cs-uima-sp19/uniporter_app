@@ -183,7 +183,7 @@ public class Register extends AppCompatActivity {
                         // onSignupFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 1500);
 
     }
 

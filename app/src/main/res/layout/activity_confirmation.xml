@@ -4,204 +4,217 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
+    android:background="@color/primary_darker"
+    android:layout_gravity="center_vertical"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/white"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/x_confirm"
-            style="@android:style/Widget.ImageButton"
-            android:layout_width="47dp"
-            android:layout_height="46dp"
-            android:layout_gravity="right"
-            android:background="@color/accent"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_close_black_24dp" />
-
-        <TextView
-            android:id="@+id/success"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please Confirm Your Information"
-            android:textColor="@color/BigText"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/x_confirm"
+                style="@android:style/Widget.ImageButton"
+                android:layout_width="47dp"
+                android:layout_height="46dp"
+                android:layout_gravity="right"
+                android:background="@color/accent"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_close_black_24dp" />
 
             <TextView
-                android:id="@+id/confirm_depart_date_label"
+                android:id="@+id/success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Departure Date: "
+                android:text="Please Confirm Your Information"
                 android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/confirm_depart_date"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_depart_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Departure Date: "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_depart_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_depart_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Departure Time: "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_depart_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_max_early_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Max Early Arrival: "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_max_early"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_max_blocks_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Max Walking Distance: "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_max_blocks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_luggage_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Luggage Weight (est): "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_luggage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/confirm_residence_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Residence: "
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/confirm_residence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="unknown"
+                    android:textColor="@color/BigText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm" />
+
+            <Button
+                android:id="@+id/confirm_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go Back" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/confirm_depart_time_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Departure Time: "
-                android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confirm_depart_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/confirm_max_early_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Max Early Arrival: "
-                android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confirm_max_early"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/confirm_max_blocks_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Max Walking Distance: "
-                android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confirm_max_blocks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/confirm_luggage_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Luggage Weight (est): "
-                android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confirm_luggage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/confirm_residence_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Residence: "
-                android:textColor="@color/BigText"
-                android:layout_marginRight="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confirm_residence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="unknown"
-                android:textColor="@color/BigText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/done"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirm" />
-
-        <Button
-            android:id="@+id/confirm_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Go Back" />
 
     </LinearLayout>
 

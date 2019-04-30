@@ -32,8 +32,8 @@
             android:id="@+id/blocks_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/blocks_question"
             android:textColor="@color/BigText"
             android:textSize="30sp"
@@ -42,8 +42,8 @@
 
         <Spinner
             android:id="@+id/blocks_spinner"
-            android:layout_width="326dp"
-            android:layout_height="44dp"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
             android:background="@android:drawable/spinner_background"
@@ -52,11 +52,11 @@
 
         <TextView
             android:id="@+id/blocks_desc"
-            android:layout_width="272dp"
+            android:layout_width="315dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/blocks_desc"
             android:textColor="@color/black"
             android:textSize="20sp" />

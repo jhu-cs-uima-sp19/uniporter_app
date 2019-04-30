@@ -42,6 +42,8 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     int luggage;
     int blocks;
     int early;
+    String depature_date;
+    String depature_time;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -86,7 +88,10 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         .getBlocks();
                 early = SharedPreferenceManager.getInstance(getContext())
                         .getWaitTime();
-
+                depature_date = SharedPreferenceManager.getInstance(getContext())
+                        .getFlightDate();
+                depature_time = SharedPreferenceManager.getInstance(getContext())
+                        .getFlightTime();
                 Call<PreferenceResponse> call_pref = RetrofitClientPreferences
                         .getInstance()
                         .getAPI()
@@ -120,7 +125,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                 Call<RideResponse> call_ride = RetrofitClientRides
                                         .getInstance()
                                         .getAPI()
-                                        .addRide(user_id , user_email, "to_airport", airline, flight_no, "04/25/19",
+                                        .addRide(user_id , user_email, "to_airport", airline, flight_no, depature_date, depature_time,
                                                 preferences, tags , "token " + user_token);
 
                                 call_ride.enqueue(new Callback<RideResponse>() {

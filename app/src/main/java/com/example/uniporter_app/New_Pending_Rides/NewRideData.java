@@ -35,7 +35,7 @@ public class NewRideData extends AppCompatActivity{
         Log.w("today", today_obj.toString());
         for (int i = 0; i < date.size(); ++i) {
             Date date_val = sdf.parse(date.get(i));
-            if (date_val.compareTo(today_obj) < 0) {
+            if (date_val.compareTo(today_obj) > 0) {
                 future++;
             }
             Log.w("current date", date_val.toString());

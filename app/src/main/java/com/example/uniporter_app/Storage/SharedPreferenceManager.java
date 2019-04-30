@@ -117,6 +117,24 @@ public class SharedPreferenceManager {
         editor.commit();
     }
 
+    public void saveFlightDate(String flight_date) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("flight_date", flight_date);
+
+        editor.commit();
+    }
+
+    public void saveFlightTime(String flight_time) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("flight_time", flight_time);
+
+        editor.commit();
+    }
+
     public void saveBlocks(int blocks) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -156,6 +174,16 @@ public class SharedPreferenceManager {
     public String getAirline() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("airline", null);
+    }
+
+    public String getFlightDate() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("flight_date", null);
+    }
+
+    public String getFlightTime() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("flight_time", null);
     }
 
     public int getBlocks() {

@@ -77,7 +77,7 @@
             android:rotation="180"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageButton
             android:id="@+id/front2"
@@ -92,7 +92,7 @@
             android:background="@color/white"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageView
             android:id="@+id/bubble2"

@@ -158,7 +158,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_gravity="right"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
                 <ImageView
                     android:id="@+id/bubble1"

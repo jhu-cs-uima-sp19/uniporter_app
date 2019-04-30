@@ -41,7 +41,7 @@
 
         <Spinner
             android:id="@+id/early_spinner"
-            android:layout_width="326dp"
+            android:layout_width="354dp"
             android:layout_height="44dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
@@ -74,7 +74,7 @@
             android:rotation="180"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageButton
             android:id="@+id/front5"
@@ -89,7 +89,7 @@
             android:background="@color/white"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageView
             android:id="@+id/imageView5"

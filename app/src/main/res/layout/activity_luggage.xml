@@ -161,7 +161,7 @@
             android:rotation="180"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
 
         <ImageButton
@@ -181,7 +181,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageView
             android:id="@+id/imageView4"

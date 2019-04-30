@@ -10,43 +10,44 @@
     android:background="@color/md_grey_300"
     app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/primary_darker"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-            <TextView
-                android:background="@drawable/rounded_corner"
-                android:layout_width="190dp"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:id="@+id/shareride_date"
-                android:text="4/25/19"
-                android:inputType="date"
-                android:textColor="@color/md_grey_400"
-                android:textAlignment="center"
-                android:textSize="22dp"
-                android:shadowRadius="@integer/google_play_services_version" />
-            <Button
-                android:id="@+id/select_date"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/white"
-                android:text="Enter"
-                android:textColor="@color/primary_darker"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/primary_darker"
+                app:layout_collapseMode="pin"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:background="@drawable/rounded_corner"
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:id="@+id/shareride_date"
+                        android:text="4/25/19"
+                        android:inputType="date"
+                        android:textColor="@color/md_grey_400"
+                        android:textAlignment="center"
+                        android:textSize="22dp"
+                        android:shadowRadius="@integer/google_play_services_version" />
+                    <Button
+                        android:id="@+id/select_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:background="@drawable/rounded_corner"
+                        android:backgroundTint="@color/white"
+                        android:text="Enter"
+                        android:textColor="@color/primary_darker"/>
 
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView2"

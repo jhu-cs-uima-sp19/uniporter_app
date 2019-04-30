@@ -118,8 +118,11 @@ public class Login extends AppCompatActivity {
                            if (response.code() == 200) {
                                UserResponse userResponse = response.body();
                                int id = userResponse.getId();
+                               String username = userResponse.getName();
                                SharedPreferenceManager.getInstance(Login.this)
                                        .saveUser(id, email, auth_token);
+                               SharedPreferenceManager.getInstance(Login.this)
+                                       .saveName(username);
                                Toast.makeText(Login.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
                            } else if (response.code() == 400){
                                login_success = false;
@@ -164,7 +167,7 @@ public class Login extends AppCompatActivity {
                         }
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 1500);
     }
 
 

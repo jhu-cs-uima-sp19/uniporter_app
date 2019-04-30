@@ -17,28 +17,36 @@
         android:layout_marginRight="12dp"
         android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/destination"
+                android:layout_width="305dp"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:text="Your Destination:"
+                android:textColor="@color/md_orange_300"
+                android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/ride_id"
+                android:layout_marginTop="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/delete_icon" />
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/type_row"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/destination"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your Destination:"
-                    android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/md_orange_300"
-                    android:textSize="23sp"/>
-
-                <TextView
-                    android:id="@+id/type_row"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="type"
-                    android:textColor="@color/md_grey_800"
-                    android:textSize="18sp"/>
-            </LinearLayout>
+                android:text="type"
+                android:textColor="@color/md_grey_800"
+                android:textSize="18sp"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -223,22 +231,6 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <TextView
-            android:id="@+id/ride_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="delete ride"
-            android:textColor="@color/md_red_400"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
 
     </LinearLayout>

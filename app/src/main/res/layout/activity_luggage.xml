@@ -142,7 +142,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="12dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="23dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/special_desc"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -161,7 +161,7 @@
             android:rotation="180"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
 
         <ImageButton
@@ -181,7 +181,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
         <ImageView
             android:id="@+id/imageView4"

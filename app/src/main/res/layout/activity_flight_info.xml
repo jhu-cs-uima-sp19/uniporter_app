@@ -21,29 +21,30 @@
             android:layout_height="46dp"
             android:background="@color/accent"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.977"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.011"
+            android:layout_marginStart="345dp"
+            android:layout_marginLeft="380dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="10dp"
             app:srcCompat="@drawable/ic_close_black_24dp"
             android:layout_gravity="right"
             android:contentDescription="TODO" />
 
-        <TextView
-            android:id="@+id/luggage_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/flight_question"
-            android:textColor="@color/BigText"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/luggage_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="61dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/flight_question"
+                    android:textColor="@color/BigText"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/large"
@@ -52,36 +53,35 @@
             android:text="@string/airline_question"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"
+            />
 
-        <Spinner
-            android:id="@+id/airline_spinner"
-            android:layout_width="317dp"
-            android:layout_height="36dp"
-            android:background="@android:drawable/spinner_background"
-            android:dropDownWidth="wrap_content"
-            android:entries="@array/airline_array"
-            android:popupBackground="@android:drawable/spinner_dropdown_background"
-            android:prompt="@string/airline_prompt"
-            android:spinnerMode="dropdown"
-            android:visibility="visible"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <Spinner
+                    android:id="@+id/airline_spinner"
+                    android:layout_width="321dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:drawable/spinner_background"
+                    android:dropDownWidth="wrap_content"
+                    android:entries="@array/airline_array"
+                    android:popupBackground="@android:drawable/spinner_dropdown_background"
+                    android:prompt="@string/airline_prompt"
+                    android:spinnerMode="dropdown"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/carryon"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:text="@string/flightno_question"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -107,6 +107,8 @@
             android:id="@+id/departure_date_question"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
             android:text="When Is Your Departure Date:"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -119,13 +121,15 @@
             android:id="@+id/set_departure_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Set Departure Date" />
 
         <TextView
             android:id="@+id/departure_time_question"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
             android:text="When Is Your Departure Time:"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -148,23 +152,25 @@
             android:background="@color/white"
             android:scaleType="fitXY"
             android:tint="@color/primary_darker"
+            android:layout_marginRight="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_gravity="right"
-            app:srcCompat="@drawable/ic_25245" />
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
 
-        <ImageView
-            android:id="@+id/bubble1"
-            android:layout_width="137dp"
-            android:layout_height="45dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/first" />
+                <ImageView
+                    android:id="@+id/bubble1"
+                    android:layout_width="137dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/first" />
         </LinearLayout>
 </LinearLayout>
 

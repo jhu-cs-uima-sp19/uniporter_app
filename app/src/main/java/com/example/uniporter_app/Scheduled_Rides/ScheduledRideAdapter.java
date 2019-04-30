@@ -1,6 +1,7 @@
 package com.example.uniporter_app.Scheduled_Rides;
 
 import android.content.Context;
+import android.icu.text.UnicodeSetSpanner;
 import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -45,6 +46,11 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         return holder;
     }
 
+    private int chatRoomIdHash(String concatenatedNames, String meeting_loc, String schedule_date) {
+        String src = concatenatedNames + meeting_loc + schedule_date;
+        return src.hashCode();
+    }
+
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
 
@@ -52,13 +58,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
         myViewHolder.time.setText( data.get(position).time);
         myViewHolder.weight.setText(Integer.toString(data.get(position).weight * 10) + " kg");
-        myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //TODO: Launch Acitivity Here
-                Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show();
-            }
-        });
-
 
         List<String> group = data.get(position).member;
         String concatenatedNames = "";
@@ -67,6 +66,15 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         }
 
         myViewHolder.members.setText(concatenatedNames);
+
+        final String finalConcatenatedNames = concatenatedNames;
+        myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO: launch chatroom here
+                int chatroom_id = chatRoomIdHash(finalConcatenatedNames, data.get(position).meeting_loc, data.get(position).schedule_date);
+                Toast.makeText(context, Integer.toString(chatroom_id), Toast.LENGTH_LONG).show();
+            }
+        });
 
         if(position > previousPosition){ // We are scrolling DOWN
 

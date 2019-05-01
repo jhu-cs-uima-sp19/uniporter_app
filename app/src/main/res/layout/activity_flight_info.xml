@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
+    android:background="@dra"
     android:orientation="vertical">
 
         <LinearLayout
@@ -38,6 +38,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="5dp"
                     android:text="@string/flight_question"
+                    android:typeface="normal"
                     android:textColor="@color/BigText"
                     android:textSize="30sp"
                     android:textStyle="bold"
@@ -119,10 +120,13 @@
 
         <Button
             android:id="@+id/set_departure_date"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Set Departure Date" />
+            android:text="Set Departure Date"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary_darker"/>
 
         <TextView
             android:id="@+id/departure_time_question"
@@ -140,9 +144,12 @@
 
         <Button
             android:id="@+id/set_departure_time"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="20dp"
+            android:background="@color/primary_darker"
             android:text="Set Departure Time" />
 
         <ImageButton

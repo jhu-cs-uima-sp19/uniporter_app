@@ -1,14 +1,13 @@
 package com.example.uniporter_app;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
-import java.util.Arrays;
-import java.util.Comparator;
-
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +16,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Messenger extends AppCompatActivity {
     DatabaseReference myDatabase;
+    FirebaseListAdapter adapter;
+    String value;
+    ListView myTexts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,56 +28,57 @@ public class Messenger extends AppCompatActivity {
         if (extras == null) {
             return;
         }
-        String value = extras.getString("chatid");
+        value = extras.getString("chatid");
         myDatabase = FirebaseDatabase.getInstance().getReference(value);
-        final TextView myTexts = findViewById(R.id.messageview);
+        myTexts = findViewById(R.id.list_of_messages);
 
-       myDatabase.addValueEventListener(new ValueEventListener() {
+        myDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getChildrenCount() == 0) {
-                    myTexts.setText("");
+                if (dataSnapshot.getChildrenCount() == 0) {
                     return;
                 }
-                String[] Messages = dataSnapshot.getValue().toString().split(",");
-                myTexts.setText("");
-                String[][] finalMsgs = new String[Messages.length][2];
-                for(int i = 0; i < Messages.length; i++) {
-                    String[] finalMsg = Messages[i].split("=");
-                    finalMsgs[i][0] = finalMsg[0];
-                    finalMsgs[i][1] = finalMsg[1];
-                }
-               Arrays.sort(finalMsgs, new Comparator<String[]>() {
-                    @Override
-                    //arguments to this method represent the arrays to be sorted
-                    public int compare(String[] o1, String[] o2) {
-                        //get the item ids which are at index 0 of the array
-                        String itemIdOne = o1[0];
-                        String itemIdTwo = o2[0];
-                        // sort on item id
-                        return itemIdOne.compareTo(itemIdTwo);
-                    }
-                });
-                for(int i = 0; i < Messages.length; i++) {
-                    myTexts.append(finalMsgs[i][1] + "\n");
-                }
-
+                getMessage();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                myTexts.setText("CANCELLED");
             }
         });
     }
+
+    public void getMessage() {
+        adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class,
+                R.layout.message, myDatabase) {
+            @Override
+            protected void populateView(View v, ChatMessage model, int position) {
+                // Get references to the views of message.xml
+                TextView messageText = findViewById(R.id.message_text);
+                TextView messageUser = findViewById(R.id.message_user);
+                TextView messageTime = findViewById(R.id.message_time);
+
+                // Set their text
+                if (model.getMessageText() != null) {
+                    messageText.setText(model.getMessageText());
+                    messageUser.setText(model.getMessageUser());
+                    // Format the date before showing it
+                    messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
+                            model.getMessageTime()));
+                }
+                myTexts.setAdapter(adapter);
+            }
+        };
+    }
+
     public void sendMessage(View view) {
-        final EditText myEdits = findViewById(R.id.messagetext);
+        final EditText myEdits = findViewById(R.id.input);
         String pending_message = myEdits.getText().toString();
         if (myEdits.getText().toString().trim().equals("")) {
             return;
         }
-        myDatabase.child(Long.toString(System.currentTimeMillis())).setValue(pending_message);
+        myDatabase.child(Long.toString(System.currentTimeMillis())).setValue(new ChatMessage(pending_message, "name"));
         myEdits.setText("");
 
     }
-
 }
+

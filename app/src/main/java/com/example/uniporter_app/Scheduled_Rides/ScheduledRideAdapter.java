@@ -51,7 +51,7 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
             String[] name = (group.get(i)).split("@");
             src += name[0];
         }
-        src = src + meeting_loc + schedule_date;
+        src = src + meeting_loc;
         return src;
     }
 

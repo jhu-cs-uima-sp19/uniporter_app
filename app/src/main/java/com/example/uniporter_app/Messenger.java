@@ -22,13 +22,14 @@ public class Messenger extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger);
-        myDatabase = FirebaseDatabase.getInstance().getReference("messages");
+        myDatabase = FirebaseDatabase.getInstance().getReference("pls");
         final TextView myTexts = findViewById(R.id.messageview);
 
        myDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue().toString().equals("")) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getChildrenCount() == 0) {
+                    myTexts.setText("");
                     return;
                 }
                 String[] Messages = dataSnapshot.getValue().toString().split(",");
@@ -56,7 +57,7 @@ public class Messenger extends AppCompatActivity {
 
             }
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError) {
                 myTexts.setText("CANCELLED");
             }
         });

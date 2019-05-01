@@ -18,19 +18,25 @@ import com.example.uniporter_app.Storage.SharedPreferenceManager;
 import android.widget.Spinner;
 
 public class Blocks extends Fragment implements View.OnClickListener {
+
     int blocks_value;
+    View myView;
+    ImageButton front3;
+    ImageButton back3;
+    ImageButton x3;
+    Spinner spinner;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View myView = inflater.inflate(R.layout.activity_blocks, container, false);
-        ImageButton front3 = myView.findViewById(R.id.front3);
-        ImageButton back3 = myView.findViewById(R.id.back3);
-        ImageButton x3 = myView.findViewById(R.id.x3);
+        myView = inflater.inflate(R.layout.activity_blocks, container, false);
+        front3 = myView.findViewById(R.id.front3);
+        back3 = myView.findViewById(R.id.back3);
+        x3 = myView.findViewById(R.id.x3);
         front3.setOnClickListener(this);
         back3.setOnClickListener(this);
         x3.setOnClickListener(this);
-        Spinner spinner = (Spinner) myView.findViewById(R.id.blocks_spinner);
-        blocks_value = Integer.parseInt(spinner.getSelectedItem().toString());
+        spinner = (Spinner) myView.findViewById(R.id.blocks_spinner);
         return myView;
     }
     @Override
@@ -40,8 +46,8 @@ public class Blocks extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.front3:
+                blocks_value = Integer.parseInt(spinner.getSelectedItem().toString());
                 SharedPreferenceManager.getInstance(getContext())
                         .saveBlocks(blocks_value);
                 Fragment fragment1 = new Luggage();

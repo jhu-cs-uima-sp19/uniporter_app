@@ -17,19 +17,25 @@ import com.example.uniporter_app.Storage.SharedPreferenceManager;
 import android.widget.Spinner;
 
 public class Early extends Fragment implements View.OnClickListener {
+
     int early_value;
+    View myView;
+    ImageButton front5;
+    ImageButton back5;
+    ImageButton x5;
+    Spinner spinner;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View myView = inflater.inflate(R.layout.activity_early, container, false);
-        ImageButton front5 = myView.findViewById(R.id.front5);
-        ImageButton back5 = myView.findViewById(R.id.back5);
-        ImageButton x5 = myView.findViewById(R.id.x5);
+        myView = inflater.inflate(R.layout.activity_early, container, false);
+        front5 = myView.findViewById(R.id.front5);
+        back5 = myView.findViewById(R.id.back5);
+        x5 = myView.findViewById(R.id.x5);
         front5.setOnClickListener(this);
         back5.setOnClickListener(this);
         x5.setOnClickListener(this);
-        Spinner spinner = (Spinner) myView.findViewById(R.id.early_spinner);
-        early_value = Integer.parseInt(spinner.getSelectedItem().toString());
+        spinner = (Spinner) myView.findViewById(R.id.early_spinner);
         return myView;
     }
     @Override
@@ -40,6 +46,7 @@ public class Early extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.front5:
+                early_value = Integer.parseInt(spinner.getSelectedItem().toString());
                 SharedPreferenceManager.getInstance(getContext())
                         .saveWaitTime(early_value);
                 Fragment fragment1 = new Confirmation();

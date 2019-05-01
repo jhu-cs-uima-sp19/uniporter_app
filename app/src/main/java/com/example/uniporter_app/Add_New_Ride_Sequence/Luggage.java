@@ -22,21 +22,30 @@ public class Luggage extends Fragment implements View.OnClickListener {
     int small_lugg_value;
     int special_lugg_value;
 
+    View myView;
+    ImageButton front4;
+    ImageButton back4;
+    ImageButton x4;
+
+    Spinner spinner1;
+    Spinner spinner2;
+    Spinner spinner3;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View myView = inflater.inflate(R.layout.activity_luggage, container, false);
-        ImageButton front4 = myView.findViewById(R.id.front4);
-        ImageButton back4 = myView.findViewById(R.id.back4);
-        ImageButton x4 = myView.findViewById(R.id.x4);
+        myView = inflater.inflate(R.layout.activity_luggage, container, false);
+        front4 = myView.findViewById(R.id.front4);
+        back4 = myView.findViewById(R.id.back4);
+        x4 = myView.findViewById(R.id.x4);
         front4.setOnClickListener(this);
         back4.setOnClickListener(this);
         x4.setOnClickListener(this);
-        Spinner spinner1 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
+        spinner1 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
         large_lugg_value = Integer.parseInt(spinner1.getSelectedItem().toString());
-        Spinner spinner2 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
+        spinner2 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
         small_lugg_value = Integer.parseInt(spinner2.getSelectedItem().toString());
-        Spinner spinner3 = (Spinner) myView.findViewById(R.id.special_luggage_spinner);
+        spinner3 = (Spinner) myView.findViewById(R.id.special_luggage_spinner);
         special_lugg_value = Integer.parseInt(spinner3.getSelectedItem().toString());
         return myView;
     }
@@ -50,6 +59,9 @@ public class Luggage extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.front4:
+                large_lugg_value = Integer.parseInt(spinner1.getSelectedItem().toString());
+                small_lugg_value = Integer.parseInt(spinner2.getSelectedItem().toString());
+                special_lugg_value = Integer.parseInt(spinner3.getSelectedItem().toString());
                 int total_lugguge_weight = compute_lugugge_weight(large_lugg_value, small_lugg_value, special_lugg_value);
                 SharedPreferenceManager.getInstance(getContext())
                         .saveLuggage(total_lugguge_weight);

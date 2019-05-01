@@ -35,8 +35,7 @@ public class DrawerUtil {
                 .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic_schedule_24dp);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()
                 .withIdentifier(5).withName(R.string.logout).withIcon(R.drawable.ic_exit_to_app_black_24dp);
-        PrimaryDrawerItem messages = new PrimaryDrawerItem()
-                .withIdentifier(6).withName("Messages").withIcon(R.drawable.ic_message_black_24dp);
+
         String user_email = SharedPreferenceManager.getInstance(activity)
                 .getUserEmal();
 
@@ -75,7 +74,6 @@ public class DrawerUtil {
                 pending_rides,
                 scheduled_rides,
                 new DividerDrawerItem(),
-                messages,
                 logout,
                 new DividerDrawerItem()
         );
@@ -102,11 +100,6 @@ public class DrawerUtil {
                     // load screen
                     SharedPreferenceManager.getInstance(activity).logoutUser();
                     Intent intent = new Intent(activity, Login.class);
-                    view.getContext().startActivity(intent);
-                }
-                else if (drawerItem.getIdentifier() == 6) {
-                    // load screen
-                    Intent intent = new Intent(activity, Messenger.class);
                     view.getContext().startActivity(intent);
                 }
                 return true;

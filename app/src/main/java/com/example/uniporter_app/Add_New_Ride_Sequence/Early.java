@@ -1,9 +1,11 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,6 +18,8 @@ import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import android.widget.Spinner;
 
+import java.util.Objects;
+
 public class Early extends Fragment implements View.OnClickListener {
 
     int early_value;
@@ -25,17 +29,18 @@ public class Early extends Fragment implements View.OnClickListener {
     ImageButton x5;
     Spinner spinner;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        myView = inflater.inflate(R.layout.activity_early, container, false);
+        myView = Objects.requireNonNull(inflater).inflate(R.layout.activity_early, container, false);
         front5 = myView.findViewById(R.id.front5);
         back5 = myView.findViewById(R.id.back5);
         x5 = myView.findViewById(R.id.x5);
         front5.setOnClickListener(this);
         back5.setOnClickListener(this);
         x5.setOnClickListener(this);
-        spinner = (Spinner) myView.findViewById(R.id.early_spinner);
+        spinner = myView.findViewById(R.id.early_spinner);
         return myView;
     }
     @Override
@@ -50,15 +55,29 @@ public class Early extends Fragment implements View.OnClickListener {
                 SharedPreferenceManager.getInstance(getContext())
                         .saveWaitTime(early_value);
                 Fragment fragment1 = new Confirmation();
-                FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                ft1.replace(R.id.screen_area, fragment1, "Confirmation");
-                ft1.commit();
+                FragmentTransaction ft1 = null;
+                if (getFragmentManager() != null) {
+                    ft1 = getFragmentManager().beginTransaction();
+                }
+                if (ft1 != null) {
+                    ft1.replace(R.id.screen_area, fragment1, "Confirmation");
+                }
+                if (ft1 != null) {
+                    ft1.commit();
+                }
                 break;
             case R.id.back5:
                 Fragment fragment2 = new Luggage();
-                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.screen_area, fragment2, "Luggage");
-                ft2.commit();
+                FragmentTransaction ft2 = null;
+                if (getFragmentManager() != null) {
+                    ft2 = getFragmentManager().beginTransaction();
+                }
+                if (ft2 != null) {
+                    ft2.replace(R.id.screen_area, fragment2, "Luggage");
+                }
+                if (ft2 != null) {
+                    ft2.commit();
+                }
                 break;
             case R.id.x5:
                 Intent intent = new Intent(getActivity(), MainActivity.class);

@@ -1,8 +1,8 @@
 package com.example.uniporter_app.Scheduled_Rides;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.icu.text.UnicodeSetSpanner;
-import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uniporter_app.AnimationUtil;
-import com.example.uniporter_app.Authentication.Login;
-import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
-import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
 
 import java.util.ArrayList;
@@ -29,21 +26,20 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
     private int previousPosition = 0;
 
-    public ScheduledRideAdapter(Context context, ArrayList<ScheduledRideInformation> data) {
+    ScheduledRideAdapter(Context context, ArrayList<ScheduledRideInformation> data) {
 
         this.context = context;
         this.data = data;
         inflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public ScheduledRideAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+    public ScheduledRideAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
 
         View view = inflater.inflate(R.layout.scheduled_rides_list_item_row, parent, false);
 
-        ScheduledRideAdapter.MyViewHolder holder = new ScheduledRideAdapter.MyViewHolder(view);
-
-        return holder;
+        return new MyViewHolder(view);
     }
 
     private int chatRoomIdHash(String concatenatedNames, String meeting_loc, String schedule_date) {
@@ -51,8 +47,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         return src.hashCode();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, @SuppressLint("RecyclerView") final int position) {
 
         myViewHolder.schedule_date.setText(data.get(position).schedule_date);
         myViewHolder.meeting_loc.setText(data.get(position).meeting_loc);
@@ -60,14 +57,14 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         myViewHolder.weight.setText(Integer.toString(data.get(position).weight * 10) + " kg");
 
         List<String> group = data.get(position).member;
-        String concatenatedNames = "";
+        StringBuilder concatenatedNames = new StringBuilder();
         for (int i = 0; i < group.size(); i++) {
-            concatenatedNames += (group.get(i) + "\n");
+            concatenatedNames.append(group.get(i)).append("\n");
         }
 
-        myViewHolder.members.setText(concatenatedNames);
+        myViewHolder.members.setText(concatenatedNames.toString());
 
-        final String finalConcatenatedNames = concatenatedNames;
+        final String finalConcatenatedNames = concatenatedNames.toString();
         myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO: launch chatroom here
@@ -88,8 +85,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         previousPosition = position;
 
 
-        final int currentPosition = position;
-        final ScheduledRideInformation infoData = data.get(position);
     }
 
     @Override
@@ -98,7 +93,6 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
 
         TextView meeting_loc;
         TextView time;
@@ -107,29 +101,15 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         TextView members;
         ImageView enter_chatroom;
 
-        public MyViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
-            meeting_loc = (TextView) itemView.findViewById(R.id.meeting_loc_row);
-            time = (TextView) itemView.findViewById(R.id.time_row);
-            weight = (TextView) itemView.findViewById(R.id.weight_row);
-            schedule_date = (TextView) itemView.findViewById(R.id.scheduled_date_row);
-            members = (TextView) itemView.findViewById(R.id.members_row);
-            enter_chatroom = (ImageView) itemView.findViewById(R.id.enter_chat_room);
+            meeting_loc = itemView.findViewById(R.id.meeting_loc_row);
+            time = itemView.findViewById(R.id.time_row);
+            weight = itemView.findViewById(R.id.weight_row);
+            schedule_date = itemView.findViewById(R.id.scheduled_date_row);
+            members = itemView.findViewById(R.id.members_row);
+            enter_chatroom = itemView.findViewById(R.id.enter_chat_room);
         }
     }
 
-    // This removes the data from our Dataset and Updates the Recycler View.
-    private void removeItem(ScheduledRideInformation infoData) {
-
-        int currPosition = data.indexOf(infoData);
-        data.remove(currPosition);
-        notifyItemRemoved(currPosition);
-    }
-
-    // This method adds(duplicates) a Object (item ) to our Data set as well as Recycler View.
-    private void addItem(int position, ScheduledRideInformation infoData) {
-
-        data.add(position, infoData);
-        notifyItemInserted(position);
-    }
 }

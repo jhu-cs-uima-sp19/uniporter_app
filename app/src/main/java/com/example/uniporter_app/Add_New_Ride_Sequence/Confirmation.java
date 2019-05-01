@@ -1,5 +1,6 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,25 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.uniporter_app.API.RetrofitClientPreferences;
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.API_models.PreferenceResponse;
 import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.Authentication.MainActivity;
-import com.example.uniporter_app.DrawerUtil;
-import com.example.uniporter_app.New_Pending_Rides.NewRide;
-import com.example.uniporter_app.New_Pending_Rides.NewRideAdapter;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
@@ -45,6 +40,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     String flight_no;
     String airline;
     String user_email;
+
     int user_id;
     String user_token;
     int luggage;
@@ -53,11 +49,13 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     TextView blocks_confirm;
     int early;
     TextView early_confirm;
-    String depature_date;
-    TextView depature_date_confirm;
-    String depature_time;
-    TextView depature_time_confirm;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    String departure_date;
+    TextView departure_date_confirm;
+    String departure_time;
+    TextView departure_time_confirm;
+
+    @SuppressLint("SetTextI18n")
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.activity_confirmation, container, false);
@@ -81,7 +79,6 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         residence_confirm.setText(residence);
         flight_no = SharedPreferenceManager.getInstance(getContext())
                 .getFlightNo();
-        Log.w("flight_no", flight_no);
         airline = SharedPreferenceManager.getInstance(getContext())
                 .getAirline();
         user_token = SharedPreferenceManager.getInstance(getContext())
@@ -98,14 +95,14 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                 .getWaitTime();
         early_confirm = myView.findViewById(R.id.confirm_max_early);
         early_confirm.setText(Integer.toString(early) + " hrs");
-        depature_date = SharedPreferenceManager.getInstance(getContext())
+        departure_date = SharedPreferenceManager.getInstance(getContext())
                 .getFlightDate();
-        depature_date_confirm = myView.findViewById(R.id.confirm_depart_date);
-        depature_date_confirm.setText(depature_date);
-        depature_time = SharedPreferenceManager.getInstance(getContext())
+        departure_date_confirm = myView.findViewById(R.id.confirm_depart_date);
+        departure_date_confirm.setText(departure_date);
+        departure_time = SharedPreferenceManager.getInstance(getContext())
                 .getFlightTime();
-        depature_date_confirm = myView.findViewById(R.id.confirm_depart_time);
-        depature_date_confirm.setText(depature_time);
+        departure_time_confirm = myView.findViewById(R.id.confirm_depart_time);
+        departure_time_confirm.setText(departure_time);
         return myView;
     }
 
@@ -118,7 +115,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
     public void onClick(final View v) {
         final ArrayList<Integer> preferences = new ArrayList<>();
         final ArrayList<Integer> tags = new ArrayList<>();
-        tags.add(new Integer(1));
+        tags.add(1);
         switch (v.getId()) {
             case R.id.x_confirm:
                 Intent intent = new Intent(getActivity(), MainActivity.class);
@@ -126,9 +123,16 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                 break;
             case R.id.confirm_back:
                 Fragment fragment = new Early();
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.screen_area, fragment, "Early");
-                ft.commit();
+                FragmentTransaction ft = null;
+                if (getFragmentManager() != null) {
+                    ft = getFragmentManager().beginTransaction();
+                }
+                if (ft != null) {
+                    ft.replace(R.id.screen_area, fragment, "Early");
+                }
+                if (ft != null) {
+                    ft.commit();
+                }
                 break;
             case R.id.done:
                 final ProgressDialog progressDialog = new ProgressDialog(getContext(), R.style.AppTheme_Dark_Dialog);
@@ -142,11 +146,15 @@ public class Confirmation extends Fragment implements View.OnClickListener {
 
                 call_pref.enqueue(new Callback<PreferenceResponse>() {
                     @Override
-                    public void onResponse(Call<PreferenceResponse> call, Response<PreferenceResponse> response) {
+                    public void onResponse(@NonNull Call<PreferenceResponse> call, @NonNull Response<PreferenceResponse> response) {
                         if (response.code() == 201) {
                             PreferenceResponse rep = response.body();
-                            Toast.makeText(getContext(), rep.getResidence(), Toast.LENGTH_LONG).show();
-                            preferences.add(new Integer(rep.getId()));
+                            if (rep != null) {
+                                Toast.makeText(getContext(), rep.getResidence(), Toast.LENGTH_LONG).show();
+                            }
+                            if (rep != null) {
+                                preferences.add(rep.getId());
+                            }
                         } else if (response.code() == 400){
                             Toast.makeText(getContext(), "Bad Request", Toast.LENGTH_LONG).show();
                         } else if (response.code() == 500){
@@ -157,7 +165,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                     }
 
                     @Override
-                    public void onFailure(Call<PreferenceResponse> call, Throwable t) {
+                    public void onFailure(@NonNull Call<PreferenceResponse> call, @NonNull Throwable t) {
                         Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_LONG).show();
                     }
                 });
@@ -168,16 +176,18 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                 Call<RideResponse> call_ride = RetrofitClientRides
                                         .getInstance()
                                         .getAPI()
-                                        .addRide(user_id , user_email, "to_airport", airline, flight_no, depature_date, depature_time,
+                                        .addRide(user_id , user_email, "to_airport", airline, flight_no, departure_date, departure_time,
                                                 preferences, tags , "token " + user_token);
 
                                 call_ride.enqueue(new Callback<RideResponse>() {
 
                                     @Override
-                                    public void onResponse(Call<RideResponse> call, Response<RideResponse> response) {
+                                    public void onResponse(@NonNull Call<RideResponse> call, @NonNull Response<RideResponse> response) {
                                         if (response.code() == 201) {
                                             RideResponse rep = response.body();
-                                            Toast.makeText(getContext(), rep.getUser_email(), Toast.LENGTH_LONG).show();
+                                            if (rep != null) {
+                                                Toast.makeText(getContext(), rep.getUser_email(), Toast.LENGTH_LONG).show();
+                                            }
                                         } else if (response.code() == 400){
                                             Toast.makeText(getContext(), "Bad Request", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 500){
@@ -188,7 +198,7 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                     }
 
                                     @Override
-                                    public void onFailure(Call<RideResponse> call, Throwable t) {
+                                    public void onFailure(@NonNull Call<RideResponse> call, @NonNull Throwable t) {
                                         Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_LONG).show();
                                     }
                                 });

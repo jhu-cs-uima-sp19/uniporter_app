@@ -33,20 +33,20 @@ public class Luggage extends Fragment implements View.OnClickListener {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         myView = inflater.inflate(R.layout.activity_luggage, container, false);
         front4 = myView.findViewById(R.id.front4);
         back4 = myView.findViewById(R.id.back4);
         x4 = myView.findViewById(R.id.x4);
+
         front4.setOnClickListener(this);
         back4.setOnClickListener(this);
         x4.setOnClickListener(this);
-        spinner1 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
-        large_lugg_value = Integer.parseInt(spinner1.getSelectedItem().toString());
-        spinner2 = (Spinner) myView.findViewById(R.id.large_luggage_spinner);
-        small_lugg_value = Integer.parseInt(spinner2.getSelectedItem().toString());
-        spinner3 = (Spinner) myView.findViewById(R.id.special_luggage_spinner);
-        special_lugg_value = Integer.parseInt(spinner3.getSelectedItem().toString());
+
+        spinner1 = myView.findViewById(R.id.large_luggage_spinner);
+        spinner2 = myView.findViewById(R.id.large_luggage_spinner);
+        spinner3 = myView.findViewById(R.id.special_luggage_spinner);
         return myView;
     }
 

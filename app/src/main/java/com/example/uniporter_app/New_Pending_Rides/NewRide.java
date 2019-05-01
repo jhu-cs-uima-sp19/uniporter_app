@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
@@ -24,6 +26,7 @@ public class NewRide extends AppCompatActivity {
 
     // Recycler View
     RecyclerView recyclerView;
+    TextView emptyView;
     NewRideAdapter adapter;
 
     //NavDrawer
@@ -40,6 +43,7 @@ public class NewRide extends AppCompatActivity {
         progressDialog.show();
 
         recyclerView = findViewById(R.id.recycleView);
+        emptyView = findViewById(R.id.empty_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
@@ -50,6 +54,14 @@ public class NewRide extends AppCompatActivity {
                     public void run() {
                         progressDialog.setMessage("Rendering View...");
                         adapter = new NewRideAdapter(NewRide.this, newRide.getRideData());
+                        if (adapter.getItemCount() == 0) {
+                            recyclerView.setVisibility(View.GONE);
+                            emptyView.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            recyclerView.setVisibility(View.VISIBLE);
+                            emptyView.setVisibility(View.GONE);
+                        }
                         List<SectionedRideAdapter.Section> sections =
                                 new ArrayList<SectionedRideAdapter.Section>();
                         int pending_rides = 0;

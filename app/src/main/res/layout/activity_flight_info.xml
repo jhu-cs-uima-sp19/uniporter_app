@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@dra"
+    android:background="@color/white"
     android:orientation="vertical">
 
         <LinearLayout
@@ -67,6 +67,7 @@
                     android:background="@android:drawable/spinner_background"
                     android:dropDownWidth="wrap_content"
                     android:entries="@array/airline_array"
+                    style="@style/spinner_style"
                     android:popupBackground="@android:drawable/spinner_dropdown_background"
                     android:prompt="@string/airline_prompt"
                     android:spinnerMode="dropdown"

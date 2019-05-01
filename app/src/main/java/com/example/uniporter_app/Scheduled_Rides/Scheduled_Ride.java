@@ -29,6 +29,7 @@ import java.util.Objects;
 public class Scheduled_Ride extends AppCompatActivity {
     // Recycler View
     private RecyclerView recyclerView;
+    private TextView emptyView;
     private ScheduledRideAdapter adapter;
 
     //NavDrawer
@@ -94,12 +95,21 @@ public class Scheduled_Ride extends AppCompatActivity {
 
     private void grabSharerideDate(final ProgressDialog progressDialog, final String target_date) {
         recyclerView = findViewById(R.id.recycleView2);
+        emptyView = findViewById(R.id.empty_view2);
         final ScheduledRideData newShareride = new ScheduledRideData();
         newShareride.callShareRideAPI(target_date);
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         adapter = new ScheduledRideAdapter(Scheduled_Ride.this, newShareride.getRideData());
+                        if (adapter.getItemCount() == 0) {
+                            recyclerView.setVisibility(View.GONE);
+                            emptyView.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            recyclerView.setVisibility(View.VISIBLE);
+                            emptyView.setVisibility(View.GONE);
+                        }
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(Scheduled_Ride.this)); // Vertical Orientation By Default
                         toolBar = findViewById(R.id.toolbar);

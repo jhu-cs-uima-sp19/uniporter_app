@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
+import com.example.uniporter_app.Messenger;
 import com.example.uniporter_app.AnimationUtil;
 import com.example.uniporter_app.R;
 
@@ -42,9 +44,15 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         return new MyViewHolder(view);
     }
 
-    private int chatRoomIdHash(String concatenatedNames, String meeting_loc, String schedule_date) {
-        String src = concatenatedNames + meeting_loc + schedule_date;
-        return src.hashCode();
+    private String chatRoomIdHash(int position, String meeting_loc, String schedule_date) {
+        List<String> group = data.get(position).member;
+        String src = "";
+        for (int i = 0; i < group.size(); i++) {
+            String[] name = (group.get(i)).split("@");
+            src += name[0];
+        }
+        src = src + meeting_loc + schedule_date;
+        return src;
     }
 
     @SuppressLint("SetTextI18n")
@@ -68,8 +76,11 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO: launch chatroom here
-                int chatroom_id = chatRoomIdHash(finalConcatenatedNames, data.get(position).meeting_loc, data.get(position).schedule_date);
-                Toast.makeText(context, Integer.toString(chatroom_id), Toast.LENGTH_LONG).show();
+                String chatroom_id = chatRoomIdHash(position, data.get(position).meeting_loc, data.get(position).schedule_date);
+                Toast.makeText(context, chatroom_id, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, Messenger.class);
+                intent.putExtra("chatid", chatroom_id);
+                context.startActivity(intent);
             }
         });
 

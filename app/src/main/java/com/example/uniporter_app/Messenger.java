@@ -22,7 +22,12 @@ public class Messenger extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger);
-        myDatabase = FirebaseDatabase.getInstance().getReference("pls");
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+        String value = extras.getString("chatid");
+        myDatabase = FirebaseDatabase.getInstance().getReference(value);
         final TextView myTexts = findViewById(R.id.messageview);
 
        myDatabase.addValueEventListener(new ValueEventListener() {

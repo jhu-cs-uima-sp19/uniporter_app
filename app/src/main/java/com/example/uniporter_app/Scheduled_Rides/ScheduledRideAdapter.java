@@ -15,6 +15,7 @@ import android.content.Intent;
 import com.example.uniporter_app.Messenger;
 import com.example.uniporter_app.AnimationUtil;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +81,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
                 Toast.makeText(context, chatroom_id, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, Messenger.class);
                 intent.putExtra("chatid", chatroom_id);
+                String name = SharedPreferenceManager.getInstance(context)
+                        .getName();
+                intent.putExtra("name", name);
                 context.startActivity(intent);
             }
         });

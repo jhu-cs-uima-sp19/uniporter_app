@@ -21,6 +21,7 @@ public class Messenger extends AppCompatActivity {
     DatabaseReference myDatabase;
     FirebaseListAdapter adapter;
     String value;
+    String name;
     ListView myTexts;
 
     @Override
@@ -32,6 +33,7 @@ public class Messenger extends AppCompatActivity {
             return;
         }
         value = extras.getString("chatid");
+        name = extras.getString("name");
         myDatabase = FirebaseDatabase.getInstance().getReference(value);
         myTexts = findViewById(R.id.list_of_messages);
 
@@ -88,9 +90,8 @@ public class Messenger extends AppCompatActivity {
             return;
         }
         Log.w("message", "store");
-        myDatabase.child(Long.toString(System.currentTimeMillis())).setValue(new ChatMessage(pending_message, "name"));
+        myDatabase.child(Long.toString(System.currentTimeMillis())).setValue(new ChatMessage(pending_message, name.toUpperCase()));
         myEdits.setText("");
-
     }
 }
 

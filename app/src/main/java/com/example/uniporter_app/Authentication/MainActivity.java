@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.uniporter_app.Authentication.Login;
-import com.example.uniporter_app.Authentication.Start;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 

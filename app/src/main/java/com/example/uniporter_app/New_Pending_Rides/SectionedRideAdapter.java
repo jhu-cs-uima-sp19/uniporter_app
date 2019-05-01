@@ -1,15 +1,15 @@
 package com.example.uniporter_app.New_Pending_Rides;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.uniporter_app.R;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -21,15 +21,14 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
     private boolean mValid = true;
     private int mSectionResourceId;
     private int mTextResourceId;
-    private LayoutInflater mLayoutInflater;
     private RecyclerView.Adapter mBaseAdapter;
-    private SparseArray<Section> mSections = new SparseArray<Section>();
+    private SparseArray<Section> mSections = new SparseArray<>();
 
 
-    public SectionedRideAdapter(Context context, int sectionResourceId, int textResourceId,
-                                              RecyclerView.Adapter baseAdapter) {
+    SectionedRideAdapter(Context context, int sectionResourceId, int textResourceId,
+                         RecyclerView.Adapter baseAdapter) {
 
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mSectionResourceId = sectionResourceId;
         mTextResourceId = textResourceId;
         mBaseAdapter = baseAdapter;
@@ -65,16 +64,17 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     public static class SectionViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView title;
+        TextView title;
 
-        public SectionViewHolder(View view,int mTextResourceid) {
+        SectionViewHolder(View view, int mTextResourceid) {
             super(view);
             title = (TextView) view.findViewById(mTextResourceid);
         }
     }
 
+    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int typeView) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int typeView) {
         if (typeView == SECTION_TYPE) {
             final View view = LayoutInflater.from(mContext).inflate(mSectionResourceId, parent, false);
             return new SectionViewHolder(view,mTextResourceId);
@@ -84,7 +84,7 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder sectionViewHolder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder sectionViewHolder, int position) {
         if (isSectionHeaderPosition(position)) {
             ((SectionViewHolder)sectionViewHolder).title.setText(mSections.get(position).title);
         }else{
@@ -106,7 +106,7 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
         int sectionedPosition;
         CharSequence title;
 
-        public Section(int firstPosition, CharSequence title) {
+        Section(int firstPosition, CharSequence title) {
             this.firstPosition = firstPosition;
             this.title = title;
         }
@@ -117,15 +117,14 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
 
-    public void setSections(Section[] sections) {
+    void setSections(Section[] sections) {
         mSections.clear();
 
         Arrays.sort(sections, new Comparator<Section>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public int compare(Section o, Section o1) {
-                return (o.firstPosition == o1.firstPosition)
-                        ? 0
-                        : ((o.firstPosition < o1.firstPosition) ? -1 : 1);
+                return Integer.compare(o.firstPosition, o1.firstPosition);
             }
         });
 
@@ -150,7 +149,7 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
         return position + offset;
     }
 
-    public int sectionedPositionToPosition(int sectionedPosition) {
+    private int sectionedPositionToPosition(int sectionedPosition) {
         if (isSectionHeaderPosition(sectionedPosition)) {
             return RecyclerView.NO_POSITION;
         }
@@ -165,7 +164,7 @@ public class SectionedRideAdapter extends RecyclerView.Adapter<RecyclerView.View
         return sectionedPosition + offset;
     }
 
-    public boolean isSectionHeaderPosition(int position) {
+    private boolean isSectionHeaderPosition(int position) {
         return mSections.get(position) != null;
     }
 

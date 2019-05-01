@@ -3,6 +3,7 @@ package com.example.uniporter_app.Authentication;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -100,12 +101,13 @@ public class Login extends AppCompatActivity {
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
 
                 if (response.code() == 200) {
                    login_success = true;
-                   auth_token = loginResponse.getToken();
+                    assert loginResponse != null;
+                    auth_token = loginResponse.getToken();
                    Log.w("checking auth token", auth_token);
                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
                    Call<UserResponse> call2 = RetrofitClientUser
@@ -114,11 +116,17 @@ public class Login extends AppCompatActivity {
                            .getUser("token " + auth_token);
                    call2.enqueue(new Callback<UserResponse>() {
                        @Override
-                       public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                       public void onResponse(@NonNull Call<UserResponse> call, @NonNull Response<UserResponse> response) {
                            if (response.code() == 200) {
                                UserResponse userResponse = response.body();
-                               int id = userResponse.getId();
-                               String username = userResponse.getName();
+                               int id = 0;
+                               if (userResponse != null) {
+                                   id = userResponse.getId();
+                               }
+                               String username = null;
+                               if (userResponse != null) {
+                                   username = userResponse.getName();
+                               }
                                SharedPreferenceManager.getInstance(Login.this)
                                        .saveUser(id, email, auth_token);
                                SharedPreferenceManager.getInstance(Login.this)
@@ -134,7 +142,7 @@ public class Login extends AppCompatActivity {
                        }
 
                        @Override
-                       public void onFailure(Call<UserResponse> call, Throwable t) {
+                       public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
                            Toast.makeText(Login.this, "Request failed: Get User Info", Toast.LENGTH_LONG).show();
                        }
                    });
@@ -149,7 +157,7 @@ public class Login extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
                 Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 Log.w("login", t.getMessage());
             }

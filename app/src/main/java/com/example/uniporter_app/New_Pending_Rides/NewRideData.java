@@ -1,5 +1,7 @@
 package com.example.uniporter_app.New_Pending_Rides;
 
+import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -19,6 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@SuppressLint("Registered")
 public class NewRideData extends AppCompatActivity{
 
     final List<Integer> id = new ArrayList<>();
@@ -30,7 +33,7 @@ public class NewRideData extends AppCompatActivity{
 
     public int past_rides() throws ParseException {
         int future = 0;
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
         Date today_obj = new Date();
         Log.w("today", today_obj.toString());
         for (int i = 0; i < date.size(); ++i) {
@@ -51,7 +54,7 @@ public class NewRideData extends AppCompatActivity{
 
         call.enqueue(new Callback<List<RideResponse>>() {
             @Override
-            public void onResponse(Call<List<RideResponse>> call, Response<List<RideResponse>> response) {
+            public void onResponse(@NonNull Call<List<RideResponse>> call, @NonNull Response<List<RideResponse>> response) {
                 if (response.body() != null) {
                     for (RideResponse ride : response.body()) {
                         id.add(ride.getId());
@@ -65,7 +68,7 @@ public class NewRideData extends AppCompatActivity{
             }
 
             @Override
-            public void onFailure(Call<List<RideResponse>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<RideResponse>> call, @NonNull Throwable t) {
 
             }
         });
@@ -74,15 +77,6 @@ public class NewRideData extends AppCompatActivity{
     public ArrayList<NewRideInformation> getRideData() {
 
         ArrayList<NewRideInformation> data = new ArrayList<>();
-
-        int[] location = {
-                R.drawable.uniporter_background,
-                R.drawable.uniporter_background,
-                R.drawable.uniporter_background,
-                R.drawable.uniporter_background,
-                R.drawable.uniporter_background,
-                R.drawable.uniporter_background
-        };
 
         Log.w("response", Integer.toString(type.size()));
         for (int i = 0; i < type.size(); i++) {

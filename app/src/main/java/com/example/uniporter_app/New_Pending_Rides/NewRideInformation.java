@@ -1,5 +1,7 @@
 package com.example.uniporter_app.New_Pending_Rides;
 
+import android.annotation.SuppressLint;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,18 +9,18 @@ import java.util.Date;
 public class NewRideInformation implements Comparable< NewRideInformation >{
     public Integer id;
     public String type;
-    public String airline;
-    public String flight_no;
+    String airline;
+    String flight_no;
     public String date;
-    public String flight_time;
+    String flight_time;
 
-    public int getViewType() {
+    int getViewType() {
         return 6500;
     }
 
     @Override
     public int compareTo(NewRideInformation newRideInformation) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
         Date this_date = null;
         Date other_date = null;
         try {
@@ -27,6 +29,7 @@ public class NewRideInformation implements Comparable< NewRideInformation >{
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        assert this_date != null;
         return this_date.compareTo(other_date);
     }
 }

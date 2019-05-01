@@ -4,7 +4,9 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,13 +18,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class Scheduled_Ride extends AppCompatActivity {
     // Recycler View
@@ -34,7 +36,6 @@ public class Scheduled_Ride extends AppCompatActivity {
 
     // Get date
     private TextView shareride_date;
-    private Button get_date;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -51,6 +52,7 @@ public class Scheduled_Ride extends AppCompatActivity {
 
         shareride_date = findViewById(R.id.shareride_date);
         shareride_date.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 int month = cal.get(Calendar.MONTH);
@@ -62,7 +64,7 @@ public class Scheduled_Ride extends AppCompatActivity {
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -78,7 +80,7 @@ public class Scheduled_Ride extends AppCompatActivity {
             }
         };
 
-        get_date = findViewById(R.id.select_date);
+        Button get_date = findViewById(R.id.select_date);
         get_date.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 progressDialog.setMessage("Loading Your Data...");

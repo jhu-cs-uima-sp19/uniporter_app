@@ -1,13 +1,12 @@
 package com.example.uniporter_app.Scheduled_Rides;
 
+import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.API.RetrofitClientSharerides;
-import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.API_models.SharerideResponse;
-import com.example.uniporter_app.New_Pending_Rides.NewRideInformation;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
@@ -18,6 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@SuppressLint("Registered")
 public class ScheduledRideData extends AppCompatActivity {
 
     String user_email = SharedPreferenceManager
@@ -38,20 +38,22 @@ public class ScheduledRideData extends AppCompatActivity {
 
         call.enqueue(new Callback<List<SharerideResponse>>() {
             @Override
-            public void onResponse(Call<List<SharerideResponse>> call, Response<List<SharerideResponse>> response) {
-                for (SharerideResponse ride: response.body()) {
-                    if (ride.getMember().contains(user_email)) {
-                        schedule_date.add(target_date);
-                        meeting_loc.add(ride.getMeeting_loc());
-                        members.add(ride.getMember());
-                        time.add(ride.getTime());
-                        weight.add(ride.getWeight());
+            public void onResponse(@NonNull Call<List<SharerideResponse>> call, @NonNull Response<List<SharerideResponse>> response) {
+                if (response.body() != null) {
+                    for (SharerideResponse ride: response.body()) {
+                        if (ride.getMember().contains(user_email)) {
+                            schedule_date.add(target_date);
+                            meeting_loc.add(ride.getMeeting_loc());
+                            members.add(ride.getMember());
+                            time.add(ride.getTime());
+                            weight.add(ride.getWeight());
+                        }
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<SharerideResponse>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<SharerideResponse>> call, @NonNull Throwable t) {
 
             }
         });

@@ -1,7 +1,5 @@
 package com.example.uniporter_app.API_models;
 
-import com.google.gson.annotations.SerializedName;
-
 public class LoginResponse {
     private String token;
 

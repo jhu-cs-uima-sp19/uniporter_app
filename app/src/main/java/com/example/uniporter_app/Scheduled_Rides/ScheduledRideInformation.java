@@ -3,10 +3,10 @@ package com.example.uniporter_app.Scheduled_Rides;
 import java.util.List;
 
 public class ScheduledRideInformation {
-    public String schedule_date;
-    public int location;
-    public String meeting_loc;
-    public List<String> member;
+    String schedule_date;
+    int location;
+    String meeting_loc;
+    List<String> member;
     public String time;
-    public Integer weight;
+    Integer weight;
 }

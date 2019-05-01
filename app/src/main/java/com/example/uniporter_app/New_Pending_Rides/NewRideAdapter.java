@@ -1,9 +1,13 @@
 package com.example.uniporter_app.New_Pending_Rides;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +18,11 @@ import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.AnimationUtil;
-import com.example.uniporter_app.Authentication.Start;
 import com.example.uniporter_app.R;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -33,25 +37,26 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
     private LayoutInflater inflater;
     private int previousPosition = 0;
 
-    public NewRideAdapter(Context context, ArrayList<NewRideInformation> data) {
+    NewRideAdapter(Context context, ArrayList<NewRideInformation> data) {
 
         this.context = context;
         this.data = data;
         inflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
 
         View view = inflater.inflate(R.layout.new_ride_list_item_row, parent, false);
-        MyViewHolder holder = new MyViewHolder(view);
-        return holder;
+        return new MyViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    public void onBindViewHolder(MyViewHolder myViewHolder, final int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, @SuppressLint("RecyclerView") final int position) {
 
-        String dest = (data.get(position).type != "to_airport") ? "BWI International Airport" : "Johns Hopkins University";
+        String dest = (!Objects.equals(data.get(position).type, "to_airport")) ? "BWI International Airport" : "Johns Hopkins University";
 
         myViewHolder.type.setText(dest);
         myViewHolder.airline.setText(data.get(position).airline);
@@ -70,9 +75,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
         previousPosition = position;
 
-
-        final int currentPosition = position;
-        final NewRideInformation infoData = data.get(position);
 
         myViewHolder.id.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +97,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
 
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                                 Toast.makeText(context, "Deleted Ride " + Integer.toString(data.get(position).id), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(context, NewRide.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -103,7 +105,7 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
                             }
 
                             @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                             }
                         });
                     }
@@ -134,32 +136,17 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
         TextView date;
         TextView flight_time;
 
-        public MyViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
 
-            id = (ImageView) itemView.findViewById(R.id.ride_id);
-            type = (TextView) itemView.findViewById(R.id.type_row);
-            airline = (TextView) itemView.findViewById(R.id.airline_row);
-            flight_no = (TextView) itemView.findViewById(R.id.flight_no_row);
-            date = (TextView) itemView.findViewById(R.id.date_row);
-            flight_time = (TextView) itemView.findViewById(R.id.flight_time_row);
+            id = itemView.findViewById(R.id.ride_id);
+            type = itemView.findViewById(R.id.type_row);
+            airline = itemView.findViewById(R.id.airline_row);
+            flight_no = itemView.findViewById(R.id.flight_no_row);
+            date = itemView.findViewById(R.id.date_row);
+            flight_time = itemView.findViewById(R.id.flight_time_row);
 
         }
-    }
-
-    // This removes the data from our Dataset and Updates the Recycler View.
-    private void removeItem(NewRideInformation infoData) {
-
-        int currPosition = data.indexOf(infoData);
-        data.remove(currPosition);
-        notifyItemRemoved(currPosition);
-    }
-
-    // This method adds(duplicates) a Object (item ) to our Data set as well as Recycler View.
-    private void addItem(int position, NewRideInformation infoData) {
-
-        data.add(position, infoData);
-        notifyItemInserted(position);
     }
 
     @Override

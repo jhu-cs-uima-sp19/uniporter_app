@@ -12,12 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.uniporter_app.Authentication.Login;
 import com.example.uniporter_app.DrawerUtil;
 import com.example.uniporter_app.R;
 
@@ -44,7 +39,7 @@ public class NewRide extends AppCompatActivity {
         progressDialog.setMessage("Loading Your Data...");
         progressDialog.show();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+        recyclerView = findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));

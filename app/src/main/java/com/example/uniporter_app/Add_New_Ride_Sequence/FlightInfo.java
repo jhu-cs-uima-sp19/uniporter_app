@@ -84,7 +84,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String hour_str = (hour < 12) ? "0" + hour : Integer.toString(hour);
+                String hour_str = (hour < 10) ? "0" + hour : Integer.toString(hour);
                 departure_time = hour_str + ":" + minute + ":00";
                 if (minute < 10) {
                     dep_time = hour_str + ":0" + minute;

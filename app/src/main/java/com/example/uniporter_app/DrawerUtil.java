@@ -47,7 +47,7 @@ public class DrawerUtil {
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
                 .withTranslucentStatusBar(true)
-                .withHeaderBackground(R.color.white)
+                .withHeaderBackground(R.drawable.gradient)
                 .addProfiles(
                         new ProfileDrawerItem().withName(username).withEmail(user_email).withIcon(activity.getResources().getDrawable(R.drawable.avatar))
                 )

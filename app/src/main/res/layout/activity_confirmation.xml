@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/primary_darker"
+    android:background="#b2f2ff"
     android:layout_gravity="center_vertical"
     android:orientation="vertical">
 
@@ -25,7 +25,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="50dp"
             android:background="@color/white"
             android:orientation="vertical">
 
@@ -45,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Please Confirm Your Information"
                 android:textColor="@color/BigText"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -206,14 +205,22 @@
 
             <Button
                 android:id="@+id/done"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@color/grey"
+                android:textColor="@color/black"
+                android:layout_height="40dp"
                 android:text="Confirm" />
 
             <Button
                 android:id="@+id/confirm_back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@color/grey"
+                android:textColor="@color/black"
                 android:text="Go Back" />
         </LinearLayout>
 

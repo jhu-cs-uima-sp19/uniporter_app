@@ -81,9 +81,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
                 Toast.makeText(context, chatroom_id, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, Messenger.class);
                 intent.putExtra("chatid", chatroom_id);
-                String name = SharedPreferenceManager.getInstance(context)
+                String username = SharedPreferenceManager.getInstance(context)
                         .getName();
-                intent.putExtra("name", name);
+                intent.putExtra("name", username);
                 context.startActivity(intent);
             }
         });

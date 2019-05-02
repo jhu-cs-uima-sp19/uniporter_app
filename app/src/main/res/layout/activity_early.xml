@@ -30,10 +30,11 @@
 
         <TextView
             android:id="@+id/early_question"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="40dp"
             android:text="@string/early_question"
             android:textColor="@color/BigText"
             android:textSize="30sp"
@@ -51,9 +52,9 @@
 
         <TextView
             android:id="@+id/early_desc"
-            android:layout_width="272dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:text="@string/early_desc"

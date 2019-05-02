@@ -36,11 +36,14 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
     String airline_value;
     String departure_time;
     String depature_date;
+    String dep_time;
 
     private Spinner airline_spinner;
     private EditText flight_no;
     private Button get_departure_date;
     private Button get_depature_time;
+    private EditText dept_time;
+    private EditText dept_date;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
@@ -58,6 +61,8 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
 
         flight_no = myView.findViewById(R.id.flightnum);
         airline_spinner = myView.findViewById(R.id.airline_spinner);
+        dept_date = myView.findViewById(R.id.deptdate);
+        dept_time = myView.findViewById(R.id.depttime);
 
         get_departure_date = myView.findViewById(R.id.set_departure_date);
         get_departure_date.setOnClickListener(this);
@@ -71,14 +76,18 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                 String day_str = (day < 10) ? "0" + Integer.toString(day) : Integer.toString(day);
                 String year_str = Integer.toString(year).substring(2);
                 depature_date = month_str + "/" + day_str + "/" + year_str;
+                dept_date.setText(depature_date);
+
             }
         };
 
         mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String hour_str = (hour > 12) ? "0" + hour : Integer.toString(hour);
+                String hour_str = (hour < 12) ? "0" + hour : Integer.toString(hour);
                 departure_time = hour_str + ":" + minute + ":00";
+                dep_time = hour_str + ":" + minute;
+                dept_time.setText(dep_time);
             }
         };
 
@@ -116,6 +125,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         int minute = mcurrentTime.get(Calendar.MINUTE);
         TimePickerDialog time_dialog = new TimePickerDialog(
                 myView.getContext(),
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mTimeSetListener,
                 hour, minute, true);
         Objects.requireNonNull(time_dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

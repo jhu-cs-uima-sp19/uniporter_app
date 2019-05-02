@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -68,6 +69,7 @@ public class Messenger extends AppCompatActivity {
                 String message_user = model.getMessageUser();
                 long message_time = model.getMessageTime();
                 // Set their text
+
                 if (message_text != null) {
                     Log.w("message", "level2");
                     messageText.setText(message_text);
@@ -75,6 +77,10 @@ public class Messenger extends AppCompatActivity {
                     // Format the date before showing it
                     messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                             message_time));
+                    if(message_user.equals(name.toUpperCase())) {
+                        messageText.setGravity(Gravity.RIGHT);
+                        messageText.setTextColor(getResources().getColor(R.color.colorAccent));
+                    }
                 }
             }
         };

@@ -75,7 +75,7 @@ public class NewRide extends AppCompatActivity {
 
                         // sections
                         sections.add(new SectionedRideAdapter.Section(0,"Pending Rides"));
-                        sections.add(new SectionedRideAdapter.Section(final_pending_rides,"Past Rides"));
+                        sections.add(new SectionedRideAdapter.Section(final_pending_rides,"Past Rides History"));
 
                         //Add your adapter to the sectionAdapter
                         SectionedRideAdapter.Section[] dummy = new SectionedRideAdapter.Section[sections.size()];
@@ -85,53 +85,12 @@ public class NewRide extends AppCompatActivity {
 
                         recyclerView.setAdapter(sectionedRideAdapter);
                         toolBar = findViewById(R.id.toolbar);
-                        toolBar.setTitle("Your Pending Rides");
+                        toolBar.setTitle("Your Rides & History");
                         setSupportActionBar(toolBar);
 
                         DrawerUtil.getDrawer(NewRide.this, toolBar);
                         progressDialog.dismiss();
                     }
                 }, 2000);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_main ,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        switch (id){
-            case R.id.linearViewHorizontal:
-                LinearLayoutManager mLinearLayoutManagerHorizontal = new LinearLayoutManager(this); // (Context context)
-                mLinearLayoutManagerHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
-                recyclerView.setLayoutManager(mLinearLayoutManagerHorizontal);
-                break;
-
-            case R.id.linearViewVertical:
-                LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(this); // (Context context)
-                mLinearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
-                recyclerView.setLayoutManager(mLinearLayoutManagerVertical);
-                break;
-            case R.id.gridView:
-                GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 3); // (Context context, int spanCount)
-                recyclerView.setLayoutManager(mGridLayoutManager);
-                break;
-            case R.id.staggeredViewHorizontal:
-                StaggeredGridLayoutManager mStaggeredHorizontalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL); // (int spanCount, int orientation)
-                recyclerView.setLayoutManager(mStaggeredHorizontalLayoutManager);
-                break;
-            case R.id.staggeredViewVertical:
-                StaggeredGridLayoutManager mStaggeredVerticalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL); // (int spanCount, int orientation)
-                recyclerView.setLayoutManager(mStaggeredVerticalLayoutManager);
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

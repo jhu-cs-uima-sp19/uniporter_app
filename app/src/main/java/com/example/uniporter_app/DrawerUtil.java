@@ -30,7 +30,7 @@ public class DrawerUtil {
         PrimaryDrawerItem add_new_ride = new PrimaryDrawerItem().withIdentifier(1)
                 .withName(R.string.new_ride).withIcon(R.drawable.ic_add_circle_outline_black_24dp);
         PrimaryDrawerItem pending_rides = new PrimaryDrawerItem()
-                .withIdentifier(2).withName(R.string.pending_rides).withIcon(R.drawable.ic__car_24dp);
+                .withIdentifier(2).withName("Rides & History").withIcon(R.drawable.ic__car_24dp);
         PrimaryDrawerItem scheduled_rides = new PrimaryDrawerItem()
                 .withIdentifier(3).withName("Scheduled Rides").withIcon(R.drawable.ic_schedule_24dp);
         PrimaryDrawerItem logout = new PrimaryDrawerItem()

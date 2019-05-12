@@ -9,22 +9,50 @@
     android:fitsSystemWindows="true"
     android:background="@color/md_grey_300">
 
+    <LinearLayout
+        android:id="@+id/pick_shareride_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/toolbar"
+        android:layout_marginTop="56dp"
+        android:foregroundGravity="center"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="Today" />
+
+        <Button
+            android:id="@+id/tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/md_grey_300"
+            android:layout_weight="1"
+            android:text="Tomorrow" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/empty_view2"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="gone"
         android:textSize="25sp"
-        android:text="Input Your Ride Date" />
+        android:text="No Sharerides Found\n(Try Refreshing)" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:fitsSystemWindows="true"
-        >
+        android:layout_marginTop="50dp"
+        android:layout_alignTop="@id/pick_shareride_date">
+
     </android.support.v7.widget.RecyclerView>
 
     <android.support.v7.widget.Toolbar
@@ -47,11 +75,12 @@
                 android:layout_height="match_parent"
                 android:gravity="left"
                 android:id="@+id/shareride_date"
-                android:text="4/25/19"
+                android:hint="Custom Date Search"
+                android:textColorHint="@color/md_grey_300"
                 android:inputType="date"
-                android:textColor="@color/md_grey_400"
+                android:textColor="@color/md_grey_300"
                 android:textAlignment="center"
-                android:textSize="22dp"
+                android:textSize="20dp"
                 android:shadowRadius="@integer/google_play_services_version" />
             <Button
                 android:id="@+id/select_date"

@@ -201,6 +201,7 @@ public class Register extends AppCompatActivity {
         String mobile = _mobileText.getText().toString();
         String password = _passwordText.getText().toString();
         String reEnterPassword = _reEnterPasswordText.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@jhu+\\.+edu+";
 
         if (name.isEmpty() || name.length() < 3) {
             _nameText.setError("at least 3 characters");
@@ -209,8 +210,8 @@ public class Register extends AppCompatActivity {
             _nameText.setError(null);
             SharedPreferenceManager.getInstance(Register.this).saveName(name);
         }
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
+        if (email.isEmpty() || !(email.matches(emailPattern))) {
+            _emailText.setError("enter a valid JHU email address");
             valid = false;
         } else {
             _emailText.setError(null);

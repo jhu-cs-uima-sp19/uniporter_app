@@ -70,14 +70,14 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
             <TextView
-                android:background="@drawable/rounded_corner"
-                android:layout_width="190dp"
+                android:layout_width="220dp"
                 android:layout_height="match_parent"
                 android:gravity="left"
                 android:id="@+id/shareride_date"
                 android:hint="Custom Date Search"
                 android:textColorHint="@color/md_grey_500"
                 android:inputType="date"
+                android:background="@color/white"
                 android:textColor="@color/md_grey_500"
                 android:textAlignment="center"
                 android:textSize="20dp"
@@ -86,11 +86,9 @@
                 android:id="@+id/select_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/white"
+                android:background="@color/primary_dark"
                 android:text="Enter"
-                android:textColor="@color/primary_darker"/>
+                android:textColor="@color/white"/>
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>

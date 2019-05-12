@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View;
+
+import com.example.uniporter_app.Storage.SharedPreferenceManager;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,7 +55,8 @@ public class Messenger extends AppCompatActivity {
             return;
         }
         value = extras.getString("chatid");
-        name = extras.getString("name");
+        name = SharedPreferenceManager
+                .getInstance(Messenger.this).getName();
 
         myDatabase = FirebaseDatabase.getInstance().getReference(value);
         myTexts = findViewById(R.id.list_of_messages);

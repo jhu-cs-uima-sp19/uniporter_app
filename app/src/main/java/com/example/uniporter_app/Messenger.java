@@ -1,10 +1,12 @@
 package com.example.uniporter_app;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.text.Spannable;
@@ -39,6 +41,7 @@ public class Messenger extends AppCompatActivity {
     ListView myTexts;
     LinearLayout message_toolbar;
     Button exit_chat;
+    LinearLayout message_box;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,29 +89,35 @@ public class Messenger extends AppCompatActivity {
     public void getMessage() {
         adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class,
                 R.layout.message, myDatabase) {
+            @SuppressLint("ResourceAsColor")
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             protected void populateView(View v, ChatMessage model, int position) {
-                Log.w("message", "level1");
                 TextView messageText = v.findViewById(R.id.message_text);
                 TextView messageUser = v.findViewById(R.id.message_user);
                 TextView messageTime = v.findViewById(R.id.message_time);
+
+                message_box = v.findViewById(R.id.message_box);
 
                 // Get references to the views of message.xml
                 String message_text = model.getMessageText();
                 String message_user = model.getMessageUser();
                 long message_time = model.getMessageTime();
-                // Set their text
 
+                // Set their text
                 if (message_text != null) {
-                    Log.w("message", "level2");
                     messageText.setText(message_text);
                     messageUser.setText(message_user);
                     // Format the date before showing it
                     messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                             message_time));
                     if(message_user.equals(name.toUpperCase())) {
+                        messageUser.setGravity(Gravity.RIGHT);
+                        messageTime.setGravity(Gravity.RIGHT);
                         messageText.setGravity(Gravity.RIGHT);
-                        messageText.setTextColor(getResources().getColor(R.color.colorAccent));
+                        messageText.setTextColor(Color.WHITE);
+                        messageText.setBackgroundTintList(ContextCompat.getColorStateList(Messenger.this, R.color.colorPrimaryDark));
+                        message_box.setGravity(Gravity.RIGHT);
                     }
                 }
             }

@@ -121,13 +121,13 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                 v.getContext().startActivity(intent);
                 break;
             case R.id.confirm_back:
-                Fragment fragment = new Early();
+                Fragment fragment = new FlightInfo();
                 FragmentTransaction ft = null;
                 if (getFragmentManager() != null) {
                     ft = getFragmentManager().beginTransaction();
                 }
                 if (ft != null) {
-                    ft.replace(R.id.screen_area, fragment, "Early");
+                    ft.replace(R.id.screen_area, fragment, "FlightInfo");
                 }
                 if (ft != null) {
                     ft.commit();

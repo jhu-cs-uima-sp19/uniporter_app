@@ -34,13 +34,18 @@ public class Early extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myView = Objects.requireNonNull(inflater).inflate(R.layout.activity_early, container, false);
+
         front5 = myView.findViewById(R.id.front5);
         back5 = myView.findViewById(R.id.back5);
         x5 = myView.findViewById(R.id.x5);
+
         front5.setOnClickListener(this);
         back5.setOnClickListener(this);
         x5.setOnClickListener(this);
+
         spinner = myView.findViewById(R.id.early_spinner);
+        spinner.setSelection(SharedPreferenceManager
+                .getInstance(getContext()).getEarlySpinner());
         return myView;
     }
     @Override
@@ -54,6 +59,8 @@ public class Early extends Fragment implements View.OnClickListener {
                 early_value = Integer.parseInt(spinner.getSelectedItem().toString());
                 SharedPreferenceManager.getInstance(getContext())
                         .saveWaitTime(early_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveEarlySpinner(spinner.getSelectedItemPosition());
                 Fragment fragment1 = new Confirmation();
                 FragmentTransaction ft1 = null;
                 if (getFragmentManager() != null) {
@@ -67,6 +74,11 @@ public class Early extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.back5:
+                early_value = Integer.parseInt(spinner.getSelectedItem().toString());
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveWaitTime(early_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveEarlySpinner(spinner.getSelectedItemPosition());
                 Fragment fragment2 = new Luggage();
                 FragmentTransaction ft2 = null;
                 if (getFragmentManager() != null) {

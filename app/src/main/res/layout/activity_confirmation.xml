@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#b2f2ff"
+    android:background="@color/primary_dark"
     android:layout_gravity="center_vertical"
     android:orientation="vertical">
 
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Please Confirm Your Information"
-                android:textColor="@color/BigText"
+                android:textColor="@color/md_grey_600"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Departure Date: "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -68,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Departure Time: "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -102,7 +102,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -111,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Max Early Arrival: "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -120,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -128,7 +127,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -137,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Max Walking Distance: "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -146,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -154,7 +152,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -163,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Luggage Weight (est): "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -172,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -180,7 +177,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -189,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Residence: "
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_orange_400"
                     android:textSize="20sp"
                     android:textStyle="normal" />
 
@@ -198,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="unknown"
-                    android:textColor="@color/BigText"
+                    android:textColor="@color/md_grey_600"
                     android:textSize="20sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -209,8 +205,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:background="@color/grey"
-                android:textColor="@color/black"
+                android:background="@color/primary_dark"
+                android:textColor="@color/white"
                 android:layout_height="40dp"
                 android:text="Confirm" />
 
@@ -219,8 +215,8 @@
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:background="@color/grey"
-                android:textColor="@color/black"
+                android:background="@color/primary_dark"
+                android:textColor="@color/white"
                 android:text="Go Back" />
         </LinearLayout>
 

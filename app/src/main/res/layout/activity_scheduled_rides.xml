@@ -76,9 +76,9 @@
                 android:gravity="left"
                 android:id="@+id/shareride_date"
                 android:hint="Custom Date Search"
-                android:textColorHint="@color/md_grey_300"
+                android:textColorHint="@color/md_grey_500"
                 android:inputType="date"
-                android:textColor="@color/md_grey_300"
+                android:textColor="@color/md_grey_500"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:shadowRadius="@integer/google_play_services_version" />

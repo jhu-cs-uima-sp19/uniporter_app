@@ -1,5 +1,7 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,13 +37,17 @@ public class Blocks extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myView = Objects.requireNonNull(inflater).inflate(R.layout.activity_blocks, container, false);
+
         front3 = myView.findViewById(R.id.front3);
         back3 = myView.findViewById(R.id.back3);
         x3 = myView.findViewById(R.id.x3);
+
         front3.setOnClickListener(this);
         back3.setOnClickListener(this);
         x3.setOnClickListener(this);
         spinner = myView.findViewById(R.id.blocks_spinner);
+        spinner.setSelection(SharedPreferenceManager
+                .getInstance(getContext()).getBlocksSpinner());
         return myView;
     }
     @Override
@@ -53,8 +59,23 @@ public class Blocks extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.front3:
                 blocks_value = Integer.parseInt(spinner.getSelectedItem().toString());
+                if (blocks_value > 6) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(myView.getContext());
+                    builder.setTitle("Long Walking Distance Reminder!");
+                    builder.setMessage("This is a little longer than 1km! ");
+                    builder.setIcon(R.drawable.android_warning_icon);
+                    builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
                 SharedPreferenceManager.getInstance(getContext())
                         .saveBlocks(blocks_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveBlocksSpinner(spinner.getSelectedItemPosition());
                 Fragment fragment1 = new Luggage();
                 FragmentTransaction ft1 = null;
                 if (getFragmentManager() != null) {
@@ -68,6 +89,11 @@ public class Blocks extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.back3:
+                blocks_value = Integer.parseInt(spinner.getSelectedItem().toString());
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveBlocks(blocks_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveBlocksSpinner(spinner.getSelectedItemPosition());
                 Fragment fragment2 = new Address();
                 FragmentTransaction ft2 = null;
                 if (getFragmentManager() != null) {

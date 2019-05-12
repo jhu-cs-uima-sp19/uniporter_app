@@ -43,6 +43,8 @@ public class Address extends Fragment implements View.OnClickListener {
         x2.setOnClickListener(this);
 
         spinner = myView.findViewById(R.id.address_spinner);
+        spinner.setSelection(SharedPreferenceManager
+                .getInstance(getContext()).getResidenceSpinner());
         residence_value = spinner.getSelectedItem().toString();
 
         return myView;
@@ -60,6 +62,8 @@ public class Address extends Fragment implements View.OnClickListener {
             case R.id.front2:
                 SharedPreferenceManager.getInstance(getContext())
                         .saveResidence(residence_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveResidenceSpinner(spinner.getSelectedItemPosition());
                 Fragment fragment1 = new Blocks();
                 FragmentTransaction ft1 = null;
                 if (getFragmentManager() != null) {
@@ -75,6 +79,8 @@ public class Address extends Fragment implements View.OnClickListener {
             case R.id.back2:
                 SharedPreferenceManager.getInstance(getContext())
                         .saveResidence(residence_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveResidenceSpinner(spinner.getSelectedItemPosition());
                 Fragment fragment2 = new FlightInfo();
                 FragmentTransaction ft2 = null;
                 if (getFragmentManager() != null) {

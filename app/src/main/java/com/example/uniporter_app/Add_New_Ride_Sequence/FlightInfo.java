@@ -62,10 +62,26 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         x1.setOnClickListener(this);
 
         flight_no = myView.findViewById(R.id.flightnum);
+        flight_value = SharedPreferenceManager
+                .getInstance(getContext()).getFlightNo();
+        if (flight_value != null && !flight_value.isEmpty()) {
+            flight_no.setText(flight_value);
+        }
         airline_spinner = myView.findViewById(R.id.airline_spinner);
+        airline_spinner.setSelection(SharedPreferenceManager
+                .getInstance(getContext()).getAirlineSpinner());
         dept_date = myView.findViewById(R.id.deptdate);
+        depature_date = SharedPreferenceManager
+                .getInstance(getContext()).getFlightDate();
+        if (depature_date != null && !depature_date.isEmpty()) {
+            dept_date.setText(depature_date);
+        }
         dept_time = myView.findViewById(R.id.depttime);
-
+        departure_time = SharedPreferenceManager
+                .getInstance(getContext()).getFlightTime();
+        if (departure_time != null && !departure_time.isEmpty()) {
+            dept_time.setText(departure_time);
+        }
         get_departure_date = myView.findViewById(R.id.set_departure_date);
         get_departure_date.setOnClickListener(this);
         get_depature_time = myView.findViewById(R.id.set_departure_time);
@@ -205,6 +221,8 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                         .saveFlightNo(flight_value);
                 SharedPreferenceManager.getInstance(getContext())
                         .saveAirline(airline_value);
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveAirlineSpinner(airline_spinner.getSelectedItemPosition());
                 SharedPreferenceManager.getInstance(getContext())
                         .saveFlightDate(depature_date);
                 SharedPreferenceManager.getInstance(getContext())

@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API_models.LoginResponse;
 import com.example.uniporter_app.API_models.RegisterResponse;
@@ -118,7 +117,6 @@ public class Register extends AppCompatActivity {
                                     auth_token = loginResponse.getToken();
                                 }
                                 Log.w("checking auth token", auth_token);
-                                Toast.makeText(Register.this, "Register Success", Toast.LENGTH_LONG).show();
                                 Call<UserResponse> call2 = RetrofitClientUser
                                         .getInstance()
                                         .getAPI()
@@ -134,49 +132,38 @@ public class Register extends AppCompatActivity {
                                             }
                                             SharedPreferenceManager.getInstance(Register.this)
                                                     .saveUser(id, email, auth_token);
-                                            Toast.makeText(Register.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 400){
                                             sign_up_sucess = false;
-                                            Toast.makeText(Register.this, "Bad Request: Get User Info", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 500){
                                             sign_up_sucess = false;
-                                            Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
-                                        Toast.makeText(Register.this, "Request failed: Get User Info", Toast.LENGTH_LONG).show();
                                     }
                                 });
 
                             } else if (response.code() == 400){
                                 sign_up_sucess = false;
-                                Toast.makeText(Register.this, "Bad Request: Get ID", Toast.LENGTH_LONG).show();
                             } else if (response.code() == 500){
                                 sign_up_sucess = false;
-                                Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                             }
                         }
 
                         @Override
                         public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                            Toast.makeText(Register.this, "Request failed: Get Token", Toast.LENGTH_LONG).show();
                         }
                     });
                     if (rr != null) {
-                        Toast.makeText(Register.this, rr.getEmail(), Toast.LENGTH_LONG).show();
                     }
                 } else if (response.code() == 400){
-                    Toast.makeText(Register.this, "Bad Request", Toast.LENGTH_LONG).show();
                 } else if (response.code() == 500){
-                    Toast.makeText(Register.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<RegisterResponse> call, @NonNull Throwable t) {
-                Toast.makeText(Register.this, "Request Failed", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -203,8 +190,6 @@ public class Register extends AppCompatActivity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
         _signupButton.setEnabled(true);
     }
 

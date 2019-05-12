@@ -1,7 +1,9 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -142,11 +144,65 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.front1:
                 flight_value = flight_no.getText().toString();
-                airline_value = airline_spinner.getSelectedItem().toString();
-                if (flight_value != null) {
-                    SharedPreferenceManager.getInstance(getContext())
-                            .saveFlightNo(flight_value);
+                if (flight_value.isEmpty() || flight_value == null) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Missing Information");
+                    builder.setMessage("We are missing your flight number.\nPlease fill out before continuing.");
+                    builder.setIcon(R.drawable.android_warning_icon);
+                    builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    break;
                 }
+                airline_value = airline_spinner.getSelectedItem().toString();
+                if (airline_value == "Select Your Airline" || airline_value.isEmpty() || airline_value == null) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Missing Information");
+                    builder.setMessage("We are missing your airline.\nPlease fill out before continuing.");
+                    builder.setIcon(R.drawable.android_warning_icon);
+                    builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    break;
+                }
+                if (depature_date == null || depature_date.isEmpty()) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Missing Information");
+                    builder.setMessage("We are missing your departure date.\nPlease fill out before continuing.");
+                    builder.setIcon(R.drawable.android_warning_icon);
+                    builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    break;
+                }
+                if (departure_time == null || departure_time.isEmpty()) {
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Missing Information");
+                    builder.setMessage("We are missing your departure time.\nPlease fill out before continuing.");
+                    builder.setIcon(R.drawable.android_warning_icon);
+                    builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    break;
+                }
+                SharedPreferenceManager.getInstance(getContext())
+                        .saveFlightNo(flight_value);
                 SharedPreferenceManager.getInstance(getContext())
                         .saveAirline(airline_value);
                 SharedPreferenceManager.getInstance(getContext())

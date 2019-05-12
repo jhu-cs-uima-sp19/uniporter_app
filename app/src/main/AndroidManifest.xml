@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.uniporter_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,7 +15,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
+        android:fullBackupContent="true">
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -24,7 +27,9 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-        <service android:name=".MyInstanceIDService">
+        <service android:name=".MyInstanceIDService"
+            android:permission=""
+            tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -42,39 +47,47 @@
 
         <activity
             android:name=".New_Pending_Rides.NewRide"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Messenger"
             android:label="Messenger"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Scheduled_Rides.Scheduled_Ride"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Authentication.Start"
             android:label="Start"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Add_New_Ride_Sequence.AddNewRide"
             android:label="AddNewRide"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Authentication.Register"
             android:label="@string/title_activity_register"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Authentication.Login"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Authentication.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

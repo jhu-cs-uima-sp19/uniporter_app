@@ -70,6 +70,7 @@
         <item>4</item>
     </string-array>
     <string-array name="airline_array">
+        <item>Select Your Airline</item>
         <item>Air Canada</item>
         <item>Alaska Airlines</item>
         <item>Allegiant Air</item>

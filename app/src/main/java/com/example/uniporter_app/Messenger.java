@@ -1,12 +1,24 @@
 package com.example.uniporter_app;
 
+import android.app.ActionBar;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.format.DateFormat;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -19,25 +31,42 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 public class Messenger extends AppCompatActivity {
+
     DatabaseReference myDatabase;
     FirebaseListAdapter adapter;
     String value;
     String name;
     ListView myTexts;
+    LinearLayout message_toolbar;
+    Button exit_chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messenger);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
             return;
         }
         value = extras.getString("chatid");
         name = extras.getString("name");
+
         myDatabase = FirebaseDatabase.getInstance().getReference(value);
         myTexts = findViewById(R.id.list_of_messages);
+        myTexts.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        myTexts.setStackFromBottom(true);
 
+        message_toolbar = findViewById(R.id.mes_toolbar);
+        message_toolbar.bringToFront();
+
+        exit_chat = findViewById(R.id.exit_chat);
+        exit_chat.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         myDatabase.addValueEventListener(new ValueEventListener() {
             @Override

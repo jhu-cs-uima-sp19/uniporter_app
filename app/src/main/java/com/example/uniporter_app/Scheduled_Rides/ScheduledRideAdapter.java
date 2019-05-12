@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
 
 import com.example.uniporter_app.Messenger;
@@ -45,15 +44,15 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
         return new MyViewHolder(view);
     }
 
-    private String chatRoomIdHash(int position, String meeting_loc, String schedule_date) {
+    private String chatRoomIdHash(int position, String meeting_loc) {
         List<String> group = data.get(position).member;
-        String src = "";
+        StringBuilder src = new StringBuilder();
         for (int i = 0; i < group.size(); i++) {
             String[] name = (group.get(i)).split("@");
-            src += name[0];
+            src.append(name[0]);
         }
-        src = src + meeting_loc;
-        return src;
+        src.append(meeting_loc);
+        return src.toString();
     }
 
     @SuppressLint("SetTextI18n")
@@ -73,12 +72,9 @@ public class ScheduledRideAdapter extends RecyclerView.Adapter<ScheduledRideAdap
 
         myViewHolder.members.setText(concatenatedNames.toString());
 
-        final String finalConcatenatedNames = concatenatedNames.toString();
         myViewHolder.enter_chatroom.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //TODO: launch chatroom here
-                String chatroom_id = chatRoomIdHash(position, data.get(position).meeting_loc, data.get(position).schedule_date);
-                Toast.makeText(context, chatroom_id, Toast.LENGTH_LONG).show();
+                String chatroom_id = chatRoomIdHash(position, data.get(position).meeting_loc);
                 Intent intent = new Intent(context, Messenger.class);
                 intent.putExtra("chatid", chatroom_id);
                 String username = SharedPreferenceManager.getInstance(context)

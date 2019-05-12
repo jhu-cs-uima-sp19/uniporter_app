@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientRides;
 import com.example.uniporter_app.AnimationUtil;
@@ -98,7 +97,6 @@ public class NewRideAdapter extends RecyclerView.Adapter<NewRideAdapter.MyViewHo
                         call.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                                Toast.makeText(context, "Deleted Ride " + Integer.toString(data.get(position).id), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(context, NewRide.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 context.startActivity(intent);

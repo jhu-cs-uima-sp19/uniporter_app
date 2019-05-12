@@ -1,5 +1,5 @@
 package com.example.uniporter_app.Authentication;
-//test
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientUser;
 import com.example.uniporter_app.API_models.LoginResponse;
@@ -109,7 +108,6 @@ public class Login extends AppCompatActivity {
                     assert loginResponse != null;
                     auth_token = loginResponse.getToken();
                    Log.w("checking auth token", auth_token);
-                   Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();
                    Call<UserResponse> call2 = RetrofitClientUser
                            .getInstance()
                            .getAPI()
@@ -131,34 +129,27 @@ public class Login extends AppCompatActivity {
                                        .saveUser(id, email, auth_token);
                                SharedPreferenceManager.getInstance(Login.this)
                                        .saveName(username);
-                               Toast.makeText(Login.this, "Retrieved User Information", Toast.LENGTH_LONG).show();
                            } else if (response.code() == 400){
                                login_success = false;
-                               Toast.makeText(Login.this, "Bad Request", Toast.LENGTH_LONG).show();
                            } else if (response.code() == 500){
                                login_success = false;
-                               Toast.makeText(Login.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                            }
                        }
 
                        @Override
                        public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
-                           Toast.makeText(Login.this, "Request failed: Get User Info", Toast.LENGTH_LONG).show();
                        }
                    });
 
                 } else if (response.code() == 400){
                     login_success = false;
-                    Toast.makeText(Login.this, "Bad Request", Toast.LENGTH_LONG).show();
                 } else if (response.code() == 500){
                     login_success = false;
-                    Toast.makeText(Login.this, "Internal Server Error", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 Log.w("login", t.getMessage());
             }
         });
@@ -206,8 +197,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
         _loginButton.setEnabled(true);
     }
 

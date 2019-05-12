@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.uniporter_app.API.RetrofitClientPreferences;
 import com.example.uniporter_app.API.RetrofitClientRides;
@@ -150,23 +149,16 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                         if (response.code() == 201) {
                             PreferenceResponse rep = response.body();
                             if (rep != null) {
-                                Toast.makeText(getContext(), rep.getResidence(), Toast.LENGTH_LONG).show();
-                            }
-                            if (rep != null) {
                                 preferences.add(rep.getId());
                             }
                         } else if (response.code() == 400){
-                            Toast.makeText(getContext(), "Bad Request", Toast.LENGTH_LONG).show();
                         } else if (response.code() == 500){
-                            Toast.makeText(getContext(), "Internal Server Error", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getContext(), "Response Code:" + response.code(), Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<PreferenceResponse> call, @NonNull Throwable t) {
-                        Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -185,21 +177,14 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                     public void onResponse(@NonNull Call<RideResponse> call, @NonNull Response<RideResponse> response) {
                                         if (response.code() == 201) {
                                             RideResponse rep = response.body();
-                                            if (rep != null) {
-                                                Toast.makeText(getContext(), rep.getUser_email(), Toast.LENGTH_LONG).show();
-                                            }
                                         } else if (response.code() == 400){
-                                            Toast.makeText(getContext(), "Bad Request", Toast.LENGTH_LONG).show();
                                         } else if (response.code() == 500){
-                                            Toast.makeText(getContext(), "Internal Server Error", Toast.LENGTH_LONG).show();
                                         } else {
-                                            Toast.makeText(getContext(), "Response Code:" + response.code(), Toast.LENGTH_LONG).show();
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(@NonNull Call<RideResponse> call, @NonNull Throwable t) {
-                                        Toast.makeText(getContext(), "Request Failed", Toast.LENGTH_LONG).show();
                                     }
                                 });
                                 progressDialog.dismiss();

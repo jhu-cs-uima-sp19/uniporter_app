@@ -226,7 +226,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                 SharedPreferenceManager.getInstance(getContext())
                         .saveFlightDate(depature_date);
                 SharedPreferenceManager.getInstance(getContext())
-                        .saveFlightTime(departure_time);
+                        .saveFlightTime(dep_time);
                 Fragment fragment1 = new Address();
                 FragmentTransaction ft1 = null;
                 if (getFragmentManager() != null) {

@@ -1,7 +1,9 @@
 package com.example.uniporter_app.Add_New_Ride_Sequence;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +23,7 @@ import com.example.uniporter_app.API_models.PreferenceResponse;
 import com.example.uniporter_app.API_models.RideResponse;
 import com.example.uniporter_app.Authentication.MainActivity;
 import com.example.uniporter_app.R;
+import com.example.uniporter_app.Scheduled_Rides.Scheduled_Ride;
 import com.example.uniporter_app.Storage.SharedPreferenceManager;
 
 import java.util.ArrayList;
@@ -117,8 +120,9 @@ public class Confirmation extends Fragment implements View.OnClickListener {
         tags.add(1);
         switch (v.getId()) {
             case R.id.x_confirm:
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                v.getContext().startActivity(intent);
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        v.getContext().startActivity(intent);
+
                 break;
             case R.id.confirm_back:
                 Fragment fragment = new FlightInfo();
@@ -188,8 +192,21 @@ public class Confirmation extends Fragment implements View.OnClickListener {
                                     }
                                 });
                                 progressDialog.dismiss();
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-                                v.getContext().startActivity(intent);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                                builder.setTitle("Pending Ride Added!");
+                                builder.setMessage("Check your Scheduled Rides 24 hours before your flight for your finalized shared ride information.");
+                                builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                                        v.getContext().startActivity(intent);
+                                    }
+                                });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+                               // Intent intent = new Intent(getActivity(), MainActivity.class);
+                               // v.getContext().startActivity(intent);
                             }
                         }, 3000);
                 break;

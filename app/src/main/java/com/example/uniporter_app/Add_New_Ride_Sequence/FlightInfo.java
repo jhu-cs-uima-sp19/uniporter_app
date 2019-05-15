@@ -105,11 +105,11 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                 String hour_str = (hour < 10) ? "0" + hour : Integer.toString(hour);
                 departure_time = hour_str + ":" + minute + ":00";
                 if (minute < 10) {
-                    dep_time = hour_str + ":0" + minute;
+                    departure_time = hour_str + ":0" + minute;
                 } else {
-                    dep_time = hour_str + ":" + minute;
+                    departure_time = hour_str + ":" + minute;
                 }
-                dept_time.setText(dep_time);
+                dept_time.setText(departure_time);
             }
         };
 
@@ -226,7 +226,7 @@ public class FlightInfo extends Fragment implements View.OnClickListener {
                 SharedPreferenceManager.getInstance(getContext())
                         .saveFlightDate(depature_date);
                 SharedPreferenceManager.getInstance(getContext())
-                        .saveFlightTime(dep_time);
+                        .saveFlightTime(departure_time);
                 Fragment fragment1 = new Address();
                 FragmentTransaction ft1 = null;
                 if (getFragmentManager() != null) {
